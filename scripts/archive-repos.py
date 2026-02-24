@@ -31,7 +31,7 @@ GITHUB_REPO_PATTERN = re.compile(
 )
 MAX_WORKERS = 3
 CLONE_TIMEOUT = 120       # seconds
-CODE2PROMPT_TIMEOUT = 60  # seconds
+CODE2PROMPT_TIMEOUT = 10  # seconds — abandon large repos quickly
 MAX_FILE_MB = 100         # skip output files larger than this
 
 
