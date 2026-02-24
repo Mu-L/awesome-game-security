@@ -1,0 +1,89 @@
+name: Archive Repos
+
+on:
+  schedule:
+    # Run every day at 03:00 UTC (11:00 Beijing)
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      workers:
+        description: "Concurrent clone workers"
+        required: false
+        default: "3"
+      commit_every:
+        description: "Commit & push every N successful archives"
+        required: false
+        default: "5"
+      owner_filter:
+        description: "Only archive repos from this owner (leave empty for all)"
+        required: false
+        default: ""
+      limit:
+        description: "Max repos to process this run (0 = all pending)"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    # GitHub Actions hard limit is 6h; set slightly under to allow clean teardown
+    timeout-minutes: 350
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Need full history so we can push back
+          fetch-depth: 0
+
+      # ── cache cargo + compiled code2prompt binary ──────────────────────────
+      - name: Cache cargo registry and code2prompt binary
+        uses: actions/cache@v4
+        id: cache-code2prompt
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin/code2prompt
+          key: code2prompt-${{ runner.os }}-v1
+
+      - name: Install Rust toolchain (if cache miss)
+        if: steps.cache-code2prompt.outputs.cache-hit != 'true'
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install code2prompt (if cache miss)
+        if: steps.cache-code2prompt.outputs.cache-hit != 'true'
+        run: cargo install code2prompt
+
+      - name: Add cargo bin to PATH
+        run: echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+
+      # ── git identity for auto-commits ─────────────────────────────────────
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # ── run the archiver ───────────────────────────────────────────────────
+      - name: Archive repos
+        run: |
+          python3 scripts/archive-repos.py \
+            --workers      "${{ github.event.inputs.workers      || '3' }}" \
+            --commit-every "${{ github.event.inputs.commit_every || '5' }}" \
+            --owner-filter "${{ github.event.inputs.owner_filter || '' }}" \
+            --limit        "${{ github.event.inputs.limit        || '0' }}"
+
+      # ── catch-all final commit for any remainder left after the last batch ─
+      - name: Final commit (any remainder)
+        run: |
+          git add archive/ 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            COUNT=$(git diff --cached --name-only | grep -c "^archive/" || true)
+            git commit -m "archive: add ${COUNT} repo prompt(s) [skip ci]"
+            git push
+          else
+            echo "Nothing left to commit."
+          fi
