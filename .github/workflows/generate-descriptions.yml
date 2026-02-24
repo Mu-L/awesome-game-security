@@ -1,0 +1,98 @@
+name: Generate Repo Descriptions
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max repos to process (0 = all)"
+        required: false
+        default: "0"
+      batch_size:
+        description: "Repos per Cloud Agent batch"
+        required: false
+        default: "15"
+      no_poll:
+        description: "Fire-and-forget (don't wait for agents)"
+        type: boolean
+        required: false
+        default: false
+      skip_existing:
+        description: "Skip repos that already have description_en.txt"
+        type: boolean
+        required: false
+        default: true
+      model:
+        description: "LLM model (e.g. claude-4-sonnet-thinking), leave empty for auto"
+        required: false
+        default: ""
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need full history for merging remote branches
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate descriptions via Cursor Cloud Agents
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          ARGS="--batch-size ${{ inputs.batch_size }}"
+
+          if [ "${{ inputs.limit }}" != "0" ]; then
+            ARGS="$ARGS --limit ${{ inputs.limit }}"
+          fi
+
+          if [ "${{ inputs.no_poll }}" == "true" ]; then
+            ARGS="$ARGS --no-poll"
+          fi
+
+          if [ "${{ inputs.skip_existing }}" == "false" ]; then
+            ARGS="$ARGS --no-skip-existing"
+          fi
+
+          if [ -n "${{ inputs.model }}" ]; then
+            ARGS="$ARGS --model ${{ inputs.model }}"
+          fi
+
+          python scripts/generate-descriptions.py $ARGS
+
+      - name: Merge description branches into main
+        if: ${{ inputs.no_poll != true }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch --all --prune
+
+          MERGED=0
+          FAILED=0
+          for branch in $(git branch -r | grep 'origin/descriptions/batch-' | sed 's|.*origin/||'); do
+            echo "→ merging $branch ..."
+            if git merge --no-ff --no-edit "origin/$branch" \
+                 -m "chore: add descriptions from $branch [skip ci]"; then
+              MERGED=$((MERGED + 1))
+              # delete the remote branch after successful merge
+              git push origin --delete "$branch" || true
+            else
+              echo "  conflict in $branch — skipping"
+              git merge --abort || true
+              FAILED=$((FAILED + 1))
+            fi
+          done
+
+          echo "Merged: $MERGED  Failed: $FAILED"
+
+          if [ "$MERGED" -gt 0 ]; then
+            git push origin main
+          fi
