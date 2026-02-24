@@ -1,0 +1,1043 @@
+Project Path: arc_smartdone_Frida-Scripts_lk908gzt
+
+Source Tree:
+
+```txt
+arc_smartdone_Frida-Scripts_lk908gzt
+├── 010_Editor
+│   └── exp.js
+├── README.md
+├── fuzz
+│   ├── fuzztest
+│   │   ├── 1.txt
+│   │   ├── 10.txt
+│   │   ├── 11.txt
+│   │   ├── 12.txt
+│   │   ├── 13.txt
+│   │   ├── 14.txt
+│   │   ├── 15.txt
+│   │   ├── 16.txt
+│   │   ├── 17.txt
+│   │   ├── 18.txt
+│   │   ├── 19.txt
+│   │   ├── 2.txt
+│   │   ├── 20.txt
+│   │   ├── 3.txt
+│   │   ├── 4.txt
+│   │   ├── 5.txt
+│   │   ├── 6.txt
+│   │   ├── 7.txt
+│   │   ├── 8.txt
+│   │   └── 9.txt
+│   ├── rec.txt
+│   ├── run_fuzzing.py
+│   ├── test
+│   ├── test.c
+│   └── test.dSYM
+│       └── Contents
+│           ├── Info.plist
+│           └── Resources
+│               └── DWARF
+│                   └── test
+├── linker
+│   └── linker.js
+├── proxy
+│   ├── README.md
+│   └── proxy.js
+├── shell
+│   ├── README.md
+│   ├── a.png
+│   └── hook_java.js
+└── unpack
+    ├── README.md
+    └── unpack.js
+
+```
+
+`010_Editor/exp.js`:
+
+```js
+var editor = Process.findModuleByName("010 Editor");
+if(editor != undefined) {
+	var modulebase = editor.base;
+	var offset = 0xD8180;
+	var sub_1000D8180 = modulebase.add(offset);
+	var buf = Memory.readByteArray(sub_1000D8180, 64);
+	console.log(hexdump(buf, {
+	  offset: 0,
+	  length: 64,
+	  header: true,
+	  ansi: true
+	}));
+	Interceptor.attach(sub_1000D8180, {
+		onEnter: function (args) {
+			
+		},
+		onLeave: function (retval) {
+			console.log("retval = " + retval.toInt32());
+			retval.replace(219);
+		}
+	});
+}
+
+```
+
+`README.md`:
+
+```md
+# Frida-Scripts
+一些自己写的frida脚本
+
+```
+
+`fuzz/fuzztest/1.txt`:
+
+```txt
+1
+```
+
+`fuzz/fuzztest/10.txt`:
+
+```txt
+1111111111
+```
+
+`fuzz/fuzztest/11.txt`:
+
+```txt
+11111111111
+```
+
+`fuzz/fuzztest/12.txt`:
+
+```txt
+111111111111
+```
+
+`fuzz/fuzztest/13.txt`:
+
+```txt
+1111111111111
+```
+
+`fuzz/fuzztest/14.txt`:
+
+```txt
+11111111111111
+```
+
+`fuzz/fuzztest/15.txt`:
+
+```txt
+111111111111111
+```
+
+`fuzz/fuzztest/16.txt`:
+
+```txt
+1111111111111111
+```
+
+`fuzz/fuzztest/17.txt`:
+
+```txt
+11111111111111111
+```
+
+`fuzz/fuzztest/18.txt`:
+
+```txt
+111111111111111111
+```
+
+`fuzz/fuzztest/19.txt`:
+
+```txt
+1111111111111111111
+```
+
+`fuzz/fuzztest/2.txt`:
+
+```txt
+11
+```
+
+`fuzz/fuzztest/20.txt`:
+
+```txt
+11111111111111111111
+```
+
+`fuzz/fuzztest/3.txt`:
+
+```txt
+111
+```
+
+`fuzz/fuzztest/4.txt`:
+
+```txt
+1111
+```
+
+`fuzz/fuzztest/5.txt`:
+
+```txt
+11111
+```
+
+`fuzz/fuzztest/6.txt`:
+
+```txt
+111111
+```
+
+`fuzz/fuzztest/7.txt`:
+
+```txt
+1111111
+```
+
+`fuzz/fuzztest/8.txt`:
+
+```txt
+11111111
+```
+
+`fuzz/fuzztest/9.txt`:
+
+```txt
+111111111
+```
+
+`fuzz/rec.txt`:
+
+```txt
+CXX=clang++ CC=clang CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer -DGCC_HASCLASSVISIBILITY -O0 -Wall -W" CFLAGS="-fsanitize=address -fno-omit-frame-pointer -DGCC_HASCLASSVISIBILITY -O0 -Wall -W" ./configure --enable-debug --without-perl
+
+```
+
+`fuzz/run_fuzzing.py`:
+
+```py
+#!/usr/bin/env python2
+import os
+import subprocess
+import threading
+import shutil
+
+THREAD_NUM = 6
+
+vuldir = os.path.join("vul")
+segdir = os.path.join("seg")
+errdir = os.path.join("err")
+
+if not os.path.exists(vuldir) :
+  os.makedirs(vuldir)
+  vuldir = os.path.abspath(vuldir)
+else :
+  vuldir = os.path.abspath(os.path.join("vul"))
+
+if not os.path.exists(segdir) :
+  os.makedirs(segdir)
+  segdir = os.path.abspath(segdir)
+else :
+  segdir = os.path.abspath(os.path.join("seg"))
+
+if not os.path.exists(errdir) :
+  os.makedirs(errdir)
+  errdir = os.path.abspath(errdir)
+else :
+  errdir = os.path.abspath(os.path.join("err"))
+
+def writeout(s, filepath):
+  if 'AddressSanitizer' in s:
+    print "vul %s" %filepath
+    shutil.move(filepath, vuldir)
+  elif 'Segmentation fault' in s:
+    print "seg %s" %filepath
+    shutil.move(filepath, segdir)
+  elif 'error' in s.lower() :
+    print "err %s" %filepath
+    shutil.move(filepath, errdir)
+
+def fuzzthread(tnum, files):
+  for file in files:
+    print "thread %d use %s" %(tnum, file)
+    f = open(file, "r")
+    arg = f.read()
+    f.close()
+    cmd = ["/Users/ssd/develop/Frida-Scripts/fuzz/test", arg]
+    process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                           stderr=subprocess.STDOUT)
+    pid = process.pid
+    output = process.communicate()[0]
+    writeout(output, file)
+
+
+testfiles = os.listdir(os.path.join("fuzztest"))
+
+if len(testfiles) < THREAD_NUM:
+  THREAD_NUM = len(testfiles)
+
+itemlen = len(testfiles) / THREAD_NUM
+groups = []
+
+folder = os.path.join("fuzztest")
+
+for i in range(0, THREAD_NUM) :
+  litg = []
+  for j in range(0, itemlen) :
+    itemindex = i * itemlen + j
+    testcase_path = os.path.abspath(os.path.join(folder, testfiles[itemindex]))
+    litg.append(testcase_path)
+  groups.append(litg)
+
+if len(testfiles) % THREAD_NUM != 0 :
+  litg = []
+  statrtindex = len(testfiles) - (len(testfiles) % THREAD_NUM)
+  for i in range(statrtindex, len(testfiles)) :
+    testcase_path = os.path.abspath(os.path.join(folder, testfiles[i]))
+    litg.append(testcase_path)
+  groups.append(litg)
+
+tid = 0
+for item in groups:
+  t = threading.Thread(target=fuzzthread, args=(tid, item))
+  t.start()
+  tid = tid + 1
+  
+```
+
+`fuzz/test.c`:
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+void vul(char *s) {
+	char buff[10];
+	strcpy(buff, s);
+	printf("%s\n", buff);
+}
+
+int main(int argc, char *argv[]) {
+	if(argc < 2)
+		return 0;
+	vul(argv[1]);	
+}
+
+
+```
+
+`fuzz/test.dSYM/Contents/Info.plist`:
+
+```plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CFBundleDevelopmentRegion</key>
+		<string>English</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.apple.xcode.dsym.test</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundlePackageType</key>
+		<string>dSYM</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0</string>
+		<key>CFBundleVersion</key>
+		<string>1</string>
+	</dict>
+</plist>
+
+```
+
+`linker/linker.js`:
+
+```js
+/*
+* @Author: ssd
+* @Date:   2019-01-20 13:53:19
+* @Last Modified by:   smartdone
+* @Last Modified time: 2019-01-20 16:14:15
+*/
+
+// do_dlopen = Module.findExportByName('linker64', '__dl__Z9do_dlopenPKciPK17android_dlextinfoPKv');
+// console.log('do_dlopen: ' + do_dlopen);
+// console.log('Module.findBaseAddress' + Module.findBaseAddress('linker64'))
+// __dl__ZL10call_arrayIPFviPPcS1_EEvPKcPT_mbS5_
+
+var syms = Module.enumerateSymbolsSync('linker64');
+var do_dlopen;
+var call_array;
+for (var i = syms.length - 1; i >= 0; i--) {
+    if(syms[i].name == '__dl__Z9do_dlopenPKciPK17android_dlextinfoPKv'){
+        do_dlopen = syms[i];
+        // console.log(syms[i].name);
+        // console.log(syms[i].address);
+    } else if(syms[i].name == '__dl__ZL10call_arrayIPFviPPcS1_EEvPKcPT_mbS5_') {
+        call_array = syms[i];
+        // console.log(syms[i].name);
+        // console.log(syms[i].address);
+    }
+}
+
+var call_array_callback;
+
+Interceptor.attach(do_dlopen.address, {
+    onEnter: function (args){
+        var name = Memory.readUtf8String(args[0]);
+        console.log("load so: " + name);
+        if(String(name).indexOf('libnative-lib.so') != -1) {
+            call_array_callback = Interceptor.attach(call_array.address, {
+                onEnter: function (args){
+                    console.log("call array: " + Memory.readUtf8String(args[0]));
+                    // console.log(args[1]);
+                    count = args[2];
+                    console.log('count: ' + args[2]);
+                    for (var i = 0; i < count; i++) {
+                        func_addr = args[1].add(i * 8);
+                        console.log(i + " func: 0x" + Memory.readU64(func_addr).toString(16));
+                        // Memory.protect(ptr(func_addr), 4096, 'rwx');
+                        Interceptor.attach(ptr(func_addr), {
+                            onEnter: function (args){
+                                console.log('function called ' + i);
+                            },
+                            onLeave: function (retval){}
+                        });
+                    }
+                },
+                onLeave: function (retval){
+
+                }
+            });
+        }
+        
+    },
+    onLeave: function (retval){
+        if(call_array_callback) {
+            call_array_callback.detach();
+            console.log('detach Interceptor');
+        }
+        console.log("libnative-lib " +  Module.findBaseAddress('libnative-lib.so'));
+    }
+});
+
+```
+
+`proxy/README.md`:
+
+```md
+# 使用Frida给Android设置代理
+
+## 使用脚本
+
+1. 修改HOST和PORT为你burp的ip和监听的端口
+2. 安装frida(`sudo pip install frida-tools`)
+3. 下载Android的frida-server
+4. 在手机上运行frida-server
+5. 转发端口`adb forward tcp:27042 tcp:27042`
+6. 运行frida注入脚本`frida -R -f {应用包名} -l proxy.js`
+
+## 使用系统库做http请求
+
+对于使用系统库做http请求的，我们可以使用如下代码来设置代理，我们可以通过主动调用这个方法来设置代理：
+
+```java
+System.setProperty("http.proxySet", "true");
+System.setProperty("http.proxyHost", proxyHost);
+System.setProperty("http.proxyPort", "" + proxyPort);
+ 
+// 针对https也开启代理
+System.setProperty("https.proxyHost", proxyHost);
+System.setProperty("https.proxyPookhttpokhttprt", "" + proxyPort);
+```
+
+实现的frida代码为
+
+```java
+// 修改为你burp的ip端口，端口也要用字符串
+var HOST = "192.168.0.101";
+var PORT = "8080";
+
+var System = Java.use("java.lang.System");
+if(System != undefined) {
+    System.setProperty("http.proxySet", "true");
+    System.setProperty("http.proxyHost", HOST);
+    System.setProperty("http.proxyPort", PORT);
+    
+    // 针对https也开启代理
+    System.setProperty("https.proxyHost", HOST);
+    System.setProperty("https.proxyPort", PORT);
+}
+```
+
+
+
+## 使用okhttp做http请求
+
+### okhttp2
+
+### okhttp3
+
+
+```
+
+`proxy/proxy.js`:
+
+```js
+if(Java.available) {
+    Java.perform(function(){
+        // 修改为你burp的ip端口，端口也要用字符串
+        var HOST = "172.16.102.48";
+        var PORT_INT = 8080;
+        var PORT = "" + PORT_INT;
+        var System = undefined;
+        var InetSocketAddress = undefined;
+        var String = undefined;
+        var HTTP = Java.use("java.net.Proxy$Type").HTTP;
+        var OkHttpClient_Builder = undefined;
+
+        System = Java.use("java.lang.System");
+        
+        if(System != undefined) {
+            System.setProperty("http.proxySet", "true");
+            System.setProperty("http.proxyHost", HOST);
+            System.setProperty("http.proxyPort", PORT);
+            
+            // 针对https也开启代理
+            System.setProperty("https.proxyHost", HOST);
+            System.setProperty("https.proxyPort", PORT);
+            console.log("http.proxy already set. (" + HOST + ":" + PORT + ")");
+        }
+        Proxy = Java.use("java.net.Proxy");
+        InetSocketAddress = Java.use("java.net.InetSocketAddress");
+        String = Java.use("java.lang.String");
+        
+        if(Proxy != undefined && InetSocketAddress != undefined && String != undefined) {
+            var addr = InetSocketAddress.$new(String.$new(HOST), PORT_INT);
+            var proxy_addr = Proxy.$new(HTTP.value, addr);
+            console.log("set okhttp porxy: " + proxy_addr);
+            try {
+                OkHttpClient_Builder = Java.use("okhttp3.OkHttpClient$Builder");
+                if(OkHttpClient_Builder != undefined) {
+                    OkHttpClient_Builder.build.overload().implementation = function() {
+                        this.proxy(proxy_addr);
+                        return this.build();
+                    };
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+    });
+}
+```
+
+`shell/README.md`:
+
+```md
+---
+title: Frida劫持加固应用java方法
+toc: false
+date: 2018-09-10 22:26:05
+tags: [Android, Hook, Frida, 加固]
+---
+
+### 需求
+
+在对一些加固的Android应用做测试的时候，脱壳二次打包是一个相当相当复杂的工作。所以一般是脱壳分析代码，然后用hook的方式来动态劫持代码。使用xposed来hook加固的应用大家可能已经很熟悉了，但是使用frida大概没有多少人尝试，今天就给大家分享下如何使用xposed来hook加固之后的Android应用。
+
+### 基本原理
+
+要hook加固的应用分为三步，第一步是拿到加载应用本事dex的classloader；第二步是通过这个classloader去找到被加固的类；第三步是通过这个类去hook需要hook的方法
+
+得到第一步的classloader之后的hook操作和hook未加固的应用基本类似。
+
+#### 如何获取classloader
+
+我们看Android的`android.app.Application`的源码[http://androidxref.com/7.1.2_r36/xref/frameworks/base/core/java/android/app/Application.java#188](http://androidxref.com/7.1.2_r36/xref/frameworks/base/core/java/android/app/Application.java#188)可以发现，自己定义的`Application`的`attachBaseContext`方法是在`Application`的`attach`方法里面被调用的。而基本上所有的壳都是在`attachBaseContext`里面完成的代码解密并且内存加载dex，在`attachBaseContext`执行完之后就可以去拿classloader，此时的classloader就已经是加载过加固dex的classloader了。
+
+### 开始hook加固应用
+
+以`i春秋`app为例，此应用使用的360加固，我们的目标是hook他的`flytv.run.monitor.fragment.user.AyWelcome`的`onCreate`方法，然后弹出一个`Toast`。
+
+#### 直接使用`Java.use`
+
+我们直接使用Java.use来获取这个Activity，代码如下：
+
+```javascript
+if(Java.available) {
+	Java.perform(function(){
+		var AyWelcome = Java.use("flytv.run.monitor.fragment.user.AyWelcome");
+		if(AyWelcome != undefined) {
+			console.log("AyWelcome: " + AyWelcome.toString());
+		} else {
+			console.log("AyWelcome: undefined");
+		}
+	});
+}
+```
+
+使用如下命令来注入这个js：
+
+```shell
+frida -R -f com.ni.ichunqiu -l hook_java.js
+```
+
+运行之后会报如下的错误：
+
+```txt
+Spawned `com.ni.ichunqiu`. Use %resume to let the main thread start executing!
+[Remote::com.ni.ichunqiu]-> %resume
+[Remote::com.ni.ichunqiu]-> Error: java.lang.ClassNotFoundException: Didn't find class "flytv.run.monitor.fragment.user.AyWelcome" on path: DexPathList[[zip file "/data/app/com.ni.ichunqiu-1/base.apk"],nativeLibraryDirectories=[/data/app/com.ni.ichunqiu-1/lib/arm, /system/fake-libs, /data/app/com.ni.ichunqiu-1/base.apk!/lib/armeabi-v7a, /system/lib, /vendor/lib]]
+    at frida/node_modules/frida-java/lib/env.js:222
+    at ensureClass (frida/node_modules/frida-java/lib/class-factory.js:777)
+    at frida/node_modules/frida-java/lib/class-factory.js:164
+    at [anon] (repl1.js:3)
+    at frida/node_modules/frida-java/lib/vm.js:39
+    at v (frida/node_modules/frida-java/index.js:338)
+    at frida/node_modules/frida-java/index.js:319
+    at input:1
+[Remote::com.ni.ichunqiu]->
+```
+
+也就是找不到这个类，也就是我们现在这个默认的classloader找不到`flytv.run.monitor.fragment.user.AyWelcome`这个类。
+
+#### 获取classloader
+
+代码如下：
+
+```javascript
+if(Java.available) {
+	Java.perform(function(){
+		var application = Java.use("android.app.Application");
+		application.attach.overload('android.content.Context').implementation = function(context) {
+			var result = this.attach(context); // 先执行原来的attach方法
+			var classloader = context.getClassLoader();
+			
+			return result;
+		}
+
+	});
+}
+```
+
+现在我们在`attach`方法执行之后拿到了Context，并且通过context获取了classloader，我们看现在的classloader是否加载了被加固的dex。我们使用classloader的`loadClass`方法去加载`flytv.run.monitor.fragment.user.AyWelcome`这个类，看是否成功：
+
+```javascript
+if(Java.available) {
+	Java.perform(function(){
+		var application = Java.use("android.app.Application");
+		var reflectClass = Java.use("java.lang.Class");
+
+		application.attach.overload('android.content.Context').implementation = function(context) {
+			var result = this.attach(context); // 先执行原来的attach方法
+			var classloader = context.getClassLoader(); // 获取classloader
+			var AyWelcome = classloader.loadClass("flytv.run.monitor.fragment.user.AyWelcome"); // 使用classloader加载类
+			AyWelcome = Java.cast(AyWelcome, reflectClass); // 因为loadClass得到的是一个Object对象，我们需要把它强制转换成Class
+			console.log("AyWelcome class name: " + AyWelcome.getName());
+			return result;
+		}
+
+	});
+}
+```
+
+注入这个js，可以正确的打印出`flytv.run.monitor.fragment.user.AyWelcome`类名，说明我们拿到这个这个classloader是加载了加固过的dex的。
+
+#### 转换成`Java.use`获取到的js对象
+
+在上一步我们虽然可以通过frida来获取到加固之后的class，但是你如果直接使用这个`{class}.{fuction}`依然会失败，因为class没有这个成员变量，所以我们需要来实现获取到与`Java.use`一样的js对象，那么如何解决呢？当然是`read the fuking source code`。
+
+我们看frida-java的`use`方法的实现，代码在[https://github.com/frida/frida-java/blob/9becc27091576fc198dc2a719c0fedb30a270b28/lib/class-factory.js#L139](https://github.com/frida/frida-java/blob/9becc27091576fc198dc2a719c0fedb30a270b28/lib/class-factory.js#L139)代码如下：
+
+```javascript
+this.use = function (className) {
+    let C = classes[className];
+    if (!C) {
+      const env = vm.getEnv();
+      if (loader !== null) {
+        const usedLoader = loader;
+
+        if (cachedLoaderMethod === null) {
+          cachedLoaderInvoke = env.vaMethod('pointer', ['pointer']);
+          cachedLoaderMethod = loader.loadClass.overload('java.lang.String').handle;
+        }
+
+        const getClassHandle = function (env) {
+          const classNameValue = env.newStringUtf(className);
+          const tid = Process.getCurrentThreadId();
+          ignore(tid);
+          try {
+            return cachedLoaderInvoke(env.handle, usedLoader.$handle, cachedLoaderMethod, classNameValue);
+          } finally {
+            unignore(tid);
+            env.deleteLocalRef(classNameValue);
+          }
+        };
+
+        C = ensureClass(getClassHandle, className);
+      } else {
+        const canonicalClassName = className.replace(/\./g, '/');
+
+        const getClassHandle = function (env) {
+          const tid = Process.getCurrentThreadId();
+          ignore(tid);
+          try {
+            return env.findClass(canonicalClassName);
+          } finally {
+            unignore(tid);
+          }
+        };
+
+        C = ensureClass(getClassHandle, className);
+      }
+    }
+
+    return new C(null);
+  };
+```
+
+从代码中我们可以看出来，他会先到他存class的一个列表里面去找，如果找不到，就会判断loader是不是null，loader不为null，就会使用loader加载class，loader为null就会使用`JNIEnv`的findClass方法去找类，也就是使用默认的classloader。所以现在目标明确了，我们只需要让这个`loader`是我们从`Applicaiton`的attach方法获取到的classloader即可，那么怎么替换呢？
+
+很显然直接`Java.loader`会说undefined，我们看最终导出的是index.js这个脚本[https://github.com/frida/frida-java/blob/022bc7d95c00d627091d4edc0ff87b67de5a9739/index.js#L22](https://github.com/frida/frida-java/blob/022bc7d95c00d627091d4edc0ff87b67de5a9739/index.js#L22)，有下面几个成员变量：
+
+```javascript
+  let initialized = false;
+  let api = null;
+  let apiError = null;
+  let vm = null;
+  let classFactory = null;
+  let pending = [];
+  let threadsInPerform = 0;
+  let cachedIsAppProcess = null;
+```
+
+我们看到了，这个`classFactory`不就是我们刚刚上面看到的那个`loader`所在的地方吗，那么要引用这个loader就很简单了，直接`Java.classFactory.loader`就可以引用了，你可以使用`console.log("classloader: " + Java.classFactory.loader);`来获取这个loader的值，后面我们直接将这个值替换为我们获取的classloader就行了，代码如下：
+
+```javascript
+if(Java.available) {
+	Java.perform(function(){
+		var application = Java.use("android.app.Application");
+		var reflectClass = Java.use("java.lang.Class");
+
+		console.log("application: " + application);
+
+		application.attach.overload('android.content.Context').implementation = function(context) {
+			var result = this.attach(context); // 先执行原来的attach方法
+			var classloader = context.getClassLoader(); // 获取classloader
+			Java.classFactory.loader = classloader;
+			var AyWelcome = Java.classFactory.use("flytv.run.monitor.fragment.user.AyWelcome"); //这里能直接使用Java.use，因为java.use会检查在不在perform里面，不在就会失败
+			console.log("AyWelcome: " + AyWelcome);
+			
+			return result;
+		}
+
+	});
+}
+```
+
+#### 写hook加固的类的代码，弹出toast
+
+```javascript
+if(Java.available) {
+	Java.perform(function(){
+		var application = Java.use("android.app.Application");
+		var Toast = Java.use('android.widget.Toast');
+
+		application.attach.overload('android.content.Context').implementation = function(context) {
+			var result = this.attach(context); // 先执行原来的attach方法
+			var classloader = context.getClassLoader(); // 获取classloader
+			Java.classFactory.loader = classloader;
+			var AyWelcome = Java.classFactory.use("flytv.run.monitor.fragment.user.AyWelcome"); //这里能直接使用Java.use，因为java.use会检查在不在perform里面，不在就会失败
+			console.log("AyWelcome: " + AyWelcome);
+			// 然后下面的代码就和写正常的hook一样啦
+			AyWelcome.onCreate.overload('android.os.Bundle').implementation = function(bundle) {
+				var ret = this.onCreate(bundle);
+				Toast.makeText(context, "onCreate called", 1).show(); //弹出Toast
+				return ret;
+			}
+			return result;
+		}
+	});
+}
+
+```
+
+最后效果如下：
+
+![a.png](./a.png)
+```
+
+`shell/hook_java.js`:
+
+```js
+if(Java.available) {
+	Java.perform(function(){
+		var application = Java.use("android.app.Application");
+		var Toast = Java.use('android.widget.Toast');
+
+		application.attach.overload('android.content.Context').implementation = function(context) {
+			var result = this.attach(context); // 先执行原来的attach方法
+			var classloader = context.getClassLoader(); // 获取classloader
+			Java.classFactory.loader = classloader;
+			var AyWelcome = Java.classFactory.use("flytv.run.monitor.fragment.user.AyWelcome"); //这里能直接使用Java.use，因为java.use会检查在不在perform里面，不在就会失败
+			console.log("AyWelcome: " + AyWelcome);
+			// 然后下面的代码就和写正常的hook一样啦
+			AyWelcome.onCreate.overload('android.os.Bundle').implementation = function(bundle) {
+				var ret = this.onCreate(bundle);
+				Toast.makeText(context, "onCreate called", 1).show(); //弹出Toast
+				return ret;
+			}
+			return result;
+		}
+	});
+}
+
+```
+
+`unpack/README.md`:
+
+```md
+## frida-Android脱壳
+- [x] Android 7.1.2测试通过
+- [x] 腾讯加固
+- [x] 360加固
+- [x] 爱加密 
+
+## 使用
+
+1. `pip install frida`
+2. `pip install frida-tools`
+3. 安装加固过的apk到手机
+4. `adb forward tcp:27042 tcp:27042`
+5. `frida -R -f {app包名} -l unpack.js` （用app包名替换`{app包名}`）
+6. 在`/data/data/{app包名}/files/{数字}.dex`（从内存中dump的dex会放到files目录下面的十六进制数字命名的dex文件中，emm.dex不是哈）
+
+
+#### dex b64
+
+```java
+package com.smartdone;
+
+import android.util.Log;
+import dalvik.system.DexFile;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Iterator;
+
+public class EnumerateClass {
+    private static final String TAG = "FRiDA_UNPACK";
+
+    public static ArrayList getClassNameList(ClassLoader classLoader) {
+        int i;
+        ArrayList classNameList = new ArrayList();
+        try {
+            Object dexElements = EnumerateClass.getObjectField(EnumerateClass.getObjectField(classLoader, "pathList"), "dexElements");
+            int dexElementsLength = Array.getLength(dexElements);
+            i = 0;
+            while(true) {
+            label_8:
+                if(i >= dexElementsLength) {
+                    goto label_24;
+                }
+
+                Enumeration enumerations = ((DexFile)EnumerateClass.getObjectField(Array.get(dexElements, i), "dexFile")).entries();
+                while(true) {
+                    if(!enumerations.hasMoreElements()) {
+                        ++i;
+                        break;
+                    }
+
+                    classNameList.add(((String)enumerations.nextElement()));
+                }
+            }
+        }
+        catch(Exception v1) {
+            goto label_24;
+        }
+
+        ++i;
+        goto label_8;
+    label_24:
+        Collections.sort(classNameList);
+        return classNameList;
+    }
+
+    public static String[] getClassNameListArray(ClassLoader classLoader) {
+        ArrayList namelist = EnumerateClass.getClassNameList(classLoader);
+        String[] retval = new String[namelist.size()];
+        namelist.toArray(((Object[])retval));
+        return retval;
+    }
+
+    public static Object getObjectField(Object object, String fieldName) {
+        Class clazz = object.getClass();
+        while(!clazz.getName().equals(Object.class.getName())) {
+            try {
+                Field field = clazz.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                return field.get(object);
+            }
+            catch(NoSuchFieldException e) {
+                e.printStackTrace();
+                clazz = clazz.getSuperclass();
+            }
+            catch(IllegalAccessException e2) {
+                e2.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+    public static void loadAllClass(ClassLoader classLoader) {
+        int v6_1;
+        Method[] methods;
+        Class clazz;
+        try {
+            Iterator v1 = EnumerateClass.getClassNameList(classLoader).iterator();
+            while(true) {
+                if(!v1.hasNext()) {
+                    return;
+                }
+
+                Object v2 = v1.next();
+                clazz = classLoader.loadClass(((String)v2));
+                methods = clazz.getDeclaredMethods();
+                Log.d("FRiDA_UNPACK", "load class: " + clazz.getName());
+                v6_1 = 0;
+            label_19:
+                while(v6_1 < methods.length) {
+                    goto label_20;
+                }
+            }
+
+        label_20:
+            Method method = methods[v6_1];
+            Object[] objs = new Object[method.getParameterTypes().length];
+            Log.d("FRiDA_UNPACK", "try to load method: " + clazz.getName() + "-->" + method.getName());
+            method.invoke(null, objs);
+            Log.d("FRiDA_UNPACK", "success");
+            ++v6_1;
+            goto label_19;
+        }
+        catch(Throwable v0) {
+        }
+    }
+}
+```
+
+```
+
+`unpack/unpack.js`:
+
+```js
+var DEX_MAGIC = 0x0A786564;
+var dexrec = [];
+
+var openmemory = Module.findExportByName("libart.so", "_ZN3art7DexFile10OpenMemoryEPKhjRKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEjPNS_6MemMapEPKNS_10OatDexFileEPS9_");
+if(openmemory != undefined) {
+	console.log("openmemory at" + openmemory);
+	Interceptor.attach(openmemory, {
+		onEnter: function (args) {
+			if(Memory.readU32(args[1]) == DEX_MAGIC) {
+				dexrec.push(args[1]);
+			}
+		},
+		onLeave: function (retval) {
+
+		}
+	});
+}
+
+if(Java.available) {
+	Java.perform(function(){
+
+		var dexBase64 = "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Zy9yZWZsZWN0L01ldGhvZDsAFUxqYXZhL3V0aWwvQXJyYXlMaXN0OwAVTGphdmEvdXRpbC9BcnJheUxpc3Q8AClMamF2YS91dGlsL0FycmF5TGlzdDxMamF2YS9sYW5nL1N0cmluZzs+OwAXTGphdmEvdXRpbC9Db2xsZWN0aW9uczsAF0xqYXZhL3V0aWwvRW51bWVyYXRpb247ACtMamF2YS91dGlsL0VudW1lcmF0aW9uPExqYXZhL2xhbmcvU3RyaW5nOz47ABRMamF2YS91dGlsL0l0ZXJhdG9yOwAQTGphdmEvdXRpbC9MaXN0OwADVEFHAAFWAAJWTAACVloAAVoAAlpMABJbTGphdmEvbGFuZy9DbGFzczsAE1tMamF2YS9sYW5nL09iamVjdDsAE1tMamF2YS9sYW5nL1N0cmluZzsAG1tMamF2YS9sYW5nL3JlZmxlY3QvTWV0aG9kOwADYWRkAAZhcHBlbmQAC2NsYXNzTG9hZGVyAA1jbGFzc05hbWVMaXN0AAljbGFzc2xpc3QABWNsYXp6AAFkAAtkZXhFbGVtZW50cwARZGV4RWxlbWVudHNMZW5ndGgAB2RleEZpbGUAAWUAAmUyAAdlbnRyaWVzAAxlbnVtZXJhdGlvbnMABmVxdWFscwAFZmllbGQACWZpZWxkTmFtZQADZ2V0AAhnZXRDbGFzcwAQZ2V0Q2xhc3NOYW1lTGlzdAAVZ2V0Q2xhc3NOYW1lTGlzdEFycmF5ABBnZXREZWNsYXJlZEZpZWxkABJnZXREZWNsYXJlZE1ldGhvZHMACWdldExlbmd0aAAHZ2V0TmFtZQAOZ2V0T2JqZWN0RmllbGQAEWdldFBhcmFtZXRlclR5cGVzAA1nZXRTdXBlcmNsYXNzAA9oYXNNb3JlRWxlbWVudHMAB2hhc05leHQAAWkABmludm9rZQAIaXRlcmF0b3IADGxvYWQgY2xhc3M6IAAMbG9hZEFsbENsYXNzAAlsb2FkQ2xhc3MABm1ldGhvZAAHbWV0aG9kcwAEbmFtZQAIbmFtZWxpc3QABG5leHQAC25leHRFbGVtZW50AAZvYmplY3QABG9ianMAB3Bhcm1sZW4ACHBhdGhMaXN0AA9wcmludFN0YWNrVHJhY2UABnJldHZhbAANc2V0QWNjZXNzaWJsZQAEc2l6ZQAEc29ydAAHc3VjY2VzcwAHdG9BcnJheQAIdG9TdHJpbmcAFHRyeSB0byBsb2FkIG1ldGhvZDogAAV2YWx1ZQAAAQAAAAoAAAACAAAACgAAAAIAAAAKAAsAAgAAAAoAGQABAAAACwAAAAEAAAAGAAAAAQAAABUAAAABAAAAFwAAAAIAAAALAAsAAQAAABkAARcGAgMBaBwGFwAXFBcBFyAXGRcEAAAAAAAAAAAAAQAAABkLAAAAAAAAAAAAAAEAAAAAAAAAAgAAADQLAAAOAA4AJAE0DlsEADUSIsMDATkLSwMCOgEdAwNQAS3/BAQ/FCVpoQUEQgUBBQIFAxwfPAA1ATQOSwQAWRIiaQMBYRs8ABMCXEIOSwMANwYBEBBLAwFBEEtdBQEeAwE9CTsFARkeAwE8CjxNBQEfAD0BNA5LBAA2EiL/AwJYDEsEAzcGFEsDBFccARoPaQMHVhFaAwheAS0DCV0aASYPSwJ7dwUHBQgFCUIFAgUDBQQgBQAbIAABAAEAAQAAAFQLAAAEAAAAcBAOAAAADgAHAAEAAgABAFgLAABBAAAAIgARAHAQGwAAABoBXgBxIAQAFgAMARoCOABxIAQAIQAMAXEQFQABAAoCEgM1IyUAcSAUADEADAQaBToAcSAEAFQADAQfBAQAbhAGAAQADARyECEABAAKBTgFDAByECIABAAMBR8FCwBuIBwAUAAo8dgDAwEo3CgCDQFxECAAAAARAAAABQAAADIAAQABAQc8AwABAAIAAACHCwAADgAAAHEQAgACAAwAbhAeAAAACgEjERoAbiAfABAAEQEFAAIAAgABAJgLAAAxAAAAbhAPAAMADABuEAkAAAAMARwCCgBuEAkAAgAMAm4gEAAhAAoBOQEdAG4gBwBAAAwBEhJuIBcAIQBuIBYAMQAMAhECDQFuEAwAAQAoCQ0BbhANAAEAbhAKAAAADAAo1hIBEQEAABQAAAAMAAEAAQIJJgghAAAOAAEAAwABAMILAAB7AAAAcRACAA0ADABuEB0AAAAMAXIQIwABAAoCOAJsAHIQJAABAAwCHwILAG4gCwAtAAwDbhAIAAMADAQaBQYAIgYMAHAQEQAGABoHUgBuIBIAdgBuEAkAAwAMB24gEgB2AG4QEwAGAAwGcSAAAGUAIUUSBjVWPwBGBwQGbhAZAAcADAghiCOJGQAaCgYAIgsMAHAQEQALABoMZwBuIBIAywBuEAkAAwAMDG4gEgDLABoMAgBuIBIAywBuEBgABwAMDG4gEgDLAG4QEwALAAwLcSAAALoAEgpuMBoApwkaCgYAGgtkAHEgAAC6ANgGBgEowiiRKAINAA4AAAAAAAAAdAABAAEBDXkBAAUAABoBgYAEiBgBCaAYAQnAGQEJ7BkBCfAaEQAAAAAAAAABAAAAAAAAAAEAAABpAAAAcAAAAAIAAAAcAAAAFAIAAAMAAAAaAAAAhAIAAAQAAAABAAAAvAMAAAUAAAAlAAAAxAMAAAYAAAABAAAA7AQAAAIgAABpAAAADAUAAAEQAAAKAAAAyAoAAAUgAAABAAAAFgsAAAQgAAABAAAAGQsAAAMQAAADAAAALAsAAAYgAAABAAAAPAsAAAMgAAAFAAAAVAsAAAEgAAAFAAAACAwAAAAgAAABAAAAhA4AAAAQAAABAAAAoA4AAA==";
+		var application = Java.use("android.app.Application");
+		var BaseDexClassLoader = Java.use("dalvik.system.BaseDexClassLoader");
+		var Base64 = Java.use("android.util.Base64");
+		var FileOutputStream = Java.use("java.io.FileOutputStream");
+		var DexClassLoader = Java.use("dalvik.system.DexClassLoader");
+
+		var reflectField = Java.use("java.lang.reflect.Field");
+		var reflectMethod = Java.use("java.lang.reflect.Method");
+		var reflectObject = Java.use("java.lang.Object");
+		var reflectClass = Java.use("java.lang.Class");
+		var reflectString = Java.use("java.lang.String");
+		var reflectClassloader = Java.use("java.lang.ClassLoader");
+
+
+		if(application != undefined) {
+			application.attach.overload('android.content.Context').implementation = function(context) {
+				var result = this.attach(context);
+				var classloader = context.getClassLoader();
+				var filesDir = context.getFilesDir();
+				var codeCacheDir = context.getCodeCacheDir();
+				console.log("files dir: " + filesDir);
+				console.log("code cache dir: " + codeCacheDir);
+				if(classloader != undefined) {
+					var casedloader = Java.cast(classloader, BaseDexClassLoader);
+					var dexbytes = Base64.decode(dexBase64, 0);
+					var dexpath = filesDir + "/emmm.dex";
+					var fout = FileOutputStream.$new(dexpath);
+					fout.write(dexbytes, 0, dexbytes.length);
+					fout.close();
+					console.log("write dex to " + dexpath);
+
+					var dexstr = dexpath.toString();
+					var cachestr = codeCacheDir.toString();
+
+					var dyndex = DexClassLoader.$new(dexstr, cachestr, cachestr, classloader);
+					console.log(dyndex.toString());
+					var EnumerateClass = dyndex.loadClass("com.smartdone.EnumerateClass");
+					var castedEnumerateClass = Java.cast(EnumerateClass, reflectClass);
+					var methods = castedEnumerateClass.getDeclaredMethods();
+					// loadAllClass
+					var loadAllClass = undefined;
+					for(var i in methods) {
+						console.log(methods[i].getName());
+						if(methods[i].getName() == "loadAllClass") {
+							console.log("find loadAllClass");
+							loadAllClass = methods[i];
+						}
+					}
+					if(loadAllClass != undefined) {
+						console.log("loadAllClass: " + loadAllClass.toString());
+						var args = Java.array('Ljava.lang.Object;',[classloader]);
+						var classlist = loadAllClass.invoke(null , args);
+						console.log("start dump dex ");
+						for(var i in dexrec) {
+							if(Memory.readU32(dexrec[i]) == DEX_MAGIC) {
+								var dex_len = Memory.readU32(dexrec[i].add(0x20));
+								var dumppath = filesDir.toString() + "/" + dex_len.toString(0x10) + ".dex";
+								console.log(dumppath);
+								var dumpdexfile = new File(dumppath, "wb");
+								dumpdexfile.write(Memory.readByteArray(dexrec[i], dex_len));
+								dumpdexfile.close();
+								console.log("write file to " + dumppath);
+							}
+						}
+					}
+
+
+				} else {
+					console.error("unable get classloader");
+				}
+				return result;
+			}
+		}
+	});
+}
+```
