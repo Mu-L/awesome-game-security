@@ -1,0 +1,4 @@
+This project is an educational Unreal Engine 4 cheat codebase and guide for learning common game-hacking workflows.
+Its C++ source demonstrates features such as ESP overlays, aimbot logic, trigger behavior, and multiple gameplay manipulation techniques.
+The repository also documents core techniques like function hooking and pattern scanning to explain how UE4-focused tooling is built.
+Its primary use case is hands-on training and experimentation for game security and reverse engineering learners in controlled environments.
