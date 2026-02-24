@@ -1977,6 +1977,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/CyberSecurityUP/ProcessKiller-BYOVD [viragt64.sys]
 - https://github.com/CyberSecurityUP/UrekMazino-Malware [viragt64.sys]
 - https://github.com/BlackSnufkin/BYOVD/tree/main/Viragt64-Killer [viragt64.sys]
+- https://github.com/CyberSecurityUP/ViGEmBus-Driver-Exploitation [ViGEmBus.sys]
 - https://github.com/MrAle98/ATDCM64a-LPE [[atdcm64a.sys](https://security.humanativaspa.it/exploiting-amd-atdcm64a.sys-arbitrary-pointer-dereference-part-1/)]
 - https://github.com/varwara/CVE-2024-35250 [ks.sys]
 - https://github.com/varwara/CVE-2024-21338 [appid.sys]
