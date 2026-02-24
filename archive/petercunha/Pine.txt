@@ -1,0 +1,408 @@
+Project Path: arc_petercunha_Pine_rl0ja_7k
+
+Source Tree:
+
+```txt
+arc_petercunha_Pine_rl0ja_7k
+├── LICENSE
+├── README.md
+├── demo
+│   ├── YOLO Research Paper.pdf
+│   ├── csgo.mp4
+│   └── demo.gif
+├── models
+│   ├── coco-dataset.labels
+│   ├── yolov3-tiny.cfg
+│   └── yolov3-tiny.weights
+└── pine.py
+
+```
+
+`LICENSE`:
+
+```
+MIT License
+
+Copyright (c) 2019 Peter Cunha
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+`README.md`:
+
+```md
+# Pine
+Pine is an aimbot powered by real-time object detection with neural networks.
+
+This software can be tweaked to work smoothly in CS:GO, Fortnite, and Overwatch. Pine also has built-in support for Nvidia's CUDA toolkit and is optimized to achieve extremely high object-detection FPS. It is GPU accelerated and blazingly fast.
+
+
+## Demo
+[Demo video](https://www.youtube.com/watch?v=HB4HA29aOcc)
+
+[![Pine Demo GIF](/demo/demo.gif)=](https://www.youtube.com/watch?v=HB4HA29aOcc)
+
+
+## Installation
+- Install OpenCV with Python3 bindings
+- Install any missing dependencies with Pip
+- Install [pywin32](https://sourceforge.net/projects/pywin32), the Windows API bindings for Python.
+- Install the Nvidia CUDA toolkit if you have a compatible GPU
+  - If you don't have an Nvidia GPU, Pine will try to use OpenCL instead of CUDA
+- Also for acurate long Quick Mouse Movements please Disable Mouse acceleration. Thanks!
+- Then run the program with Python3.
+ 
+ `$ python3 pine.py`
+ 
+ 
+ ### What games does it work with?
+This release is currently optimized for CS:GO, but I plan adding more game configs in the future
+
+
+### Why Neural Networks?
+
+Well, neural network aimbots are great for a lot of reasons... Probably most importantly, they never access the memory of the game, so they are practically invisible to "Anti-Cheat" sofware. Additionally, they can abstract their capabilities to many different games without code modifications. The only issue:
+
+Neural Network Aimbots have always had one big problem: their target detection is okay, but their inference time is *terrible*. Even HAAR Cascades are a bad fit, since they have decent speed but horrible accuracy. MobileNetSSD and Faster R-CNN were *sorta ok* if you had a Nvidia Titan X with CUDA drivers. But let's be honest, who the hell can afford a Titan?
+
+Enter YOLOv3, tiny edition. Detection scores are decent, and inference times are... *WHAT? **220 FPS WITH A 33% mAP?!*** For reference of how absolutely insane this is, SSD513 gets about 8 FPS with 50% mAP.
+
+
+![YOLO Network Speed Graph](https://i.imgur.com/NrGZOYt.png)
+
+
+Finally, a real-time object-detection network that will run on my dinky AMD M370X from 2015! This network is what inspired me to build Pine.
+
+
+
+## Architecture
+
+### YOLOv3: The Internal Object-Detection Engine
+
+At its core, Pine's internal object detection system relies on a modified version of the [YOLOv3](https://pjreddie.com/media/files/papers/YOLOv3.pdf) neural network architecture. The detection network is trained on a combination of video game images and the COCO dataset. It is optimized to recognize human-like objects as quickly as possible. The detection engine can be abstracted to many FPS games, including CS:GO, TF2, and more.
+
+![YOLO Neural Network](https://i.imgur.com/0edTFBP.jpg)
+
+
+### OpenCV: GPU-Enabled Image Processing
+
+OpenCV is at the heart of Pine's image processing capabilities. Not only does it provide an abstraction layer for working with the screen capture data, but it it also allows us to harness the power of GPU hardware by interfacing CUDA and OpenCL. After Pine takes a capture of the user's screen, it uses OpenCV to process that image into a form that is recognizable to the object-detection engine.
+
+![OpenCV Image Processing Architecture](https://i.imgur.com/n3LgS6T.png)
+
+## Special Thanks
+Thanks to everyone who made this project possible. I'd like to give special shoutouts to the following people:
+ - [FidgetySo](https://github.com/FidgetySo) for his contributions to the codebase. He leveraged native Windows APIs to improve the performance of Pine by up to 300%.
+ - Adrian Rosebrock, PhD, for his invaluable resources on machine learning. Check out his blog: [PyImageSearch](https://www.pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/)
+
+```
+
+`models/coco-dataset.labels`:
+
+```labels
+person
+bicycle
+car
+motorbike
+aeroplane
+bus
+train
+truck
+boat
+traffic light
+fire hydrant
+stop sign
+parking meter
+bench
+bird
+cat
+dog
+horse
+sheep
+cow
+elephant
+bear
+zebra
+giraffe
+backpack
+umbrella
+handbag
+tie
+suitcase
+frisbee
+skis
+snowboard
+sports ball
+kite
+baseball bat
+baseball glove
+skateboard
+surfboard
+tennis racket
+bottle
+wine glass
+cup
+fork
+knife
+spoon
+bowl
+banana
+apple
+sandwich
+orange
+broccoli
+carrot
+hot dog
+pizza
+donut
+cake
+chair
+sofa
+pottedplant
+bed
+diningtable
+toilet
+tvmonitor
+laptop
+mouse
+remote
+keyboard
+cell phone
+microwave
+oven
+toaster
+sink
+refrigerator
+book
+clock
+vase
+scissors
+teddy bear
+hair drier
+toothbrush
+```
+
+`models/yolov3-tiny.cfg`:
+
+```cfg
+[net]
+# Testing
+batch=1
+subdivisions=1
+# Training
+# batch=64
+# subdivisions=2
+width=416
+height=416
+channels=3
+momentum=0.9
+decay=0.0005
+angle=0
+saturation = 1.5
+exposure = 1.5
+hue=.1
+
+learning_rate=0.001
+burn_in=1000
+max_batches = 500200
+policy=steps
+steps=400000,450000
+scales=.1,.1
+
+[convolutional]
+batch_normalize=1
+filters=16
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=2
+
+[convolutional]
+batch_normalize=1
+filters=32
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=2
+
+[convolutional]
+batch_normalize=1
+filters=64
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=2
+
+[convolutional]
+batch_normalize=1
+filters=128
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=2
+
+[convolutional]
+batch_normalize=1
+filters=256
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=2
+
+[convolutional]
+batch_normalize=1
+filters=512
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=1
+
+[convolutional]
+batch_normalize=1
+filters=1024
+size=3
+stride=1
+pad=1
+activation=leaky
+
+###########
+
+[convolutional]
+batch_normalize=1
+filters=256
+size=1
+stride=1
+pad=1
+activation=leaky
+
+[convolutional]
+batch_normalize=1
+filters=512
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[convolutional]
+size=1
+stride=1
+pad=1
+filters=255
+activation=linear
+
+
+
+[yolo]
+mask = 3,4,5
+anchors = 10,14,  23,27,  37,58,  81,82,  135,169,  344,319
+classes=80
+num=6
+jitter=.3
+ignore_thresh = .7
+truth_thresh = 1
+random=1
+
+[route]
+layers = -4
+
+[convolutional]
+batch_normalize=1
+filters=128
+size=1
+stride=1
+pad=1
+activation=leaky
+
+[upsample]
+stride=2
+
+[route]
+layers = -1, 8
+
+[convolutional]
+batch_normalize=1
+filters=256
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[convolutional]
+size=1
+stride=1
+pad=1
+filters=255
+activation=linear
+
+[yolo]
+mask = 0,1,2
+anchors = 10,14,  23,27,  37,58,  81,82,  135,169,  344,319
+classes=80
+num=6
+jitter=.3
+ignore_thresh = .7
+truth_thresh = 1
+random=1
+
+```
+
+`pine.py`:
+
+```py
+from lib import pine
+import os
+
+# Clear terminal
+os.system('cls' if os.name == 'nt' else 'clear')
+
+print('''
+====================================
+ Pine: Neural-Network Aimbot (v0.1)
+====================================
+
+[INFO] press '0' to quit or ctrl+C in console...''')
+
+pine.start(ENABLE_AIMBOT=True)
+
+```
