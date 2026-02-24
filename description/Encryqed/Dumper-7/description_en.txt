@@ -1,0 +1,4 @@
+This project is a C++ SDK generator for Unreal Engine games across UE4 and UE5 versions.
+It works by injecting a DLL into the target process, locating engine structures and offsets, and emitting generated headers and SDK code for analysis and tooling.
+The codebase includes configurable offset overrides, multiple build options, and guidance for integrating generated output into downstream projects.
+Its primary use case is Unreal Engine reverse engineering, including game security research, modding analysis, and internal structure mapping.
