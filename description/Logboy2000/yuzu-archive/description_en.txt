@@ -1,0 +1,4 @@
+Yuzu Archive is a placeholder repository that no longer provides emulator source code.
+Its contents are primarily documentation files, including a brief README and a DMCA notice record.
+The archive serves as a historical snapshot of takedown context rather than a development codebase.
+Its primary use case is legal and ecosystem reference for researchers tracking emulator enforcement events.
