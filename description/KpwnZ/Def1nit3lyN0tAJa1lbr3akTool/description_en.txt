@@ -1,0 +1,5 @@
+This project is an iOS jailbreak tool targeting devices on iOS 16.0 through 16.6.1.
+It builds on modern community jailbreak and kernel exploitation research and includes build steps for different trustcache versions.
+The codebase contains low-level iOS components, extensive native headers, and Xcode plus make-based build workflows.
+Primary implementation languages are Objective-C and C-family native code.
+It is aimed at advanced iOS security researchers and jailbreak developers studying post-exploitation workflows.
