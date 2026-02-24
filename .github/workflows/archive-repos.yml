@@ -39,27 +39,12 @@ jobs:
           # Need full history so we can push back
           fetch-depth: 0
 
-      # ── cache cargo + compiled code2prompt binary ──────────────────────────
-      - name: Cache cargo registry and code2prompt binary
-        uses: actions/cache@v4
-        id: cache-code2prompt
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            ~/.cargo/bin/code2prompt
-          key: code2prompt-${{ runner.os }}-v1
-
-      - name: Install Rust toolchain (if cache miss)
-        if: steps.cache-code2prompt.outputs.cache-hit != 'true'
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Install code2prompt (if cache miss)
-        if: steps.cache-code2prompt.outputs.cache-hit != 'true'
-        run: cargo install code2prompt
-
-      - name: Add cargo bin to PATH
-        run: echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+      # ── download pre-built code2prompt binary ─────────────────────────────
+      - name: Install code2prompt
+        run: |
+          curl -fsSL -o /usr/local/bin/code2prompt \
+            https://github.com/mufeedvh/code2prompt/releases/download/v4.2.0/code2prompt-x86_64-unknown-linux-gnu
+          chmod +x /usr/local/bin/code2prompt
 
       # ── git identity for auto-commits ─────────────────────────────────────
       - name: Configure git
