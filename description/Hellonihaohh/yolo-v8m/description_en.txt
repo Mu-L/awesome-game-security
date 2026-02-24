@@ -1,0 +1,1 @@
+This repository is a lightweight distribution package for a YOLOv8m model artifact rather than a source code project. The archive contains license text and split compressed files, indicating it is intended for model file delivery and storage. It is mainly useful as a binary asset source for downstream computer vision workflows such as detection-based game automation research.
