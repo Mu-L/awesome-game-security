@@ -1,0 +1,4 @@
+This project is a prebuilt DMA-related network card emulation release that targets Intel I225 and I226 adapter behavior.
+It focuses on generating synthetic TCP activity and maintaining a persistent active-link state.
+The repository is minimal and mostly ships a binary payload with a short explanatory README.
+Its primary use case is anti-cheat evasion research against activity-based checks in systems such as Vanguard, Faceit, and EAC.

@@ -1,0 +1,4 @@
+This project embeds a CyberChef-style data transformation interface inside IDA Pro.
+It is implemented mainly in Python with a Qt-based UI layer and plugin metadata for IDA integration.
+The tool enables decoding, encoding, and transformation pipelines without leaving the reverse engineering environment.
+It is targeted at malware analysis and binary triage workflows that require rapid data manipulation.

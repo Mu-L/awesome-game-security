@@ -1,0 +1,4 @@
+This project is a DMA firmware profile that emulates an AMD PCI device model for PCILeech-compatible hardware.
+It is implemented mostly in Verilog and SystemVerilog with Vivado IP components and build scripts for 35T, 75T, and ZDMA boards.
+The implementation focuses on no-interrupt communication behavior and hardware identity spoofing concepts.
+Its main use case is anti-cheat resilience testing and research into hardware-signature-based detection in game security.
