@@ -35,8 +35,17 @@ CODE2PROMPT_TIMEOUT = 60  # seconds
 MAX_FILE_MB = 100         # skip output files larger than this
 
 
+SCAN_START_MARKER = "## Game Engine"
+
+
 def extract_github_repos(text: str) -> list[tuple[str, str]]:
-    """Return unique (owner, repo) pairs from README text."""
+    """Return unique (owner, repo) pairs from README, starting at SCAN_START_MARKER."""
+    marker_pos = text.find(SCAN_START_MARKER)
+    if marker_pos == -1:
+        print(f"[WARN] Marker '{SCAN_START_MARKER}' not found — scanning full README.")
+    else:
+        text = text[marker_pos:]
+
     matches = GITHUB_REPO_PATTERN.findall(text)
     seen: set[tuple[str, str]] = set()
     result = []
