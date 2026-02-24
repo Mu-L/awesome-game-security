@@ -1,6 +1,9 @@
 name: Archive Repos
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Run every day at 03:00 UTC (11:00 Beijing)
     - cron: "0 3 * * *"
