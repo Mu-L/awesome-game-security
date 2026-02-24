@@ -1,0 +1,47 @@
+name: Fix Dead Links
+
+on:
+  schedule:
+    # Run every day at 02:00 UTC
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      workers:
+        description: "Number of concurrent workers"
+        required: false
+        default: "20"
+
+permissions:
+  contents: write
+
+jobs:
+  fix-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run link checker and fix dead links
+        run: |
+          python scripts/check-and-fix-links.py \
+            --workers ${{ github.event.inputs.workers || '20' }}
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No dead links found. Nothing to commit."
+          else
+            FIXED=$(git diff --cached --numstat README.md | awk '{print $1}')
+            git commit -m "fix: replace ${FIXED} dead link(s) with gmh5225 mirrors [skip ci]"
+            git push
+          fi
