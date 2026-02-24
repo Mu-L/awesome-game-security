@@ -1934,6 +1934,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/Gbps/CapcomLib [Capcom.sys]
 - https://github.com/es3n1n/dolboeb-executor [Capcom.sys]
 - https://github.com/SamLarenN/CapcomDKOM [Capcom.sys]
+- https://github.com/CyberSecurityUP/dbk64-vulnerability-driver [dbk64.sys]
 - https://github.com/Exploitables/CVE-2015-2291 [IQVW64.sys]
 - https://github.com/KiFilterFiberContext/AsIO-Exploit [AsIO3.sys]
 - https://github.com/zer0condition/AsusDrv [AsusBiosIoDrv64.sys]
