@@ -77,7 +77,7 @@ jobs:
 
           MERGED=0
           FAILED=0
-          for branch in $(git branch -r | grep 'origin/descriptions/batch-' | sed 's|.*origin/||'); do
+          for branch in $(git branch -r | grep 'origin/descriptions-batch-' | sed 's|.*origin/||'); do
             echo "→ merging $branch ..."
             if git merge --no-ff --no-edit "origin/$branch" \
                  -m "chore: add descriptions from $branch [skip ci]"; then

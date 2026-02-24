@@ -114,7 +114,8 @@ After processing ALL repositories in the list, report a one-line summary:
 # ── Cursor Cloud Agents API ────────────────────────────────────────────────────
 def launch_agent(api_key: str, batch_index: int, prompt: str, dry_run: bool,
                  model: str | None = None) -> str | None:
-    branch = f"descriptions/batch-{batch_index:04d}"
+    # Slashes in branch names are rejected by the API — use hyphens only
+    branch = f"descriptions-batch-{batch_index:04d}"
     payload: dict = {
         "prompt": {"text": prompt},
         "source": {"repository": GITHUB_REPO_URL, "ref": "main"},
@@ -141,7 +142,9 @@ def launch_agent(api_key: str, batch_index: int, prompt: str, dry_run: bool,
         json=payload,
         timeout=30,
     )
-    resp.raise_for_status()
+    if not resp.ok:
+        print(f"  [batch {batch_index:04d}] HTTP {resp.status_code} — {resp.text}")
+        resp.raise_for_status()
     agent_id = resp.json()["id"]
     print(f"  [batch {batch_index:04d}] launched agent {agent_id} → branch {branch}")
     return agent_id
