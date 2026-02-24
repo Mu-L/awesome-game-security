@@ -1,0 +1,4 @@
+This repository is an archive of Unity IL2CPP runtime source code across multiple Unity generation ranges.
+It contains extensive C and C++ implementation files for libil2cpp internals, including runtime services, metadata handling, garbage collection, and platform abstraction layers.
+The included version mapping notes help correlate IL2CPP revisions with corresponding Unity engine releases.
+It is primarily used by reverse engineers and game security researchers who need reference internals for Unity native code analysis and tooling development.
