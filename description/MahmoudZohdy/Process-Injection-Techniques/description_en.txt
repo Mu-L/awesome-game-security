@@ -1,0 +1,4 @@
+This project is a C/C++ collection of Windows process injection and persistence technique implementations.
+It includes multiple approaches such as CreateRemoteThread variants, APC and Early Bird methods, TLS callback injection, thread hijacking, reflective DLL loading, process hollowing, doppelganging, and ghosting.
+The codebase also covers persistence-oriented mechanisms like IFEO, AppInit_DLLs, and AppCertDlls, with usage guidance from a single command-line entry point.
+It is mainly used for security training, offensive technique research, and testing defensive detections in controlled lab environments.
