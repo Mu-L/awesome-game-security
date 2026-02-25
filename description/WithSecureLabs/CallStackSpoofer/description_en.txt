@@ -1,0 +1,4 @@
+This project is a proof-of-concept for spoofing arbitrary call stacks when issuing Windows system calls.
+It is implemented in C++ and includes selectable sample stack profiles that imitate common process behaviors.
+The repository also documents practical debugging and validation steps using telemetry and debugger workflows.
+It is intended for security researchers studying EDR evasion techniques and stack-based detection logic.

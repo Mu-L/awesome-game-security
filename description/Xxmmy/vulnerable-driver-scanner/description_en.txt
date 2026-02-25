@@ -1,0 +1,4 @@
+This project is a lightweight scanner that searches directories for vulnerable Windows drivers.
+It is implemented as a small C++ command-line utility intended for quick triage of driver files.
+The tool helps identify potential bring-your-own-vulnerable-driver exposure in common system driver locations.
+It is useful for anti-cheat bypass research, incident response, and defensive security audits.
