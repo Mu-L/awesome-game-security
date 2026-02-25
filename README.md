@@ -2815,6 +2815,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/cs2_sdk [SDK]
 - https://github.com/NotOfficer/cs2-sdk [SDK]
 - https://github.com/a2x/cs2-dumper [Dump]
+- https://github.com/dougwithseismic/dezlock-dump [Runtime schema + RTTI extraction for Source 2 (Deadlock, CS2, Dota 2); no source2gen required]
 - https://github.com/imnotdatguy/csgo2-cheat
 - https://github.com/papstuc/counterstrike2
 - https://github.com/nezu-cc/BakaWare4
