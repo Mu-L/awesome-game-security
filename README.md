@@ -3790,8 +3790,6 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/Deputation/hygieia
 - https://github.com/FaEryICE/MemScanner
 
-> Detection:EFI Driver
-- https://github.com/gmh5225/Detect-EFIGuard
 
 > Detection: Hacked Hypervisor
 - https://secret.club/2020/04/13/how-anti-cheats-detect-system-emulation.html
@@ -3972,7 +3970,6 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - [ATPMiniDump Callback](https://github.com/b4rtik/ATPMiniDump)
 - https://github.com/jimbeveridge/readdirectorychanges [ReadDirectoryChangesW]
 - https://github.com/blaquee/dllnotif [DllNotification]
-- https://github.com/gmh5225/LdrRegisterDllNotification-modify-testing [DllNotification]
 - https://github.com/brew02/KiUserExceptionDispatcherHook [Hooking the Windows usermode exception handler]
 - https://github.com/whokilleddb/function-collections/tree/main/hijack_callbacks/vkAllocateMemory [vkAllocateMemory]
 - https://github.com/whokilleddb/function-collections/tree/main/hijack_callbacks/InternetSetStatusCallback [InternetStatusCallback]
