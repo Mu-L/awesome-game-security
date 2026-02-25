@@ -22,6 +22,12 @@ MAX_WORKERS = 10
 REQUEST_TIMEOUT = 10  # seconds
 RETRY_COUNT = 2
 
+# Repos that require authentication or are intentionally access-restricted.
+# These are not dead links — skip them entirely.
+SKIPPED_URLS: set[str] = {
+    "https://github.com/EpicGames/UnrealEngine",
+}
+
 
 def check_url(url: str) -> tuple[str, bool, int]:
     """Return (url, is_accessible, status_code). Retries on network errors.
@@ -73,9 +79,10 @@ def extract_github_urls(text: str) -> list[str]:
         # Strip trailing punctuation from repo name
         repo = repo.rstrip(".,;:")
         url = f"https://github.com/{user}/{repo}"
-        if url not in seen:
-            seen.add(url)
-            urls.append(url)
+        if url in seen or url in SKIPPED_URLS:
+            continue
+        seen.add(url)
+        urls.append(url)
     return urls
 
 
