@@ -1,0 +1,4 @@
+This project is a Windows kernel driver that plays animated frames during a forced system crash screen.
+It uses Bootvid routines such as VidBitBlt for VGA-style rendering and then triggers a bugcheck after playback.
+The code is written in C for kernel-mode execution and includes low-level frame loading and display handling logic.
+It is a proof-of-concept for Windows kernel graphics experimentation around BSOD behavior.
