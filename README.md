@@ -3384,7 +3384,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/NullTerminatorr/ThreadHijackingInjector [Injection Testing]
 - https://github.com/Skengdo/simple-SetWindowsHookExW-injector [Injection Testing:SetWindowsHookExW]
 - https://github.com/gmh5225/SetWindowsHookEx-Injector [Injection Testing:SetWindowsHookExW]
-- https://github.com/gmh5225/Jektor [Injection/Shellcode Testing]
+- https://github.com/gavz/Jektor [Injection/Shellcode Testing]
 - https://github.com/KANKOSHEV/face-injector-v2 [Injection/ Testing]
 - https://github.com/notscimmy/libelevate [Elevating Handle]
 - https://github.com/ZoondEngine/NoBastian_v2 [Elevating Handle By LSASS]
