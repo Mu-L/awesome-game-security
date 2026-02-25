@@ -2697,7 +2697,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/codereversing/hl2esp
 
 > Game:CS1.6
-- https://github.com/k4ne1337/hpp-hack
+- https://github.com/gmh5225/hpp-hack
 - https://github.com/gmh5225/CSHackCreator-2-Demo
 - https://github.com/oxiKKK/oxware
 - https://github.com/execnone/simple-cs-16-multihack
