@@ -1,0 +1,4 @@
+This project is a feature expansion mod for the Arma 3 Eden Editor.
+It is built with SQF scripts, config definitions, and addon modules that add editor UI tools, mission attributes, and workflow shortcuts.
+The mod is designed so scenarios can be played without hard dependencies on the editing extension.
+It mainly serves mission makers and modders who want a more productive Arma 3 editing environment.
