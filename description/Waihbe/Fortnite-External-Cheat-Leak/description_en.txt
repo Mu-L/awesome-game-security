@@ -1,0 +1,4 @@
+This project is a leaked external Fortnite cheat source that reads game memory and draws an overlay for targeting and ESP functionality.
+The codebase is C++ with DirectX9 and ImGui components, and it includes camera and bone math, world-to-screen projection, and configurable aim settings.
+It appears structured around external process memory access with driver-assisted reads and an in-game menu for toggling features.
+Its main use case is game cheat research and analysis of external tool design.
