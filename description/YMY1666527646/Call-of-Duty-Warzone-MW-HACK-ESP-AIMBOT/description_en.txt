@@ -1,0 +1,4 @@
+This project is a C++ cheat source package for Call of Duty gameplay enhancement through external visualization and targeting assistance.
+It contains overlay rendering code, player and entity data handling, and communication routines commonly used for driver-backed memory reads.
+The codebase also includes Direct3D9 and ImGui-based template components for menu and ESP style interfaces.
+It is mainly intended for game hacking learners and reverse engineering practitioners studying Windows overlay and memory interaction pipelines.
