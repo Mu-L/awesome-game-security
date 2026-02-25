@@ -3009,7 +3009,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/jooola00/fortnite-cheat-source-internal
 - https://github.com/YMY1666527646/Fortnite-Hack-Esp-Exploits-With-Menu
 - https://github.com/YMY1666527646/nigusFN
-- https://github.com/Sheeedsh78/Cheto-Fortnite-Source-External-EAC-BE-undetected
 - https://github.com/CheaterRehab/GodFather-Fortnite-Cheat-Cracked
 - https://github.com/Keyzp1337/Fortnite
 - https://github.com/vk-nom/Basic-Fortnite-Cheat-Source-Internal
@@ -3141,7 +3140,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 
 > Game:Overwatch 
 - https://github.com/blackhades00/PareidoliaTriggerbot [Triggerbot]
-- https://github.com/gmh5225/Overwatch-1-cheat-source-.
 - https://github.com/gmh5225/overwatch-iat-fixer [Overwatch IAT Fixer]
 - https://github.com/Midi12/ow_unpack
 - https://github.com/gmh5225/OW-Aeternum
