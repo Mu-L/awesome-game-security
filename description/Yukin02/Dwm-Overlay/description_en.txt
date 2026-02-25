@@ -1,0 +1,4 @@
+Dwm-Overlay is a Windows C++ overlay framework that combines DWM/DirectX rendering with an ImGui-based interface.
+The project includes low-level hook components, including assembly stubs for dispatch interception and present-path handling.
+Its code structure provides a minimal base for external overlay drawing, UI widgets, and runtime hook integration.
+The primary use case is graphics-hooking research and prototyping overlay tooling in game security contexts.

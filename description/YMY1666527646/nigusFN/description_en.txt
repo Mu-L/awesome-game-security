@@ -1,0 +1,4 @@
+nigusFN is a Fortnite external cheat source that recreates the nigusFN-style interface and feature set.
+The project is written in C++ for Windows and uses DirectX9 and ImGui for menu rendering, with additional driver and utility components.
+Its structure includes item definitions, configuration headers, and menu logic typically used in external cheat frameworks.
+The repository is mainly useful for game security researchers studying external cheat UI design and EAC-oriented tooling workflows.
