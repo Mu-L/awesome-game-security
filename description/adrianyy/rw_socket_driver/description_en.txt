@@ -1,0 +1,4 @@
+rw_socket_driver is a Windows kernel driver that exposes protected process memory read and write operations over network sockets.
+It is implemented in C and C++ and uses kernel socket communication to exchange commands with a remote client.
+The codebase is adapted for manual mapping scenarios and focuses on external memory control without in-process hooks.
+It is mainly used in low-level game security research for cheat development experiments and anti-cheat robustness evaluation.
