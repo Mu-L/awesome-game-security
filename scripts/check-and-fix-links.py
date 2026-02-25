@@ -24,7 +24,13 @@ RETRY_COUNT = 2
 
 
 def check_url(url: str) -> tuple[str, bool, int]:
-    """Return (url, is_accessible, status_code). Retries on network errors."""
+    """Return (url, is_accessible, status_code). Retries on network errors.
+
+    Only 404 and 451 are treated as confirmed dead links.
+    429 (rate-limited), 403 (private/forbidden), 5xx (server error),
+    and network timeouts are all treated as alive/unknown to avoid
+    false-positive replacements.
+    """
     clean_url = url.rstrip(".,;:")
     for attempt in range(RETRY_COUNT + 1):
         try:
@@ -36,17 +42,26 @@ def check_url(url: str) -> tuple[str, bool, int]:
                 return (clean_url, True, resp.status)
         except urllib.error.HTTPError as e:
             if e.code in (404, 451):
+                # Confirmed dead: resource gone or legally unavailable
                 return (clean_url, False, e.code)
+            if e.code == 429:
+                # Rate-limited — server is alive, back off and treat as OK
+                time.sleep(2 ** attempt)
+                if attempt < RETRY_COUNT:
+                    continue
+                return (clean_url, True, e.code)
+            # 403, 5xx, etc. — treat as alive (private repo, transient error)
             if attempt < RETRY_COUNT:
                 time.sleep(1)
                 continue
-            return (clean_url, False, e.code)
+            return (clean_url, True, e.code)
         except Exception:
+            # Network error / timeout — treat as alive to avoid false positives
             if attempt < RETRY_COUNT:
                 time.sleep(1)
                 continue
-            return (clean_url, False, 0)
-    return (clean_url, False, 0)
+            return (clean_url, True, 0)
+    return (clean_url, True, 0)
 
 
 def extract_github_urls(text: str) -> list[str]:
@@ -170,7 +185,8 @@ def main():
             if accessible:
                 ok_count += 1
                 if args.verbose:
-                    print(f"  [OK  {status}] {url}")
+                    label = "SKIP" if status in (429, 0) else "OK  "
+                    print(f"  [{label} {status}] {url}")
             else:
                 dead_count += 1
                 dead_urls.append(url)
