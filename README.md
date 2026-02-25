@@ -247,7 +247,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 
 ## Mathematics
 - https://github.com/nfrechette/rtm
-- https://github.com/Groovounet/glm
 - https://github.com/microsoft/DirectXMath
 - https://github.com/Kazade/kazmath
 - https://github.com/milakov/int_fastdiv
@@ -363,14 +362,12 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/reGTA [Reverse Engineered GTA III and GTA VC]
 - https://github.com/gta-reversed/gta-reversed-modern [Reimplementation of GTA:SA 1.0 US]
 - https://github.com/gmh5225/Grand-Theft-Auto-Modding-Source [Code snippets for Vice City]
-- https://github.com/SmileyAG/ReCZDS [Reversed CZeror]
 - https://github.com/Harrison1/unrealcpp [UE4 C++ examples]
 - https://github.com/QianMo/UE4-FPS-Game [UE4 FPS Game]
 - https://github.com/KitchenGun/UE4_FPS [UE4 FPS Demo]
 - https://github.com/tomlooman/SimpleFPSTemplate [UE4 FPS Demo]
 - https://github.com/tomlooman/EpicSurvivalGame [UE4 FPS Game]
 - https://github.com/QianMo/UE4-Tank-Game [UE4 Game]
-- https://github.com/UE-DEMO/UE-UE5-FPS-wlaster [UE5 FPS Game]
 - https://github.com/gmh5225/UE5-FPS-CryptRaider [UE5 FPS Game]
 - https://github.com/LeroyTechnologies/ProjectM [UE5 FPS Game]
 - https://github.com/invi1998/MultiplayerBlasterGame [UE5 FPS Game]
