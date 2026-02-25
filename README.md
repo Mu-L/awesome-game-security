@@ -1061,7 +1061,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/apkunpacker/AntiFrida_Bypass [Bypass Some AntiFrida Checks]
 - https://github.com/Abbbbbi/Frida-Seccomp [Frida-Seccomp]
 - https://github.com/rednaga/frida-stack [Getting better stacks and backtraces in Frida]
-- https://github.com/DoranekoSystems/frida-FindoutWhatAccess [Find out what accesses this address]
 - https://github.com/piotrbania/frida_usb_dump [Frida script that allows to sniff & dump USB traffic on macOS]
 - https://github.com/hackcatml/frida-findJNINativeMethods [Find JNI native methods while the app is running]
 - https://github.com/miticollo/xpc-tracer [A tracer based on frida for XPC messages in iOS and macOS]
