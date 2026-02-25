@@ -1,0 +1,4 @@
+This project is a small offset dump repository that publishes updated memory offsets for a popular shooter game.
+It stores constants in a C++ header and keeps the data simple for direct integration into external tooling.
+The repository is minimal and focused on maintaining address and structure offsets rather than providing a full framework.
+It is typically used by game reverse-engineering practitioners who track client updates for analysis or tooling maintenance.
