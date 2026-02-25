@@ -2552,11 +2552,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/byfron-bypass
 - https://github.com/atrexus/vulkan [A PE dumper for processes protected by user mode anti-tamper solutions (hyperion, theia, etc.)]
 
-> Explore AntiCheat System:NGS
-- https://github.com/gmh5225/NexonGameSecurity-bypass
-- https://github.com/gmh5225/NexonGameSecurity-bypass-alternative
-- https://github.com/gmh5225/NexonGameSecurity-bypass-wow64
-
 > Explore AntiCheat System:FACEIT
 - https://github.com/ekknod/EC_PRO-LAN
 
