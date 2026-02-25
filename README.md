@@ -3562,6 +3562,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/obama-gaming/xor-float [C++]
 - https://github.com/emlinhax/xv [C++]
 - https://github.com/nevergiveup-c/obfuscxx [Header-only compile-time variables obfuscation library for C++20 and later. Compiler Support: MSVC (+WDM), LLVM, GCC. Architecture Support: x86-64, ARM]
+- https://github.com/ck0i/Kernelcloak [An advanced library for protecting/obfuscating kernel drivers using the C++ 17 standard]
 
 > Lazy Importer
 - https://github.com/JustasMasiulis/lazy_importer
