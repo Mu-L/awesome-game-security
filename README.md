@@ -2021,6 +2021,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/paradoxwastaken/Poseidon [NtConvertBetweenAuxiliaryCounterAndPerformanceCounter]
 - https://github.com/FarmEquipment69/umap-mapper [NtConvertBetweenAuxiliaryCounterAndPerformanceCounter]
 - https://github.com/0mWindyBug/DataptrHooks [NtConvertBetweenAuxiliaryCounterAndPerformanceCounter]
+- https://github.com/gmh5225/r69-driver [NtQueryAuxiliaryCounterFrequency]
 - https://github.com/weak1337/EvCommunication [NtTokenManagerCreateFlipObjectReturnTokenHandle]
 - https://github.com/gmh5225/Driver-kaldereta [NtTokenManagerGetAnalogExclusiveTokenEvent]
 - https://github.com/UCFoxi/Shared-FlushFileBuffers-Communication [FlushFileBuffers]
