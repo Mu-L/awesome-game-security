@@ -1804,7 +1804,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/MemTools [Windows/Linux DMA testing tools]
 - https://github.com/sonodima/physpatch [Scanning and patching of the entire Windows Kernel using DMA]
 - https://github.com/gmh5225/DMA-PCIE-BOARD-75T [DMA-PCIE-BOARD-75T]
-- https://github.com/gmh5225/DMA-E3100-CFW-BYPASS [DMA-BYPASS-Killer]
 - https://github.com/dom0ng/pcileech-wifi-v2 [pcileech-fpga with wireless card emulation]
 - https://github.com/Trustings/DMA_PE_Dumper [DMA PE (Portable Executable) Dumper with DTB patching capabilities]
 - https://github.com/mltpig/PCILeech-FPGA-DMA_VMD [PCILeech FPGA DMA VMD Controller Simulation Project]
@@ -1813,7 +1812,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/Herooyyy/Pcileech-Intel-I226-V-FullEmu [Intel-I226-V]
 - https://github.com/Herooyyy/Pcileech-ISABridge [Use specific PID/VID to bypass faceit]
 - https://github.com/d1skq/vgk-dma-bypass [VGK DMA bypass]
-- https://github.com/Ptolemaios9/Pcileech-DMA-NVMe-VMD [Firmware real camouflage through motherboard VMD function.（Pcileech-DMA）]
+- https://github.com/gmh5225/Pcileech-DMA-NVMe-VMD [Firmware real camouflage through motherboard VMD function.（Pcileech-DMA）]
 
 > W2S
 - https://github.com/DrNseven/D3D11-Worldtoscreen-Finder
