@@ -1,0 +1,84 @@
+name: Auto Archive New Repos on Push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md   # only run when README changes
+
+permissions:
+  contents: write
+
+jobs:
+  auto-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # need HEAD and HEAD~1 to compute the diff
+
+      - name: Extract newly added GitHub repo URLs
+        id: diff
+        run: |
+          # Lines added in this push that contain a github.com URL
+          REPOS=$(git diff HEAD~1 HEAD -- README.md \
+            | grep '^+' \
+            | grep -v '^+++' \
+            | grep -oP 'https://github\.com/\K[^/\s\)\]>\"'\''#]+/[^/\s\)\]>\"'\''#]+' \
+            | sed 's/[.,;:]$//' \
+            | sort -u \
+            | grep -v '^gmh5225/awesome-game-security$' \
+            | grep -v '^stars/' \
+            || true)
+
+          if [ -z "$REPOS" ]; then
+            echo "No new GitHub repos found in this push."
+            echo "repos=" >> "$GITHUB_OUTPUT"
+          else
+            echo "New repos to archive:"
+            echo "$REPOS"
+            # space-separated for passing to --repos
+            REPOS_INLINE=$(echo "$REPOS" | tr '\n' ' ' | xargs)
+            echo "repos=$REPOS_INLINE" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip if nothing to archive
+        if: steps.diff.outputs.repos == ''
+        run: echo "Nothing to archive — skipping."
+
+      - name: Install code2prompt
+        if: steps.diff.outputs.repos != ''
+        run: |
+          curl -fsSL -o /usr/local/bin/code2prompt \
+            https://github.com/mufeedvh/code2prompt/releases/download/v4.2.0/code2prompt-x86_64-unknown-linux-gnu
+          chmod +x /usr/local/bin/code2prompt
+
+      - name: Configure git
+        if: steps.diff.outputs.repos != ''
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Archive new repos
+        if: steps.diff.outputs.repos != ''
+        run: |
+          python3 scripts/archive-repos.py \
+            --workers 3 \
+            --commit-every 5 \
+            --repos ${{ steps.diff.outputs.repos }}
+
+      - name: Final commit (any remainder)
+        if: steps.diff.outputs.repos != ''
+        run: |
+          git add archive/ 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            COUNT=$(git diff --cached --name-only | grep -c "^archive/" || true)
+            git commit -m "archive: add ${COUNT} repo prompt(s) [skip ci]"
+            git push
+          else
+            echo "Nothing left to commit."
+          fi

@@ -169,6 +169,13 @@ def main() -> None:
         metavar="N",
         help="Commit and push to git after every N successful archives (0 = disabled)",
     )
+    parser.add_argument(
+        "--repos",
+        nargs="+",
+        metavar="OWNER/REPO",
+        help="Archive only these specific repos (e.g. --repos torvalds/linux foo/bar). "
+             "Skips README scanning entirely.",
+    )
     args = parser.parse_args()
 
     # ── preflight ─────────────────────────────────────────────────────────────
@@ -178,9 +185,20 @@ def main() -> None:
                 raise SystemExit("Abort: code2prompt is required.")
         print(f"code2prompt: {shutil.which('code2prompt')}")
 
-    # ── parse README ──────────────────────────────────────────────────────────
-    with open(args.readme, encoding="utf-8") as f:
-        repos = extract_github_repos(f.read())
+    # ── resolve repo list ─────────────────────────────────────────────────────
+    if args.repos:
+        # Explicit list supplied — skip README scanning
+        repos = []
+        for slug in args.repos:
+            parts = slug.strip().split("/")
+            if len(parts) == 2:
+                repos.append((parts[0], parts[1]))
+            else:
+                print(f"[WARN] Ignoring invalid repo slug: {slug!r}")
+    else:
+        # Default: scan README
+        with open(args.readme, encoding="utf-8") as f:
+            repos = extract_github_repos(f.read())
 
     if args.owner_filter:
         repos = [(o, r) for o, r in repos if o.lower() == args.owner_filter.lower()]
