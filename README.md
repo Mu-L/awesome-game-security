@@ -3291,7 +3291,6 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/gmh5225/BigBaseV2
 - https://github.com/YimMenu/YimMenu
 - https://github.com/gmh5225/SpookiMystic-GTA-Leak [Menu]
-- https://github.com/Rimmuru/gta-source
 - https://github.com/gmh5225/gta5view [Viewer/Editor]
 - https://github.com/gmh5225/pHake [Mod Menu]
 - https://github.com/gmh5225/ExtendedCameraSettings [Extending functionality of the gameplay camera]
