@@ -1,0 +1,4 @@
+This project provides rolling stable Linux kernel builds and configuration guidance for WSL2.
+It is driven by Markdown documentation and CI automation that rebuilds when newer stable kernel releases appear.
+The repository includes build instructions for both x86 and ARM64 targets and emphasizes reproducible kernel workflows.
+It is intended for WSL2 users and low-level developers who need up-to-date kernels for testing and research.
