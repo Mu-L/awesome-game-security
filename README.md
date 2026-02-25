@@ -2652,7 +2652,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/LeagueDumper [Dump]
 - https://github.com/gmh5225/League-Unpacker [Dump]
 - https://github.com/gmh5225/lol-offset-dumper [Dump]
-- https://github.com/gmh5225/LeagueTeamBoost
 - https://github.com/LeagueSandbox
 - https://github.com/gmh5225/lol-unpackman
 - [A bran-new League of Legends assistant software, a replacement for WeGame](https://github.com/gmh5225/frank)
