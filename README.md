@@ -2644,7 +2644,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/LoLClient
 - https://github.com/gmh5225/L-Assemblies
 - https://github.com/gmh5225/LeagueSharp.Loader
-- https://github.com/gmh5225/R3nzSkin [Skin]
+- https://github.com/Kurok00/R3nzSkin [Skin]
 - https://github.com/gmh5225/R3nzSkinTFT [Skin]
 - https://github.com/gmh5225/LeagueSkinChanger [Skin]
 - https://github.com/gmh5225/hh-lol-prophet
