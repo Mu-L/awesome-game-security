@@ -30,9 +30,9 @@ GITHUB_REPO_PATTERN = re.compile(
     r"https://github\.com/([^/\s\)\]>\"']+)/([^/\s\)\]>\"'#]+)"
 )
 MAX_WORKERS = 3
-CLONE_TIMEOUT = 120       # seconds
-CODE2PROMPT_TIMEOUT = 30  # seconds — abandon large repos quickly
-MAX_FILE_MB = 100         # skip output files larger than this
+CLONE_TIMEOUT = 180       # seconds
+CODE2PROMPT_TIMEOUT = 60  # seconds — abandon large repos quickly
+MAX_FILE_MB = 200         # skip output files larger than this
 
 
 SCAN_START_MARKER = "## Game Engine"
