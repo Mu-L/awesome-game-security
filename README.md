@@ -2735,7 +2735,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/HeathHowren/CSGO-Cheats
 - https://github.com/Kruziikrel1/CSGO-FindMDL [Model Changer]
 - https://github.com/ekknod/nv_v2 [Sound ESP]
-- https://github.com/gmh5225/Improved-CSGO_Simple
 - https://github.com/0TheSpy/SpyExternal1337hax [External]
 - https://github.com/0TheSpy/Seaside [Internal]
 - https://github.com/whereisr0da/Lumina-Cheat [Internal]
