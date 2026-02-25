@@ -1,0 +1,4 @@
+This project is a Rust-based educational Android ELF emulator that demonstrates core emulator construction concepts.
+It implements components such as an ELF loader, memory management, syscall handling, filesystem abstractions, and ARM64 execution scaffolding with Unicorn.
+The repository includes walkthrough-style documentation, architecture diagrams, and sample binaries to explain the design step by step.
+It is primarily aimed at low-level systems learners and security researchers studying Android binary behavior and emulation internals.
