@@ -1,9 +1,9 @@
 name: Fix Dead Links
 
 on:
-  schedule:
-    # Run every day at 02:00 UTC
-    - cron: "0 2 * * *"
+  # schedule:
+  #   # Run every day at 02:00 UTC
+  #   - cron: "0 2 * * *"
   workflow_dispatch:
     inputs:
       workers:
