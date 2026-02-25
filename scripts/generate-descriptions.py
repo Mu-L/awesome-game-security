@@ -135,16 +135,22 @@ def launch_agent(api_key: str, batch_index: int, prompt: str, dry_run: bool,
         print("---")
         return None
 
-    resp = requests.post(
-        f"{CURSOR_API_BASE}/agents",
-        auth=(api_key, ""),
-        headers={"Content-Type": "application/json"},
-        json=payload,
-        timeout=30,
-    )
+    try:
+        resp = requests.post(
+            f"{CURSOR_API_BASE}/agents",
+            auth=(api_key, ""),
+            headers={"Content-Type": "application/json"},
+            json=payload,
+            timeout=30,
+        )
+    except requests.RequestException as exc:
+        print(f"  [batch {batch_index:04d}] network error — {exc} — skipping")
+        return None
+
     if not resp.ok:
-        print(f"  [batch {batch_index:04d}] HTTP {resp.status_code} — {resp.text}")
-        resp.raise_for_status()
+        print(f"  [batch {batch_index:04d}] HTTP {resp.status_code} — {resp.text} — skipping")
+        return None
+
     agent_id = resp.json()["id"]
     print(f"  [batch {batch_index:04d}] launched agent {agent_id} → branch {branch}")
     return agent_id
@@ -154,12 +160,22 @@ def poll_agent(api_key: str, agent_id: str, batch_index: int) -> str:
     """Poll until the agent finishes; return final status string."""
     deadline = time.time() + AGENT_TIMEOUT
     while time.time() < deadline:
-        resp = requests.get(
-            f"{CURSOR_API_BASE}/agents/{agent_id}",
-            auth=(api_key, ""),
-            timeout=15,
-        )
-        resp.raise_for_status()
+        try:
+            resp = requests.get(
+                f"{CURSOR_API_BASE}/agents/{agent_id}",
+                auth=(api_key, ""),
+                timeout=15,
+            )
+        except requests.RequestException as exc:
+            print(f"  [batch {batch_index:04d}] poll network error — {exc} — retrying")
+            time.sleep(AGENT_POLL_INTERVAL)
+            continue
+
+        if not resp.ok:
+            print(f"  [batch {batch_index:04d}] poll HTTP {resp.status_code} — retrying")
+            time.sleep(AGENT_POLL_INTERVAL)
+            continue
+
         status = resp.json().get("status", "UNKNOWN")
         if status in ("FINISHED", "FAILED", "STOPPED"):
             print(f"  [batch {batch_index:04d}] agent {agent_id} → {status}")
@@ -225,6 +241,8 @@ def main() -> None:
             results[status] = results.get(status, 0) + 1
         elif agent_id:
             results["LAUNCHED"] = results.get("LAUNCHED", 0) + 1
+        else:
+            results["SKIPPED"] = results.get("SKIPPED", 0) + 1
 
     if results:
         print(f"\nSummary: {json.dumps(results)}")
