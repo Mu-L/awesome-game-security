@@ -1962,6 +1962,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/gmh5225/Blackout [gmer64.sys]
 - https://github.com/gmh5225/Terminator [zam64.sys]
 - https://github.com/gmh5225/zam64-zemina [zam64.sys]
+- https://github.com/EvilBytecode/EDR-XDR-AV-Killer [zam64.sys]
 - https://github.com/gmh5225/CVE-2017-9769 [rzpnk.sys]
 - https://github.com/gmh5225/echoac-poc [echo_driver.sys]
 - https://github.com/gmh5225/kur [echo_driver.sys]
