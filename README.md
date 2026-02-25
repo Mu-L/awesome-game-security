@@ -836,7 +836,17 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/jsacco/ntoskrnlwalker [Resolve offsets, gadgets and symbols from NTKernel]
 
 > Mixed boolean-arithmetic
-- https://github.com/Colton1skees/mba-resources [List of mixed boolean-arithmetic resources]
+- https://github.com/bliutech/mbased [Practical Simplifications of Mixed Boolean-Arithmetic Obfuscation]
+- https://github.com/SynthesisLab/MBA [High-performance Mixed Boolean-Arithmetic (MBA) expression synthesis tool]
+- https://github.com/astean1001/ProMBA [MBA deobfuscator via Program Synthesis and Term Rewriting]
+- https://github.com/DenuvoSoftwareSolutions/GAMBA [Simplification of General Mixed Boolean-Arithmetic Expressions: GAMBA]
+- https://github.com/mizt0/mixed-boolean-transform [Mixed boolean arithmetic x+y transform]
+- https://github.com/nhpcc502/MBA-Obfuscator [Non-linear Mixed Boolean-Arithmetic Expressions]
+- https://github.com/z1ko/mutaben [A simple mixed-boolean-arithmetic (MBA) generator witten in python]
+- https://github.com/LostOxygen/gnn_deobfuscation [Mixed boolean arithmetic deobfuscation using graph neural networks]
+- https://github.com/MBA-research/mba-wasm [Mixed Boolean-Arithmetic in Rust for WebAssembly]
+
+
 
 > Fix VMP
 - https://github.com/gmh5225/VMProtect
