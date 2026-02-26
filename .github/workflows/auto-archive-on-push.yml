@@ -75,10 +75,19 @@ jobs:
         if: steps.diff.outputs.repos != ''
         run: |
           git add archive/ 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            COUNT=$(git diff --cached --name-only | grep -c "^archive/" || true)
-            git commit -m "archive: add ${COUNT} repo prompt(s) [skip ci]"
-            git push
-          else
+          if git diff --cached --quiet; then
             echo "Nothing left to commit."
+            exit 0
           fi
+
+          COUNT=$(git diff --cached --name-only | grep -c "^archive/" || true)
+          git commit -m "archive: add ${COUNT} repo prompt(s) [skip ci]"
+
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed successfully."
+              break
+            fi
+            echo "Push rejected (attempt $i/5), rebasing ..."
+            git pull --rebase origin main || { echo "Rebase failed — aborting."; exit 1; }
+          done

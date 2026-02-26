@@ -74,8 +74,12 @@ def install_code2prompt() -> bool:
         return False
 
 
-def git_commit_and_push(archive_dir: Path, count: int) -> None:
-    """Stage archive dir and push a commit. Called with the commit lock held."""
+def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) -> None:
+    """Stage archive dir and push a commit. Called with the commit lock held.
+
+    If the push is rejected because the remote moved ahead (concurrent pushes),
+    pull --rebase and retry up to push_retries times.
+    """
     try:
         subprocess.run(["git", "add", str(archive_dir)], check=True, capture_output=True)
         result = subprocess.run(
@@ -84,16 +88,41 @@ def git_commit_and_push(archive_dir: Path, count: int) -> None:
         )
         if result.returncode == 0:
             return  # nothing staged
+
         subprocess.run(
             ["git", "commit", "-m",
              f"archive: add {count} repo prompt(s) [skip ci]"],
             check=True,
             capture_output=True,
         )
-        subprocess.run(["git", "push"], check=True, capture_output=True)
-        print(f"  [GIT] Committed and pushed {count} archive(s)")
     except subprocess.CalledProcessError as e:
-        print(f"  [GIT ERROR] {e.stderr.decode().strip()[:200] if e.stderr else e}")
+        print(f"  [GIT ERROR] commit: {e.stderr.decode().strip()[:200] if e.stderr else e}")
+        return
+
+    for attempt in range(1, push_retries + 1):
+        try:
+            subprocess.run(["git", "push"], check=True, capture_output=True)
+            print(f"  [GIT] Committed and pushed {count} archive(s)")
+            return
+        except subprocess.CalledProcessError as e:
+            err = e.stderr.decode().strip() if e.stderr else str(e)
+            # Rejected because remote moved ahead — rebase on top and retry
+            if "rejected" in err or "fetch first" in err or "non-fast-forward" in err:
+                print(f"  [GIT] Push rejected (attempt {attempt}/{push_retries}), rebasing ...")
+                try:
+                    subprocess.run(
+                        ["git", "pull", "--rebase", "origin", "main"],
+                        check=True, capture_output=True,
+                    )
+                except subprocess.CalledProcessError as re_err:
+                    re_msg = re_err.stderr.decode().strip()[:200] if re_err.stderr else str(re_err)
+                    print(f"  [GIT ERROR] rebase failed: {re_msg}")
+                    return
+            else:
+                print(f"  [GIT ERROR] push: {err[:200]}")
+                return
+
+    print(f"  [GIT ERROR] push failed after {push_retries} retries — giving up")
 
 
 def archive_repo(
