@@ -54,6 +54,11 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Large archive files can exceed the default 1 MB HTTP send buffer,
+          # causing HTTP 408 / RPC failures on push.
+          git config http.postBuffer    524288000
+          git config http.lowSpeedLimit 0
+          git config http.lowSpeedTime  999999
 
       # ── run the archiver ───────────────────────────────────────────────────
       - name: Archive repos

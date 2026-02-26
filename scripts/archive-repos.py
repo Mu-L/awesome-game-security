@@ -16,6 +16,7 @@ Usage:
 """
 
 import re
+import time
 import shutil
 import argparse
 import tempfile
@@ -106,8 +107,13 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
             return
         except subprocess.CalledProcessError as e:
             err = e.stderr.decode().strip() if e.stderr else str(e)
-            # Rejected because remote moved ahead — rebase on top and retry
-            if "rejected" in err or "fetch first" in err or "non-fast-forward" in err:
+
+            if attempt >= push_retries:
+                print(f"  [GIT ERROR] push failed after {push_retries} retries: {err[:200]}")
+                return
+
+            # Remote moved ahead (conflict) — rebase then retry
+            if any(k in err for k in ("rejected", "fetch first", "non-fast-forward")):
                 print(f"  [GIT] Push rejected (attempt {attempt}/{push_retries}), rebasing ...")
                 try:
                     subprocess.run(
@@ -118,6 +124,15 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
                     re_msg = re_err.stderr.decode().strip()[:200] if re_err.stderr else str(re_err)
                     print(f"  [GIT ERROR] rebase failed: {re_msg}")
                     return
+
+            # Network / timeout error (408, RPC failure, disconnect) — just retry
+            elif any(k in err for k in ("408", "RPC failed", "unexpected disconnect",
+                                        "remote end hung up", "timed out")):
+                wait = 5 * attempt
+                print(f"  [GIT] Push timeout (attempt {attempt}/{push_retries}), "
+                      f"retrying in {wait}s ...")
+                time.sleep(wait)
+
             else:
                 print(f"  [GIT ERROR] push: {err[:200]}")
                 return
