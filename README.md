@@ -3621,7 +3621,6 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/wbenny/scfw [A cross-platform C++ framework for building Windows shellcode]
 
 > Obfuscation Engine
-- https://github.com/vi3t1/vmprotect-3.5.1
 - https://github.com/DosX-dev/obfus.h [Macro-header for compile-time C obfuscation (tcc, win x86/x64)]
 - https://github.com/connorjaydunn/BinaryShield
 - https://github.com/mike1k/perses
