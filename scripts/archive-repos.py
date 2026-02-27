@@ -15,6 +15,7 @@ Usage:
     python scripts/archive-repos.py --limit 10 --dry-run   # preview first 10
 """
 
+import os
 import re
 import time
 import shutil
@@ -22,6 +23,8 @@ import argparse
 import tempfile
 import threading
 import subprocess
+import urllib.request
+import urllib.error
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -66,6 +69,56 @@ CODE2PROMPT_EXCLUDE = ",".join([
 ])
 
 SCAN_START_MARKER = "## Game Engine"
+
+# ---------------------------------------------------------------------------
+# Fallback: fetch repo content via an external snapshot service when
+# clone/code2prompt fails. Configure via the REPO_SNAPSHOT_HOST secret.
+# ---------------------------------------------------------------------------
+_DOC_HOST = os.environ.get("REPO_SNAPSHOT_HOST", "").strip()
+
+
+def _fetch_via_doc_service(owner: str, repo: str) -> tuple[bool, str]:
+    """Try to retrieve a pre-generated repo snapshot from the snapshot service.
+
+    Returns (success, content_or_reason).
+    """
+    if not _DOC_HOST:
+        return False, "REPO_SNAPSHOT_HOST not configured"
+
+    page_url = f"https://{_DOC_HOST}/{owner}/{repo}"
+    try:
+        req = urllib.request.Request(
+            page_url,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; archive-bot/1.0)"},
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+    except Exception as exc:
+        return False, f"page fetch failed: {exc}"
+
+    # The service embeds the content URL in an element with id="documentation-url"
+    match = re.search(
+        r'(?:id=["\']documentation-url["\'][^>]*value=["\']([^"\']+)["\']'
+        r'|value=["\']([^"\']+)["\'][^>]*id=["\']documentation-url["\'])',
+        html,
+    )
+    if not match:
+        return False, "documentation-url not found in page"
+
+    doc_url = (match.group(1) or match.group(2)).strip()
+    if not doc_url:
+        return False, "documentation-url value is empty"
+
+    try:
+        req2 = urllib.request.Request(
+            doc_url,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; archive-bot/1.0)"},
+        )
+        with urllib.request.urlopen(req2, timeout=90) as resp2:
+            content = resp2.read().decode("utf-8", errors="replace")
+        return True, content
+    except Exception as exc:
+        return False, f"content fetch failed: {exc}"
 
 
 def extract_github_repos(text: str) -> list[tuple[str, str]]:
@@ -202,7 +255,15 @@ def archive_repo(
             env=clone_env,
         )
         if r.returncode != 0:
-            return (slug, "FAIL", f"clone: {r.stderr.strip()[:200]}")
+            # Primary path failed — try doc service fallback
+            clone_err = r.stderr.strip()[:200]
+            ok, content = _fetch_via_doc_service(owner, repo)
+            if ok:
+                out_dir.mkdir(parents=True, exist_ok=True)
+                out_file.write_text(content, encoding="utf-8")
+                size_kb = len(content.encode()) / 1024
+                return (slug, "OK", f"{size_kb:.1f} KB [doc-service]")
+            return (slug, "FAIL", f"clone: {clone_err}; doc-service: {content}")
 
         out_dir.mkdir(parents=True, exist_ok=True)
         cp = subprocess.run(
@@ -214,17 +275,37 @@ def archive_repo(
             capture_output=True, text=True, timeout=CODE2PROMPT_TIMEOUT,
         )
         if cp.returncode != 0:
-            return (slug, "FAIL", f"code2prompt: {cp.stderr.strip()[:200]}")
+            # code2prompt failed — try doc service fallback
+            cp_err = cp.stderr.strip()[:200]
+            ok, content = _fetch_via_doc_service(owner, repo)
+            if ok:
+                out_file.write_text(content, encoding="utf-8")
+                size_kb = len(content.encode()) / 1024
+                return (slug, "OK", f"{size_kb:.1f} KB [doc-service]")
+            return (slug, "FAIL", f"code2prompt: {cp_err}; doc-service: {content}")
 
         size_bytes = out_file.stat().st_size
         size_mb = size_bytes / 1024 / 1024
         if size_mb > MAX_FILE_MB:
             out_file.unlink(missing_ok=True)
+            # Oversized — try doc service which may return a lighter snapshot
+            ok, content = _fetch_via_doc_service(owner, repo)
+            if ok:
+                out_file.write_text(content, encoding="utf-8")
+                size_kb = len(content.encode()) / 1024
+                return (slug, "OK", f"{size_kb:.1f} KB [doc-service, was {size_mb:.1f} MB]")
             return (slug, "TOOLARGE", f"{size_mb:.1f} MB > limit {MAX_FILE_MB} MB")
 
         return (slug, "OK", f"{size_bytes / 1024:.1f} KB")
 
     except subprocess.TimeoutExpired:
+        # Timeout — try doc service fallback
+        ok, content = _fetch_via_doc_service(owner, repo)
+        if ok:
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_file.write_text(content, encoding="utf-8")
+            size_kb = len(content.encode()) / 1024
+            return (slug, "OK", f"{size_kb:.1f} KB [doc-service, after timeout]")
         return (slug, "TIMEOUT", "exceeded timeout")
     except Exception as e:
         return (slug, "ERROR", str(e))

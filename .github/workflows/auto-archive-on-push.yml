@@ -68,6 +68,8 @@ jobs:
 
       - name: Archive new repos
         if: steps.diff.outputs.repos != ''
+        env:
+          REPO_SNAPSHOT_HOST: ${{ secrets.REPO_SNAPSHOT_HOST }}
         run: |
           python3 scripts/archive-repos.py \
             --workers 3 \
