@@ -35,6 +35,35 @@ CLONE_TIMEOUT = 180       # seconds
 CODE2PROMPT_TIMEOUT = 60  # seconds — abandon large repos quickly
 MAX_FILE_MB = 200         # skip output files larger than this
 
+# Binary / large-asset extensions excluded from code2prompt output.
+# Keeps archive files focused on source code and avoids TOOLARGE rejections
+# on game repos that embed audio, textures, models, datasets, or compiled binaries.
+CODE2PROMPT_EXCLUDE = ",".join([
+    # Audio / video
+    "*.wav", "*.mp3", "*.ogg", "*.flac", "*.aac", "*.wma", "*.m4a",
+    "*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm",
+    # Images / textures
+    "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp", "*.tga", "*.tiff",
+    "*.webp", "*.ico", "*.psd", "*.hdr", "*.exr", "*.dds", "*.ktx",
+    # 3-D assets
+    "*.fbx", "*.obj", "*.3ds", "*.blend", "*.dae", "*.glb", "*.gltf",
+    "*.uasset", "*.umap", "*.pak",
+    # Compiled / binary
+    "*.lib", "*.dll", "*.exe", "*.so", "*.dylib", "*.a", "*.o",
+    "*.pdb", "*.ilk", "*.exp",
+    # Archives & disk images
+    "*.zip", "*.tar", "*.gz", "*.7z", "*.rar", "*.xz", "*.txz",
+    "*.iso", "*.img", "*.bin",
+    # ML model weights / datasets
+    "*.pth", "*.ckpt", "*.pt", "*.model", "*.weights",
+    "*.h5", "*.pb", "*.onnx", "*.npy", "*.npz", "*.parquet", "*.arrow",
+    # Documents
+    "*.pdf", "*.doc", "*.docx", "*.xls", "*.xlsx", "*.ppt", "*.pptx",
+    # Fonts
+    "*.ttf", "*.otf", "*.woff", "*.woff2",
+    # Misc large data
+    "*.db", "*.sqlite", "*.sqlite3", "*.csv",
+])
 
 SCAN_START_MARKER = "## Game Engine"
 
@@ -161,18 +190,27 @@ def archive_repo(
     clone_url = f"https://github.com/{owner}/{repo}.git"
     tmp_dir = tempfile.mkdtemp(prefix=f"arc_{owner}_{repo}_")
 
+    # Skip LFS pointer downloads entirely — we only need source text.
+    clone_env = {"GIT_LFS_SKIP_SMUDGE": "1", **__import__("os").environ}
+
     try:
         r = subprocess.run(
             ["git", "clone", "--depth", "1", "--single-branch", "--quiet",
+             "--filter=blob:limit:20m",   # skip individual blobs > 20 MB
              clone_url, tmp_dir],
             capture_output=True, text=True, timeout=CLONE_TIMEOUT,
+            env=clone_env,
         )
         if r.returncode != 0:
             return (slug, "FAIL", f"clone: {r.stderr.strip()[:200]}")
 
         out_dir.mkdir(parents=True, exist_ok=True)
         cp = subprocess.run(
-            ["code2prompt", "--output-file", str(out_file), tmp_dir],
+            ["code2prompt",
+             "--output-file", str(out_file),
+             "--exclude", CODE2PROMPT_EXCLUDE,
+             "--exclude-from-tree",       # also hide excluded paths in the file tree
+             tmp_dir],
             capture_output=True, text=True, timeout=CODE2PROMPT_TIMEOUT,
         )
         if cp.returncode != 0:
