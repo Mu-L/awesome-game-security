@@ -170,6 +170,19 @@ def install_code2prompt() -> bool:
         return False
 
 
+def _cleanup_oversized(archive_dir: Path) -> None:
+    """Delete archive files that exceed GitHub's hard limit from the working tree."""
+    limit = GITHUB_HARD_LIMIT_MB * 1024 * 1024
+    for f in archive_dir.rglob("*.txt"):
+        try:
+            if f.stat().st_size > limit:
+                print(f"  [GIT] Removed oversized file: {f.name} "
+                      f"({f.stat().st_size / 1024 / 1024:.1f} MB)")
+                f.unlink()
+        except OSError:
+            pass
+
+
 def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) -> None:
     """Stage archive dir and push a commit. Called with the commit lock held.
 
@@ -204,11 +217,12 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
             err = e.stderr.decode().strip() if e.stderr else str(e)
 
             # File too large for GitHub (LFS rejection) — undo this commit
-            # so it doesn't block all subsequent pushes.
+            # and delete oversized files so they don't pollute future commits.
             if any(k in err for k in ("gh.io/lfs", "large files",
                                       "exceeds GitHub's file size limit")):
                 print(f"  [GIT] Push blocked by large file — undoing commit")
                 subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
+                _cleanup_oversized(archive_dir)
                 return
 
             if attempt >= push_retries:
@@ -246,6 +260,23 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
 
     print(f"  [GIT ERROR] push failed after {push_retries} retries — giving up")
     subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
+
+
+GITHUB_HARD_LIMIT_MB = 90   # Stay well below GitHub's 100 MB hard rejection
+
+
+def _write_snapshot(out_dir: Path, out_file: Path, content: str) -> tuple[bool, float]:
+    """Write snapshot content to disk if it's small enough for GitHub.
+
+    Returns (written, size_kb).
+    """
+    size_bytes = len(content.encode("utf-8"))
+    size_mb = size_bytes / 1024 / 1024
+    if size_mb > GITHUB_HARD_LIMIT_MB:
+        return False, size_mb
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_file.write_text(content, encoding="utf-8")
+    return True, size_bytes / 1024
 
 
 def archive_repo(
@@ -292,14 +323,13 @@ def archive_repo(
                 env=clone_env,
             )
         if r.returncode != 0:
-            # Both clone attempts failed — try doc service fallback
             clone_err = r.stderr.strip()[:200]
             ok, content = _fetch_via_snapshot(owner, repo)
             if ok:
-                out_dir.mkdir(parents=True, exist_ok=True)
-                out_file.write_text(content, encoding="utf-8")
-                size_kb = len(content.encode()) / 1024
-                return (slug, "OK", f"{size_kb:.1f} KB [snapshot]")
+                written, size = _write_snapshot(out_dir, out_file, content)
+                if written:
+                    return (slug, "OK", f"{size:.1f} KB [snapshot]")
+                return (slug, "TOOLARGE", f"snapshot {size:.1f} MB still too large")
             return (slug, "FAIL", f"clone: {clone_err}; snapshot: {content}")
 
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -311,37 +341,36 @@ def archive_repo(
             capture_output=True, text=True, timeout=CODE2PROMPT_TIMEOUT,
         )
         if cp.returncode != 0:
-            # code2prompt failed — try doc service fallback
             cp_err = cp.stderr.strip()[:200]
             ok, content = _fetch_via_snapshot(owner, repo)
             if ok:
-                out_file.write_text(content, encoding="utf-8")
-                size_kb = len(content.encode()) / 1024
-                return (slug, "OK", f"{size_kb:.1f} KB [snapshot]")
+                written, size = _write_snapshot(out_dir, out_file, content)
+                if written:
+                    return (slug, "OK", f"{size:.1f} KB [snapshot]")
+                return (slug, "TOOLARGE", f"snapshot {size:.1f} MB still too large")
             return (slug, "FAIL", f"code2prompt: {cp_err}; snapshot: {content}")
 
         size_bytes = out_file.stat().st_size
         size_mb = size_bytes / 1024 / 1024
         if size_mb > MAX_FILE_MB:
             out_file.unlink(missing_ok=True)
-            # Oversized — try doc service which may return a lighter snapshot
             ok, content = _fetch_via_snapshot(owner, repo)
             if ok:
-                out_file.write_text(content, encoding="utf-8")
-                size_kb = len(content.encode()) / 1024
-                return (slug, "OK", f"{size_kb:.1f} KB [snapshot, was {size_mb:.1f} MB]")
+                written, size = _write_snapshot(out_dir, out_file, content)
+                if written:
+                    return (slug, "OK", f"{size:.1f} KB [snapshot, was {size_mb:.1f} MB]")
+                return (slug, "TOOLARGE", f"c2p {size_mb:.1f} MB, snapshot {size:.1f} MB — both too large")
             return (slug, "TOOLARGE", f"{size_mb:.1f} MB > limit {MAX_FILE_MB} MB")
 
         return (slug, "OK", f"{size_bytes / 1024:.1f} KB")
 
     except subprocess.TimeoutExpired:
-        # Timeout — try doc service fallback
         ok, content = _fetch_via_snapshot(owner, repo)
         if ok:
-            out_dir.mkdir(parents=True, exist_ok=True)
-            out_file.write_text(content, encoding="utf-8")
-            size_kb = len(content.encode()) / 1024
-            return (slug, "OK", f"{size_kb:.1f} KB [snapshot, after timeout]")
+            written, size = _write_snapshot(out_dir, out_file, content)
+            if written:
+                return (slug, "OK", f"{size:.1f} KB [snapshot, after timeout]")
+            return (slug, "TOOLARGE", f"snapshot {size:.1f} MB still too large after timeout")
         return (slug, "TIMEOUT", "exceeded timeout")
     except Exception as e:
         return (slug, "ERROR", str(e))
