@@ -91,7 +91,7 @@ def _fetch_via_doc_service(owner: str, repo: str) -> tuple[bool, str]:
             page_url,
             headers={"User-Agent": "Mozilla/5.0 (compatible; archive-bot/1.0)"},
         )
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=90) as resp:
             html = resp.read().decode("utf-8", errors="replace")
     except Exception as exc:
         return False, f"page fetch failed: {exc}"
@@ -247,15 +247,26 @@ def archive_repo(
     clone_env = {"GIT_LFS_SKIP_SMUDGE": "1", **__import__("os").environ}
 
     try:
+        # First attempt: with blob size filter (faster, skips large files)
         r = subprocess.run(
             ["git", "clone", "--depth", "1", "--single-branch", "--quiet",
-             "--filter=blob:limit:20m",   # skip individual blobs > 20 MB
+             "--filter=blob:limit:20m",
              clone_url, tmp_dir],
             capture_output=True, text=True, timeout=CLONE_TIMEOUT,
             env=clone_env,
         )
+        # Some servers reject the filter-spec — retry without it
+        if r.returncode != 0 and "invalid filter-spec" in r.stderr:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+            tmp_dir = tempfile.mkdtemp(prefix=f"arc_{owner}_{repo}_")
+            r = subprocess.run(
+                ["git", "clone", "--depth", "1", "--single-branch", "--quiet",
+                 clone_url, tmp_dir],
+                capture_output=True, text=True, timeout=CLONE_TIMEOUT,
+                env=clone_env,
+            )
         if r.returncode != 0:
-            # Primary path failed — try doc service fallback
+            # Both clone attempts failed — try doc service fallback
             clone_err = r.stderr.strip()[:200]
             ok, content = _fetch_via_doc_service(owner, repo)
             if ok:
