@@ -71,54 +71,67 @@ CODE2PROMPT_EXCLUDE = ",".join([
 SCAN_START_MARKER = "## Game Engine"
 
 # ---------------------------------------------------------------------------
-# Fallback: fetch repo content via an external snapshot service when
-# clone/code2prompt fails. Configure via the REPO_SNAPSHOT_HOST secret.
+# Fallback: fetch repo content via content extraction API when clone/code2prompt fails.
+# API endpoint is configurable via REPO_SNAPSHOT_HOST (set as a GitHub Actions secret).
 # ---------------------------------------------------------------------------
-_DOC_HOST = os.environ.get("REPO_SNAPSHOT_HOST", "").strip()
+import json as _json
+
+_SNAPSHOT_API = os.environ.get("REPO_SNAPSHOT_HOST", "").strip()
+
+# Binary/asset patterns to exclude when calling the extraction API
+_SNAPSHOT_EXCLUDE = ",".join([
+    "*.wav", "*.mp3", "*.ogg", "*.flac", "*.aac",
+    "*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm",
+    "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp", "*.tga", "*.tiff",
+    "*.webp", "*.ico", "*.psd", "*.hdr", "*.exr", "*.dds", "*.ktx",
+    "*.fbx", "*.obj", "*.3ds", "*.blend", "*.dae", "*.glb", "*.gltf",
+    "*.uasset", "*.umap", "*.pak",
+    "*.lib", "*.dll", "*.exe", "*.so", "*.dylib", "*.a", "*.o",
+    "*.zip", "*.tar", "*.gz", "*.7z", "*.rar", "*.xz", "*.txz",
+    "*.iso", "*.img", "*.bin",
+    "*.pth", "*.ckpt", "*.pt", "*.model", "*.weights",
+    "*.h5", "*.pb", "*.onnx", "*.npy", "*.npz",
+    "*.pdf", "*.doc", "*.docx", "*.xls", "*.xlsx",
+    "*.ttf", "*.otf", "*.woff", "*.woff2",
+    "*.db", "*.sqlite", "*.sqlite3",
+])
 
 
-def _fetch_via_doc_service(owner: str, repo: str) -> tuple[bool, str]:
-    """Try to retrieve a pre-generated repo snapshot from the snapshot service.
+def _fetch_via_snapshot(owner: str, repo: str) -> tuple[bool, str]:
+    """Fetch repo content via the content extraction API.
 
     Returns (success, content_or_reason).
     """
-    if not _DOC_HOST:
+    if not _SNAPSHOT_API:
         return False, "REPO_SNAPSHOT_HOST not configured"
 
-    page_url = f"https://{_DOC_HOST}/{owner}/{repo}"
+    repo_url = f"https://github.com/{owner}/{repo}"
+    payload = _json.dumps({
+        "input_text": repo_url,
+        "max_file_size": "243",   # KB — keeps output manageable
+        "pattern_type": "exclude",
+        "pattern": _SNAPSHOT_EXCLUDE,
+    }).encode()
+
     try:
         req = urllib.request.Request(
-            page_url,
-            headers={"User-Agent": "Mozilla/5.0 (compatible; archive-bot/1.0)"},
+            _SNAPSHOT_API,
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "User-Agent": "Mozilla/5.0 (compatible; archive-bot/1.0)",
+            },
+            method="POST",
         )
-        with urllib.request.urlopen(req, timeout=90) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            result = _json.loads(resp.read().decode("utf-8", errors="replace"))
+        tree    = result.get("tree", "")
+        content = result.get("content", "")
+        if not tree and not content:
+            return False, "extraction service returned empty tree and content"
+        return True, f"{tree}\n\n{content}".strip()
     except Exception as exc:
-        return False, f"page fetch failed: {exc}"
-
-    # The service embeds the content URL in an element with id="documentation-url"
-    match = re.search(
-        r'(?:id=["\']documentation-url["\'][^>]*value=["\']([^"\']+)["\']'
-        r'|value=["\']([^"\']+)["\'][^>]*id=["\']documentation-url["\'])',
-        html,
-    )
-    if not match:
-        return False, "documentation-url not found in page"
-
-    doc_url = (match.group(1) or match.group(2)).strip()
-    if not doc_url:
-        return False, "documentation-url value is empty"
-
-    try:
-        req2 = urllib.request.Request(
-            doc_url,
-            headers={"User-Agent": "Mozilla/5.0 (compatible; archive-bot/1.0)"},
-        )
-        with urllib.request.urlopen(req2, timeout=90) as resp2:
-            content = resp2.read().decode("utf-8", errors="replace")
-        return True, content
-    except Exception as exc:
-        return False, f"content fetch failed: {exc}"
+        return False, f"extraction service failed: {exc}"
 
 
 def extract_github_repos(text: str) -> list[tuple[str, str]]:
@@ -268,55 +281,54 @@ def archive_repo(
         if r.returncode != 0:
             # Both clone attempts failed — try doc service fallback
             clone_err = r.stderr.strip()[:200]
-            ok, content = _fetch_via_doc_service(owner, repo)
+            ok, content = _fetch_via_snapshot(owner, repo)
             if ok:
                 out_dir.mkdir(parents=True, exist_ok=True)
                 out_file.write_text(content, encoding="utf-8")
                 size_kb = len(content.encode()) / 1024
-                return (slug, "OK", f"{size_kb:.1f} KB [doc-service]")
-            return (slug, "FAIL", f"clone: {clone_err}; doc-service: {content}")
+                return (slug, "OK", f"{size_kb:.1f} KB [snapshot]")
+            return (slug, "FAIL", f"clone: {clone_err}; snapshot: {content}")
 
         out_dir.mkdir(parents=True, exist_ok=True)
         cp = subprocess.run(
             ["code2prompt",
              "--output-file", str(out_file),
              "--exclude", CODE2PROMPT_EXCLUDE,
-             "--exclude-from-tree",       # also hide excluded paths in the file tree
              tmp_dir],
             capture_output=True, text=True, timeout=CODE2PROMPT_TIMEOUT,
         )
         if cp.returncode != 0:
             # code2prompt failed — try doc service fallback
             cp_err = cp.stderr.strip()[:200]
-            ok, content = _fetch_via_doc_service(owner, repo)
+            ok, content = _fetch_via_snapshot(owner, repo)
             if ok:
                 out_file.write_text(content, encoding="utf-8")
                 size_kb = len(content.encode()) / 1024
-                return (slug, "OK", f"{size_kb:.1f} KB [doc-service]")
-            return (slug, "FAIL", f"code2prompt: {cp_err}; doc-service: {content}")
+                return (slug, "OK", f"{size_kb:.1f} KB [snapshot]")
+            return (slug, "FAIL", f"code2prompt: {cp_err}; snapshot: {content}")
 
         size_bytes = out_file.stat().st_size
         size_mb = size_bytes / 1024 / 1024
         if size_mb > MAX_FILE_MB:
             out_file.unlink(missing_ok=True)
             # Oversized — try doc service which may return a lighter snapshot
-            ok, content = _fetch_via_doc_service(owner, repo)
+            ok, content = _fetch_via_snapshot(owner, repo)
             if ok:
                 out_file.write_text(content, encoding="utf-8")
                 size_kb = len(content.encode()) / 1024
-                return (slug, "OK", f"{size_kb:.1f} KB [doc-service, was {size_mb:.1f} MB]")
+                return (slug, "OK", f"{size_kb:.1f} KB [snapshot, was {size_mb:.1f} MB]")
             return (slug, "TOOLARGE", f"{size_mb:.1f} MB > limit {MAX_FILE_MB} MB")
 
         return (slug, "OK", f"{size_bytes / 1024:.1f} KB")
 
     except subprocess.TimeoutExpired:
         # Timeout — try doc service fallback
-        ok, content = _fetch_via_doc_service(owner, repo)
+        ok, content = _fetch_via_snapshot(owner, repo)
         if ok:
             out_dir.mkdir(parents=True, exist_ok=True)
             out_file.write_text(content, encoding="utf-8")
             size_kb = len(content.encode()) / 1024
-            return (slug, "OK", f"{size_kb:.1f} KB [doc-service, after timeout]")
+            return (slug, "OK", f"{size_kb:.1f} KB [snapshot, after timeout]")
         return (slug, "TIMEOUT", "exceeded timeout")
     except Exception as e:
         return (slug, "ERROR", str(e))
