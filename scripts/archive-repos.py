@@ -36,7 +36,7 @@ GITHUB_REPO_PATTERN = re.compile(
 MAX_WORKERS = 3
 CLONE_TIMEOUT = 180       # seconds
 CODE2PROMPT_TIMEOUT = 60  # seconds — abandon large repos quickly
-MAX_FILE_MB = 200         # skip output files larger than this
+MAX_FILE_MB = 95          # GitHub hard-rejects files > 100 MB; keep safely below
 
 # Binary / large-asset extensions excluded from code2prompt output.
 # Keeps archive files focused on source code and avoids TOOLARGE rejections
@@ -203,8 +203,17 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
         except subprocess.CalledProcessError as e:
             err = e.stderr.decode().strip() if e.stderr else str(e)
 
+            # File too large for GitHub (LFS rejection) — undo this commit
+            # so it doesn't block all subsequent pushes.
+            if any(k in err for k in ("gh.io/lfs", "large files",
+                                      "exceeds GitHub's file size limit")):
+                print(f"  [GIT] Push blocked by large file — undoing commit")
+                subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
+                return
+
             if attempt >= push_retries:
                 print(f"  [GIT ERROR] push failed after {push_retries} retries: {err[:200]}")
+                subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
                 return
 
             # Remote moved ahead (conflict) — rebase then retry
@@ -218,6 +227,8 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
                 except subprocess.CalledProcessError as re_err:
                     re_msg = re_err.stderr.decode().strip()[:200] if re_err.stderr else str(re_err)
                     print(f"  [GIT ERROR] rebase failed: {re_msg}")
+                    subprocess.run(["git", "rebase", "--abort"], capture_output=True)
+                    subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
                     return
 
             # Network / timeout error (408, RPC failure, disconnect) — just retry
@@ -230,9 +241,11 @@ def git_commit_and_push(archive_dir: Path, count: int, push_retries: int = 5) ->
 
             else:
                 print(f"  [GIT ERROR] push: {err[:200]}")
+                subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
                 return
 
     print(f"  [GIT ERROR] push failed after {push_retries} retries — giving up")
+    subprocess.run(["git", "reset", "HEAD~1"], capture_output=True)
 
 
 def archive_repo(

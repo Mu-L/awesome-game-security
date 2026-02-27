@@ -16,7 +16,7 @@ on:
       commit_every:
         description: "Commit & push every N successful archives"
         required: false
-        default: "5"
+        default: "1"
       owner_filter:
         description: "Only archive repos from this owner (leave empty for all)"
         required: false
