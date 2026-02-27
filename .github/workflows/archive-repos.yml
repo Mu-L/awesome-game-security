@@ -25,6 +25,11 @@ on:
         description: "Max repos to process this run (0 = all pending)"
         required: false
         default: "0"
+      skip_existing:
+        description: "Skip repos that are already archived (default: true)"
+        type: boolean
+        required: false
+        default: true
 
 permissions:
   contents: write
@@ -65,11 +70,20 @@ jobs:
         env:
           REPO_SNAPSHOT_HOST: ${{ secrets.REPO_SNAPSHOT_HOST }}
         run: |
-          python3 scripts/archive-repos.py \
-            --workers      "${{ github.event.inputs.workers      || '3' }}" \
-            --commit-every "${{ github.event.inputs.commit_every || '5' }}" \
-            --owner-filter "${{ github.event.inputs.owner_filter || '' }}" \
-            --limit        "${{ github.event.inputs.limit        || '0' }}"
+          ARGS=""
+          ARGS="$ARGS --workers      ${{ github.event.inputs.workers      || '3' }}"
+          ARGS="$ARGS --commit-every ${{ github.event.inputs.commit_every || '5' }}"
+          ARGS="$ARGS --limit        ${{ github.event.inputs.limit        || '0' }}"
+
+          if [ -n "${{ github.event.inputs.owner_filter }}" ]; then
+            ARGS="$ARGS --owner-filter ${{ github.event.inputs.owner_filter }}"
+          fi
+
+          if [ "${{ github.event.inputs.skip_existing }}" == "false" ]; then
+            ARGS="$ARGS --no-skip-existing"
+          fi
+
+          python3 scripts/archive-repos.py $ARGS
 
       # ── catch-all final commit for any remainder left after the last batch ─
       - name: Final commit (any remainder)

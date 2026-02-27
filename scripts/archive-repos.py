@@ -365,16 +365,31 @@ def main() -> None:
 
     if args.owner_filter:
         repos = [(o, r) for o, r in repos if o.lower() == args.owner_filter.lower()]
-    if args.limit:
-        repos = repos[: args.limit]
 
     archive_dir = Path(args.archive_dir)
     archive_dir.mkdir(exist_ok=True)
+
+    # Filter out already-archived repos BEFORE applying --limit so that
+    # "--limit N" means "process N repos that still need archiving".
+    if args.skip_existing:
+        pending = [(o, r) for o, r in repos
+                   if not (archive_dir / o / f"{r}.txt").exists()]
+        skipped_upfront = len(repos) - len(pending)
+        if skipped_upfront:
+            print(f"Already archived    : {skipped_upfront} (skipped)")
+        repos = pending
+
+    if args.limit:
+        repos = repos[: args.limit]
+
     print(f"Repos to process: {len(repos)}  →  {archive_dir}/")
 
     if args.dry_run:
         for owner, repo in repos:
-            flag = "SKIP" if (archive_dir / owner / f"{repo}.txt").exists() else "TODO"
+            # After pre-filtering, everything here is either TODO or re-archive
+            flag = "TODO" if args.skip_existing else (
+                "SKIP" if (archive_dir / owner / f"{repo}.txt").exists() else "TODO"
+            )
             print(f"  [{flag}] {owner}/{repo}")
         return
 
