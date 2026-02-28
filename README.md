@@ -4176,7 +4176,6 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/sergiovillaverde/win11_apk_installer
 - https://github.com/alesimula/wsa_pacman
 - https://github.com/WSA-Community/WSA-Linux-Kernel
-- https://github.com/Paxxs/BuildWSA
 - https://github.com/LSPosed/MagiskOnWSALocal
 - https://github.com/cinit/WSAPatch [Make WSA run on Windows 10]
 - https://github.com/MustardChef/WSABuilds
