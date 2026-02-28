@@ -360,7 +360,7 @@ def archive_repo(
                 if written:
                     return (slug, "OK", f"{size:.1f} KB [snapshot, was {size_mb:.1f} MB]")
                 return (slug, "TOOLARGE", f"c2p {size_mb:.1f} MB, snapshot {size:.1f} MB — both too large")
-            return (slug, "TOOLARGE", f"{size_mb:.1f} MB > limit {MAX_FILE_MB} MB")
+            return (slug, "TOOLARGE", f"c2p {size_mb:.1f} MB; snapshot failed: {content}")
 
         return (slug, "OK", f"{size_bytes / 1024:.1f} KB")
 
