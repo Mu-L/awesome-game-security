@@ -273,7 +273,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/EmbarkStudios/kajiya [Experimental real-time global illumination renderer]
 
 ## 3D Graphics
-- https://github.com/gmh5225/mesa
+- https://github.com/gmh5225/nv-graphics-mesa
 - https://github.com/MethanePowered/MethaneKit [DirectX 12, Metal & Vulkan]
 - https://github.com/mrdoob/three.js [JavaScript 3D Library]
 
