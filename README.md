@@ -2112,7 +2112,6 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/david942j/kvm-kernel-example [Guide]
 - https://github.com/airbus-seclab/qemu_blog [Guide]
 - https://github.com/VirtualBox/virtualbox [VirtualBox Git mirror]
-- https://github.com/mirror/vbox [VirtualBox Git mirror]
 - https://github.com/BigAnteater/KVM-GPU-Passthrough [GPU Passthrough]
 - https://github.com/dmaivel/ntoseye [Kernel Debugger]
 - https://github.com/ispras/qemu/tree/windbg [Windbg]
