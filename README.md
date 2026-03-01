@@ -431,6 +431,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/Merisho/tx-holdem [Texas Holdem Poker made by JS]
 - https://github.com/raysan5/raylib [A simple and easy-to-use library to enjoy videogames programming]
 - https://github.com/scottcgi/Mojoc [A cross-platform, open-source, pure C game engine for mobile game]
+- https://github.com/orangeduck/Corange [Pure C Game Engine]
 - https://github.com/NotYetGames/WarriOrb [a Dark-Souls like action platformer using UE4]
 - https://github.com/pjasicek/OpenClaw [Reimplementation of Captain Claw (1997) platformer]
 - https://github.com/galaxyhaxz/devilution [Reversed Devilution]
