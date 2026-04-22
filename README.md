@@ -1652,6 +1652,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/KasperskyLab/WinDbg-JS-Scripts [JS Scripts]
 - https://github.com/DumpAnalysis/WinDbg_Copilot [WinDbg Copilot]
 - https://github.com/eversinc33/drvtrace [Trace driver module transitions]
+- https://github.com/kernullist/windbg-decompile-ext [WinDbg x64 extension that disassembles live functions and uses an LLM to produce verified pseudocode]
 
 > X64DBG Plugins
 - https://github.com/x64dbg/x64dbg/wiki/Plugins
