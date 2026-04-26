@@ -9,24 +9,6 @@ Or you can send an issue for me.
 > Show respect to all the projects below, perfect works of art :saluting_face:
 
 
-## 🛡️ Recommended: CodeDefender.io
-
-Looking for a truly stable and powerful Windows software protection tool?
-
-I highly recommend **[CodeDefender.io](https://codedefender.io/)** — next-generation protection with excellent stability and performance.
-
-### Key Advantages:
-- **Stability First**: Rarely breaks your program, minimal manual code marking required
-- **Advanced Protection**:
-  - Innovative mathematical obfuscation (better than traditional virtualization)
-  - Binary hardening (anti-memory exploits & buffer overflows)
-  - Anti-tampering (page encryption, anti-memory dumping, API hook protection)
-  - Binary diversification (bypasses signature detection)
-- **Modern Windows Compatibility**: Full support for CET, CFG, ACG while preserving exception handling and debug symbols
-- **Proven in Practice**: Successfully protects complex binaries like ntoskrnl, Chromium, and Unity/Unreal Engine games
-
-If you develop Windows applications, games, security tools, or anti-cheat systems that need strong protection, give CodeDefender a try!
-
 ## How to contribute?
 - https://github.com/HyunCafe/contribute-practice
 - https://docs.github.com/en/get-started/quickstart/contributing-to-projects
@@ -910,6 +892,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/xtremegamer1/vmdevirt-vtil
 - https://github.com/oureveryday/VMPUnpacker/tree/master [Unpacker]
 - https://github.com/poppopjmp/VMDragonSlayer [Advanced Virtual Machine Detection and Analysis Framework]
+- https://github.com/notsnakesilent/VMPStatic [A static VMProtect unpacker for PE files, supports VMProtect 1.x–3.x and rebuilding unpacked PE images]
 
 > Fix Themida
 - https://github.com/sodareverse/TDE
@@ -1531,6 +1514,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/L4ys/IDA-WPP-Remover [Remove WPP calls from hexrays decompiled code]
 - https://github.com/0xdea/augur [Augur is a blazing fast IDA Pro headless plugin that extracts strings and related pseudo-code from a binary file]
 - https://github.com/DennyDai/headless-ida [Run IDA scripts headlessly]
+- https://github.com/cpkt9762/ida-cli [Headless IDA Pro MCP server for AI-assisted binary analysis, powered by idalib]
 - https://github.com/gilboz/ida_kernelcache_ng [An IDA Plugin for analyzing iOS kernelcaches]
 - https://github.com/mahmoudimus/ida-taskr [IDA Taskr is a pure Python library for IDA Pro related parallel computing]
 - https://github.com/sigwl/AiDA [An AI-powered assistant for IDA 9.0+ to accelerate reverse engineering of C++ games]
@@ -1669,6 +1653,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/KasperskyLab/WinDbg-JS-Scripts [JS Scripts]
 - https://github.com/DumpAnalysis/WinDbg_Copilot [WinDbg Copilot]
 - https://github.com/eversinc33/drvtrace [Trace driver module transitions]
+- https://github.com/kernullist/windbg-decompile-ext [WinDbg x64 extension that disassembles live functions and uses an LLM to produce verified pseudocode]
 
 > X64DBG Plugins
 - https://github.com/x64dbg/x64dbg/wiki/Plugins
@@ -1983,6 +1968,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 > Vulnerable Driver 
 - https://www.loldrivers.io/drivers [Living Off The Land Drivers]
 - https://github.com/magicsword-io/LOLDrivers [Living Off The Land Drivers]
+- https://github.com/KeServiceDescriptorTable/vulnerable-drivers [Vulnerable drivers for windows machines]
 - https://github.com/ghostbyt3/BYOVDFinder [Identifies LOLDrivers that are not blocked by the active HVCI policy]
 - https://github.com/rtfmkiesel/loldrivers-client [Scan loldrivers]
 - https://github.com/FourCoreLabs/LolDriverScan [Scan loldrivers]
@@ -2107,6 +2093,8 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/andreisss/KslDump [PPL LSASS dump via Defender KslD.sys — legacy on-disk driver, IOCTL 0x222044 + MmCopyMemory read]
 - https://github.com/xM0kht4r/VEN0m-Ransomware [IMFForceDelete.sys]
 - https://github.com/ZeroMemoryEx/CVE-2025-26125 [IMFForceDelete.sys]
+- https://github.com/KeServiceDescriptorTable/cormem.sys-vulnerable-driver [cormem.sys]
+- https://github.com/Muz1K1zuM/PoisonKiller_bof [PoisonX.sys]
 
 > Driver Communication
 - https://github.com/gmh5225/Driver-Communication-List
@@ -2128,6 +2116,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/FarmEquipment69/umap-mapper [NtConvertBetweenAuxiliaryCounterAndPerformanceCounter]
 - https://github.com/0mWindyBug/DataptrHooks [NtConvertBetweenAuxiliaryCounterAndPerformanceCounter]
 - https://github.com/gmh5225/r69-driver [NtQueryAuxiliaryCounterFrequency]
+- https://github.com/KeServiceDescriptorTable/roak [NtQueryAuxiliaryCounterFrequency]
 - https://github.com/weak1337/EvCommunication [NtTokenManagerCreateFlipObjectReturnTokenHandle]
 - https://github.com/gmh5225/Driver-kaldereta [NtTokenManagerGetAnalogExclusiveTokenEvent]
 - https://github.com/UCFoxi/Shared-FlushFileBuffers-Communication [FlushFileBuffers]
@@ -3644,6 +3633,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/Fatmike-GH/Fatpack [A Windows PE packer with full TLS (Thread Local Storage) support]
 - https://github.com/caprinux/rel-fuscate [Modifying the jmprel_entry->r_offset]
 - https://github.com/dobin/SuperMega [Stealthily inject shellcode into an executable]
+- https://github.com/raskolnikov90/Beatrice.py [Modify machine code in binaries with alternative x64 assembly opcodes for AV evasion]
 
 > CLR Protection
 - https://github.com/endgameinc/ClrGuard
@@ -4106,6 +4096,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 > Winows Kernel Dump Analysis
 - https://github.com/gmh5225/Tool-DIYSystemMemoryDump [DIY Dump Type]
 - https://github.com/0vercl0k/kdmp-parser [Python 3 bindings]
+- https://github.com/vmi-rs/ephemera [Multiplatform MEMORY.DMP analysis tool with a WinDbg flavor]
 - https://github.com/mrexodia/dumpulator [Emulating code in minidump files]
 - https://github.com/0vercl0k/symbolizer [Execution trace symbolizer]
 - https://github.com/libyal/libmdmp [Minidump]
