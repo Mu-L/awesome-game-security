@@ -1008,6 +1008,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/intelpt/processor-trace [Intel PT Decoder]
 - https://github.com/gmh5225/Driver-intel-PEBs-LoopHPCs [Intel PEBs]
 - https://github.com/libiht/libiht [Intel Hardware Trace Library]
+- https://github.com/jsacco/NTKernelWalkerLib [User-mode ntoskrnl symbol/struct offset resolver via dbghelp + executable section gadget scanning (e.g., short ROP primitives)]
 - https://github.com/gmh5225/Ark [Tool]
 - https://github.com/gmh5225/ntoskrnl_file_collection [Ntoskrnl Version]
 - https://github.com/gmh5225/win32k_file_collection [Win32k Version]
