@@ -150,6 +150,37 @@ Interceptor.attach(Module.findExportByName("libgame.so", "function_name"), {
 | APatch    | Kernel      | High    | Yes         | Growing       |
 ```
 
+### Managed Dynamic Instrumentation on Rooted Android
+```
+Methodology (KSU/Magisk module + single binary engine):
+- Package injector + loader + agent into one ARM64 binary
+  to reduce footprint and version mismatch risk
+- Expose a local HTTP RPC control plane (127.0.0.1:<port>) for
+  low-latency script management, session listing, and function calls
+- Keep boot path safe: do NOT start instrumentation engine in
+  post-fs-data/service early stage; use delayed manual start after
+  boot_completed to avoid zygote/module startup contention
+
+Injection modes:
+- Attach: ptrace into running process, inject bootstrap shellcode,
+  resolve libc symbols, dlopen agent, then run JS
+- Spawn: zygote-hijack path to pause child at fork and inject before
+  app initialization (covers Application.onCreate / class init)
+- Watch-SO: eBPF-based dlopen monitor that triggers injection when
+  target native library is loaded
+
+Stealth tiers:
+- NORMAL: direct RWX patching (fastest, easiest to detect)
+- WXSHADOW: shadow-page patching to reduce /proc memory visibility
+- RECOMP: function recompile/relocation with minimal inline patch
+
+Operational pattern:
+- Lifecycle commands: start/stop/restart/status
+- Analysis mode: temporarily disable conflicting zygisk modules,
+  reboot, instrument, then restore and reboot back to normal mode
+- Troubleshooting-first logging: keep manager and engine logs separate
+```
+
 ### Root Detection Bypass
 
 #### Common Checks
