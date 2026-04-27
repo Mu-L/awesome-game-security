@@ -4010,6 +4010,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 > Detection:Overlay
 - https://github.com/Oliver-1-1/TOPMOST-Detection [Detect simple top most windows]
 - https://github.com/geeksonsecurity/android-overlay-protection [Android]
+- https://github.com/noahware/winbo [Detecting window hijacking via ETW and GDI table scanning]
 
 > Signature Scanning
 - https://github.com/c3rb3ru5d3d53c/binlex
