@@ -1,0 +1,3 @@
+This project provides guide-zh.
+It is organized as documentation and reference material for the cheat / android file explorer area rather than as a single standalone runtime codebase.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / android file explorer area.

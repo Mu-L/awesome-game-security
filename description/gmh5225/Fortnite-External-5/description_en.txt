@@ -1,0 +1,3 @@
+An external Fortnite cheat with integrated HWID spoofer using FNV-1a hashing for string obfuscation.
+Includes ImGui overlay rendering, disk serial spoofing from a kernel driver, and game memory reading for ESP and aimbot features.
+

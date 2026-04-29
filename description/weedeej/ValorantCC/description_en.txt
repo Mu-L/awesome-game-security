@@ -1,0 +1,3 @@
+This project focuses on crosshair Setting.
+The images, endpoints and other material used in this project are owned by Riot Games.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:valorant area.

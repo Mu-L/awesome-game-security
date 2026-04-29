@@ -1,0 +1,3 @@
+This project is A list of open source game engines.
+**raylib** - A simple and easy-to-use library to enjoy videogames programming.
+It is mainly useful for game developers, engine programmers, and graphics researchers working on rendering and graphics in the game engine / guide area.

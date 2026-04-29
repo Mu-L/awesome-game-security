@@ -1,0 +1,3 @@
+A full source code archive of the original Far Cry 1 game by Crytek.
+Contains the complete CryEngine 1 source including renderer, physics, AI, game logic, and editor code for the 2004 FPS title.
+

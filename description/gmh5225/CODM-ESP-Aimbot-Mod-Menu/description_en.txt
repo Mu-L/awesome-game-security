@@ -1,0 +1,3 @@
+An internal mod menu for Call of Duty Mobile featuring ESP (wallhack), aimbot, and additional gameplay modifications.
+Built as an injectable library targeting the mobile game client with overlay rendering for visual cheats.
+

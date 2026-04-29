@@ -1,0 +1,3 @@
+A tool that converts IDA Pro database content back into linkable object files.
+Reconstructs COFF/ELF object files from IDA analysis data including relocations, symbols, and section content for binary patching and recompilation workflows.
+

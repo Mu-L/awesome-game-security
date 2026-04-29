@@ -1,0 +1,3 @@
+This project focuses on polyHook - x86/x64 Hooking Library Provides abstract C++ 11 interface for various hooking methods.
+Samples: The file Tests.cpp provides examples for every type of hooking method.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / hook area.

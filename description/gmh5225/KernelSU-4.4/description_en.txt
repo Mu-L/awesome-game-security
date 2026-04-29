@@ -1,0 +1,3 @@
+A backport of KernelSU to Android Linux kernel 4.4 for kernel-based root access management.
+Provides su and root access control at the kernel level, integrating with SELinux policy modification and APK signature verification, compiled with Google GCC 4.9.
+

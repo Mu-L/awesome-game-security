@@ -1,0 +1,3 @@
+An internal multihack for the Ironsight FPS game with ESP, aimbot, and miscellaneous features.
+Hooks DirectX rendering for overlay drawing and accesses game SDK structures including entity lists, weapon managers, and world-to-screen transformations.
+

@@ -1,0 +1,1 @@
+This project is a hardware ID (HWID) spoofer for Wizard101 that modifies system identifiers to evade hardware bans. It changes disk serial numbers, MAC addresses, motherboard UUIDs, and other hardware fingerprints that Wizard101's ban system uses to identify banned players. It is aimed at game security researchers studying HWID-based ban systems and spoofing techniques.

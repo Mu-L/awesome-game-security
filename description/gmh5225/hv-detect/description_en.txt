@@ -1,0 +1,3 @@
+This project focuses on hypervisor IDT Detections (SIDT / LIDT.
+Detections are executed inside this environment and everything is restored afterward.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / detection: hacked hypervisor area.

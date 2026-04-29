@@ -1,0 +1,3 @@
+A tool that dumps Valorant's exception handler registration and vectored exception handler chains.
+Extracts and logs the anti-cheat's custom exception handling setup for reverse engineering Vanguard's runtime protection mechanisms.
+

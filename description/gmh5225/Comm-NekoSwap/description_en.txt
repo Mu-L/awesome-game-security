@@ -1,0 +1,3 @@
+A kernel-mode communication driver using swap-based memory operations for stealthy data exchange.
+Implements a covert channel between user-mode and kernel-mode components by leveraging memory page swapping to avoid detection by anti-cheat systems.
+

@@ -1,0 +1,3 @@
+This project focuses on mCP server that provides conversion between hexadecimal and decimal numbers.
+It is primarily written in JavaScript and TypeScript.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / mcp server area.

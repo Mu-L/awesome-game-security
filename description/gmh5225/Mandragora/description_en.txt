@@ -1,0 +1,3 @@
+An educational usermode anti-cheat operating in ring-3 context designed for learning reverse engineering.
+Purposefully weak in difficulty to serve as a follow-up challenge after Assault Cube hacking, with unobfuscated source code suitable for practice reversing.
+

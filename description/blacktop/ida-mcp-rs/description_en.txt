@@ -1,0 +1,3 @@
+This project focuses on headless IDA Pro MCP server.
+It is primarily written in Rust and centers on reverse engineering, modding, and memory analysis.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / mcp server area.

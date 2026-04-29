@@ -1,0 +1,3 @@
+This project focuses on d-810ng (Next Generation) is an evolution of d810 to deobfuscate code at decompilation time.
+It was designed with the following goals in mind.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / fix ollvm area.

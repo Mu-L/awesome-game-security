@@ -1,0 +1,3 @@
+This project focuses on tool.
+ARK is a deep learning framework especially designed for highly optimized performance over distributed GPUs.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / windows kernel explorer area.

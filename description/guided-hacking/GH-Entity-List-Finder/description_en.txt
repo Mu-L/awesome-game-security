@@ -1,0 +1,3 @@
+This project provides scans game processes for most likely entity list addresses.
+The tool supports both x64 and x86 games.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / re tools area.

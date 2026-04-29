@@ -1,0 +1,3 @@
+This project focuses on it can be used with an ahk script just make sure to not cover outlines of the skins with the esp.
+It is primarily written in C/C++ and C++ and centers on rendering, hooking, and memory analysis.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:overwatch2 area.

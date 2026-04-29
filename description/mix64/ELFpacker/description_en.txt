@@ -1,0 +1,1 @@
+ELF32 binary packer that XOR-encrypts the .text section of an executable and prepends a decryption stub that restores the original code at runtime before jumping to the original entry point. Manipulates ELF headers, program headers, and section headers to inject the stub segment while preserving the binary's loadable structure.

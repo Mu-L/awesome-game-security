@@ -1,0 +1,1 @@
+This project is an IDA Pro color theme providing a dark visual scheme. It applies dark background colors with syntax-highlighted foreground elements for comfortable reverse engineering during extended sessions. It is aimed at IDA Pro users preferring dark theme interfaces.

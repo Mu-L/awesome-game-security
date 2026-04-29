@@ -1,0 +1,3 @@
+A reverse engineering toolkit providing streamlined utilities for binary analysis tasks.
+Includes helpers for pattern scanning, memory dumping, structure reconstruction, and other common RE operations.
+

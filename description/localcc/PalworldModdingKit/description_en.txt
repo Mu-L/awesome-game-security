@@ -1,0 +1,3 @@
+This project is a modding kit for Palworld.
+Simple example usage could look like this.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:palworld [ue5] area.

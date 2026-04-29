@@ -1,0 +1,3 @@
+A DMA-based game cheating framework using PCIe hardware devices for direct memory access.
+Reads and writes game process memory through DMA without any software footprint on the target system, bypassing kernel-level anti-cheat detection.
+

@@ -1,0 +1,3 @@
+This project is a loader for LeagueSharp.
+It is primarily written in C# and centers on DirectX and hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:lol area.

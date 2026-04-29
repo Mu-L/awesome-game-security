@@ -1,0 +1,3 @@
+This project focuses on ntUserSetGestureConfig.
+It is primarily written in C/C++ and C++ and centers on driver development, asset pipelines, and hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / driver communication area.

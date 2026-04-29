@@ -1,0 +1,3 @@
+An external ImGui-based mod menu for Android games using OpenGL ES 3.0 rendering.
+Provides Unreal Engine memory tools, math structures, and an overlay service that draws outside the game process via Android's SurfaceView and NDK JNI integration.
+

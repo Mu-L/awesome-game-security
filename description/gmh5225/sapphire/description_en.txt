@@ -1,0 +1,3 @@
+This project is a FINAL FANTASY XIV Server Emulator currently in development.
+This branch is specifically for FFXIV version 3.3.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:rust area.

@@ -1,0 +1,3 @@
+An ImGui integration for Unity games on Android providing in-game overlay menus.
+Renders Dear ImGui interfaces through OpenGL ES within Unity's rendering pipeline for building mod menus and debug interfaces on Android.
+

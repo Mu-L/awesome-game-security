@@ -1,0 +1,3 @@
+This project focuses on quantumstealth open source Fullstealth firmware; Vivado build for M2/Squirrel/Captain 75T/Enigma X1.
+The archive includes source code and project documentation that outline the repository structure and main implementation areas.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / dma area.

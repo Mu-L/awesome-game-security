@@ -1,0 +1,3 @@
+An IDA Pro plugin for generating byte-pattern signatures from selected code regions.
+Creates wildcard-masked signature patterns suitable for runtime pattern scanning in game hacking and binary analysis tools.
+

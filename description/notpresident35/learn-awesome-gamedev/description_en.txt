@@ -1,0 +1,3 @@
+This project provides a Mega-List of learning resources for game creators.
+This list is aimed at learning the craft of game development.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / guide area.

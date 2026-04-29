@@ -1,0 +1,3 @@
+This project is a deobfuscator for java.
+🔧 Contributing Contributions are welcome!
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / re tools area.

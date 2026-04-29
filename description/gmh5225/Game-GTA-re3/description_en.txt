@@ -1,0 +1,3 @@
+A reverse-engineered reimplementation of the GTA III and Vice City game engines (re3/reVC).
+Provides fully decompiled and portable C++ source code of the classic GTA titles with cross-platform support including PS Vita builds via CMake.
+

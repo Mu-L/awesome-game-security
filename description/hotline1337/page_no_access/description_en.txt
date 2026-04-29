@@ -1,0 +1,3 @@
+This project is the pages will be decrypted on their very first access.
+It is primarily written in C++ and centers on modding.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / page protection area.

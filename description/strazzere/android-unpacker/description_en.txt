@@ -1,0 +1,3 @@
+This project focuses on android.
+The tools were created specifically to assist in malware reversing and analysis - be careful.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / sample unpacker area.

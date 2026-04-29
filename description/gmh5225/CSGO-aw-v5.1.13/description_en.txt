@@ -1,0 +1,3 @@
+A leaked version (v5.1.13) of the AW (AimWare) CSGO cheat source code.
+Contains a full-featured CSGO hack implementation including aimbot, visuals, movement, and anti-aim modules with an internal hooking framework.
+

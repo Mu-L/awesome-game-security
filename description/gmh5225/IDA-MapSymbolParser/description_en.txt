@@ -1,0 +1,3 @@
+An IDA Pro plugin that parses MAP files and applies symbol names to the current IDA database.
+Imports function names, global variables, and segment information from linker MAP files to annotate stripped binaries.
+

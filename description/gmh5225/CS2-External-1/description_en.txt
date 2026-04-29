@@ -1,0 +1,3 @@
+An external cheat for Counter-Strike 2 featuring aimbot, ESP visuals, and miscellaneous hacks.
+Built with ImGui for overlay rendering using DirectX 11, reads game memory externally to provide box ESP, skeleton rendering, snaplines, and configurable aimbot targeting.
+

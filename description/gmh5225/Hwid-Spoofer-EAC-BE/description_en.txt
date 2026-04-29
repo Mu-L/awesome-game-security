@@ -1,0 +1,3 @@
+A hardware ID spoofer specifically targeting EasyAntiCheat and BattlEye anti-cheat systems.
+Spoofs disk serials, NIC MAC addresses, and SMBIOS identifiers through kernel-mode driver hooks to evade HWID-based bans in protected games.
+

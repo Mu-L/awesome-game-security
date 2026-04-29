@@ -1,0 +1,3 @@
+This project focuses on obs-studio plugin for csgo.
+It is primarily written in Lua and centers on plugin development.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:csgo area.

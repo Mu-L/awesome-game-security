@@ -1,0 +1,3 @@
+This project is a curated resource collection for injection.
+PRs are welcome to help me maintain and extend this list!
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / injection:windows area.

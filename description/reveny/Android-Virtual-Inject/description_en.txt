@@ -1,0 +1,3 @@
+This project focuses on inject through Virtual Space without root permissions.
+Limitations The injector is not compatible with games protected by anti-cheat mechanisms.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / injection:android area.

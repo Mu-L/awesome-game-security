@@ -1,0 +1,3 @@
+This project focuses on mCP for IDA pro.
+This project provides a bridge between AI assistants and IDA Pro, a popular disassembler and debugger used for reverse engineering software.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / mcp server area.

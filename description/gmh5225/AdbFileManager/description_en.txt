@@ -1,0 +1,1 @@
+Windows GUI file manager built with C#/.NET that browses, copies, and transfers files on Android devices over the ADB protocol, offering faster transfer speeds than standard MTP with a dual-pane Explorer-style interface and multi-language support (English, German, Spanish, Japanese, Polish, Czech).

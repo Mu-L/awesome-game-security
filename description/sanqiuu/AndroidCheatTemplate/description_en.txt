@@ -1,0 +1,3 @@
+This project focuses on unity cheat framwork.
+It is primarily written in C/C++ and C++ and centers on OpenGL, Unity, and hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game engine explorer:unity area.

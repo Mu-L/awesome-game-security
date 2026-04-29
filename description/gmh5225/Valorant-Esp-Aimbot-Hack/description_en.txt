@@ -1,0 +1,3 @@
+This project focuses on status: your time is up to you Update Time: 08/03/2565.
+Eduty is a fully featured internal hack for Valorant written in C++.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:valorant area.

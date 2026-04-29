@@ -1,0 +1,3 @@
+A C++ cheat loader with PHP-based authentication backend for CSGO cheats.
+Includes HWID checking, time-based license validation, and a web panel for managing user access to injected cheat DLLs.
+

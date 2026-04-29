@@ -1,0 +1,1 @@
+This project is the Android kernel source for Motorola Dubai devices based on the SM7325 (Snapdragon 778G) platform. It includes GKI ABI definitions, Qualcomm-specific drivers, and Motorola device tree configurations. It is mainly useful for Android kernel developers and mobile security researchers working with Qualcomm Snapdragon 778G device kernel customization and analysis.

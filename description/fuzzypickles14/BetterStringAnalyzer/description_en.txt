@@ -1,0 +1,3 @@
+This project is a better string analyzer for Ghidra.
+It is primarily written in Java and centers on modding.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ghidra plugins area.

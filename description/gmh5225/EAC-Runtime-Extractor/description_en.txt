@@ -1,0 +1,3 @@
+A DLL that extracts EasyAntiCheat's kernel driver at runtime before it touches disk.
+Uses MinHook to intercept file I/O and driver loading functions, capturing the EAC driver binary as it is loaded into memory for offline analysis.
+

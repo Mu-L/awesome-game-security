@@ -1,0 +1,3 @@
+A CS:GO internal cheat base written in C++ that hooks the game via MinHook, provides an ImGui-based menu framework, and includes engine prediction, glow ESP, and interface resolution through Source engine SDK patterns.
+It implements DirectX surface rendering, game event management, and client/engine interface wrappers for common cheat functionality.
+It is mainly useful for game security researchers studying Source engine cheat architectures, hook techniques, and anti-cheat detection surfaces.

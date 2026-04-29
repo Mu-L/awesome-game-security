@@ -1,0 +1,3 @@
+This project is an IDA Pro Plugin to detect common Anti-Cheat Artifacts.
+⚠️ This plugin is for reverse engineering and academic research only .
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ida plugins area.

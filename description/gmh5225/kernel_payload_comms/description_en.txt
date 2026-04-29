@@ -1,0 +1,3 @@
+This project focuses on shared Memory.
+Bugs will be addressed as soon I've got time available if any are found, all the code in the repo was written in about a morning and an afternoon, so some oversights might be present.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / driver communication area.

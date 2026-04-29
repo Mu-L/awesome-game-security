@@ -1,0 +1,3 @@
+This project is a TRUE call stack spoofer.
+This PoC is the result of a joint research done on the topic of stack spoofing.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / spoof stack area.

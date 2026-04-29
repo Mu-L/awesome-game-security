@@ -1,0 +1,3 @@
+A dynamic security analysis framework for studying runtime protection mechanisms in games and applications.
+Provides instrumentation and monitoring capabilities for analyzing anti-tamper, anti-debug, and integrity check implementations.
+

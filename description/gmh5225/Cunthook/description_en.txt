@@ -1,0 +1,3 @@
+An open-source game hacking framework for Team Fortress 2 and other Source engine games.
+Includes a full SDK with hooks, ESP, aimbot, and various gameplay modifications using the Source engine's internal interfaces and Boost libraries.
+

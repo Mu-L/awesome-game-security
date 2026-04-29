@@ -1,0 +1,3 @@
+A technique for hooking HvlSwitchVirtualAddressSpace to intercept virtual address space switches in the Windows kernel.
+Manipulates CR3 register transitions to hide memory pages from process memory scanning by anti-cheat systems during address space context switches.
+

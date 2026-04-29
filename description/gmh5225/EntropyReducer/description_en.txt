@@ -1,0 +1,3 @@
+A tool that lowers PE binary entropy to evade heuristic detection by AV and anti-cheat scanners.
+Manipulates section padding and data distribution to reduce Shannon entropy scores that would otherwise flag packed or encrypted executables.
+

@@ -1,0 +1,3 @@
+This project focuses on uE Roguelike Game.
+This may affect stability and is not always supporting multiplayer yet until the systems stabilize over time.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

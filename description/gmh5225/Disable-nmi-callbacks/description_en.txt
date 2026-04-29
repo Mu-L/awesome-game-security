@@ -1,0 +1,3 @@
+A kernel driver that disables NMI (Non-Maskable Interrupt) callbacks in the Windows kernel.
+Uses pattern scanning to locate KiNmiInterruptStart-related variables in ntoskrnl.exe and patches processor affinity and NMI state to prevent anti-cheat NMI-based stack walking detections.
+

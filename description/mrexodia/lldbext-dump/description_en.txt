@@ -1,0 +1,1 @@
+LLDB Python extension that creates full-memory minidump files from a live Android debugging session, capturing all mapped memory regions, thread contexts, and module lists into a Windows-compatible minidump format. Includes a companion emulation script for replaying dumps with dumpulator-style Unicorn Engine execution on the captured memory snapshot.

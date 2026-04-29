@@ -1,0 +1,3 @@
+This project focuses on build UE Source.
+It is primarily written in C# and centers on asset pipelines, editor tooling, and plugin development.
+It is mainly useful for tooling developers and reverse engineers working in the game tools area.

@@ -1,0 +1,3 @@
+This project focuses on android App Dynamic Behavior Tracking Tool using eBPF.
+It is primarily written in C/C++ and Go and centers on asset pipelines and modding.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / re tools area.

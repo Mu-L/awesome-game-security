@@ -1,0 +1,3 @@
+This project focuses on fortnite.
+The code will be acompanied by a video series where I take you step-by-step through building themechanics yourself.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

@@ -1,0 +1,3 @@
+This project focuses on qEMU.
+Both AMD and Intel processors are supported.
+It is mainly useful for mobile platform and emulator researchers working in the android emulator area.

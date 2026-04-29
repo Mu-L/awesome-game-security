@@ -1,0 +1,3 @@
+A universal HWID spoofer with ImGui loader interface targeting EAC and BattlEye protected games.
+Supports Fortnite, Warzone, Apex Legends, Rust, and Escape from Tarkov with disk, NIC, SMBIOS, and GPU serial spoofing through kernel-mode operations.
+

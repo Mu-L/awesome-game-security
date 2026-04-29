@@ -1,0 +1,3 @@
+This project focuses on android reverse-engineering tool / smali editor.
+Dalvikus is solely intended for ethical purposes.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / re tools area.

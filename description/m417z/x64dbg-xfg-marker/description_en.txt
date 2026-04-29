@@ -1,0 +1,3 @@
+This project focuses on marks XFG call signatures as data.
+Each signature is 8 bytes long, and is located right before the target function.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / x64dbg plugins area.

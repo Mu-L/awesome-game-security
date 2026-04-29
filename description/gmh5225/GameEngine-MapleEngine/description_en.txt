@@ -1,0 +1,3 @@
+A custom game engine implementation inspired by MapleStory's client architecture.
+Provides rendering, networking, and game logic systems designed for 2D side-scrolling MMORPG development.
+

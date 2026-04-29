@@ -1,0 +1,1 @@
+Single-header C/C++ library for reading and writing process memory on Android devices through /proc/pid/mem, providing a minimal API for runtime memory inspection and modification of target application processes without requiring ptrace attachment.

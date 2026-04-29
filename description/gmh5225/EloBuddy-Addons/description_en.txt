@@ -1,0 +1,3 @@
+A collection of addon scripts for the EloBuddy League of Legends scripting framework.
+Provides champion automation, orbwalker logic, skill-shot prediction, and utility modules for automated LoL gameplay.
+

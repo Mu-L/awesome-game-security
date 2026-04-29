@@ -1,0 +1,3 @@
+This project is licensed under the MIT license.
+It is primarily written in C/C++ and C++ and centers on modding, Unity, and IL2CPP analysis.
+It is mainly useful for live-update and patching workflow developers working in the game hot patch area.

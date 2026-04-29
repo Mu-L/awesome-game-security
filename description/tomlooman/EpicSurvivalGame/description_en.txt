@@ -1,0 +1,3 @@
+This project focuses on uE4 FPS Game.
+The C++ Course features include building of a C++ game framework including an "action system" and event-driven code for flexible and re-usable game code the "unreal way".
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

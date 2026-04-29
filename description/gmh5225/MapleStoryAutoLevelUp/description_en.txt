@@ -1,0 +1,3 @@
+This project is an auto level up script for Maple Story Artale.
+It is primarily written in Python and centers on animation.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:maplestory area.

@@ -1,0 +1,3 @@
+This project focuses on uSB serial number changer (root only.
+It is primarily written in C++ and Java.
+It is mainly useful for low-level Windows, Linux, and mobile researchers working in the some tricks / android area.

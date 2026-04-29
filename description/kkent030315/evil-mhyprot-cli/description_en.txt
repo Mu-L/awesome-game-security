@@ -1,0 +1,3 @@
+This project focuses on mhyprot2.sys.
+What we can do with this CLI is as follows.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / vulnerable driver area.

@@ -1,0 +1,1 @@
+This project is dp701, an IDA Pro theme or color scheme providing a customized visual appearance for the IDA disassembly environment. It applies a distinct color palette to syntax highlighting, background colors, and UI elements for improved readability during reverse engineering sessions. It is aimed at IDA Pro users seeking alternative visual themes.

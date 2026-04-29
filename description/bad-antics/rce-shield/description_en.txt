@@ -1,0 +1,3 @@
+This project focuses on rCE hardening toolkit for PC gamers.
+It detects, prevents, and remediates Remote Code Execution (RCE) vulnerabilities in game launchers, mod loaders, overlay software, voice chat clients, and gaming peripherals.
+It is mainly useful for tooling developers and reverse engineers working in the game tools area.

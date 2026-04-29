@@ -1,0 +1,3 @@
+An external cheat for Call of Duty Warzone featuring ESP, silent aimbot, and full unlock capabilities.
+Built in C# using P/Invoke for kernel32 and user32 functions to read process memory and render overlay visuals.
+

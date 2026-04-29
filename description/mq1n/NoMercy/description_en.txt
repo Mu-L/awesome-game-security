@@ -1,0 +1,3 @@
+This project is the "NoMercy" project is "the gold standard" open source anti-cheat.
+NoMercy is licensed under the MIT License.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / open source anti cheat system area.

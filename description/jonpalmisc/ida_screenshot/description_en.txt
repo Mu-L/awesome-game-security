@@ -1,0 +1,3 @@
+This project focuses on high-resolution screenshot capture plugin for IDA Pro.
+Run make install (assuming you are on macOS or Linux), or otherwise place the screenshot.py file in your IDA user plugins folder.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ida plugins area.

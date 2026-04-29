@@ -1,0 +1,3 @@
+An external Fortnite cheat using EFI (UEFI) runtime services for stealthy memory access.
+Communicates with a UEFI driver through NtSetSystemEnvironmentValueEx to read game memory without loading any Windows kernel driver, bypassing anti-cheat driver detection.
+

@@ -1,0 +1,3 @@
+This project focuses on command line tool for getting the download URL for the latest or specific version of Unity.
+It is primarily written in JavaScript and centers on editor tooling and Unity.
+It is mainly useful for tooling developers and reverse engineers working in the game tools area.

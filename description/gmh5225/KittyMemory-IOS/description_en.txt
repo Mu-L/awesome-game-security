@@ -1,0 +1,3 @@
+A runtime memory editing library for iOS game hacking and modification.
+Provides memory patching, function hooking, and pattern scanning APIs for modifying iOS application behavior at runtime without jailbreak dependency.
+

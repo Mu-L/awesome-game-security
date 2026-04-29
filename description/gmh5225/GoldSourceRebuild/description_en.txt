@@ -1,0 +1,3 @@
+A rebuilt implementation of Valve's GoldSource engine (Half-Life 1 engine).
+Provides decompiled and reconstructed source code of the GoldSource rendering, networking, and game systems for modding and research purposes.
+

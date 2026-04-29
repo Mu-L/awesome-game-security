@@ -1,0 +1,3 @@
+A tool that patches Driver Signature Enforcement (DSE) in the Windows kernel to allow loading unsigned drivers.
+Locates and modifies ci.dll's g_CiOptions variable to disable code integrity validation for kernel-mode driver images.
+

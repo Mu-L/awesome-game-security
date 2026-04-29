@@ -1,0 +1,3 @@
+This project focuses on linux.
+Donations are accepted in BTC and Monero.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:csgo area.

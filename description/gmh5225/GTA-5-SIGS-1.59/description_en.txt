@@ -1,0 +1,3 @@
+A collection of byte-pattern signatures for Grand Theft Auto V version 1.59.
+Includes patterns for World, ReplayInterface, Viewport, Ammo, and Clip game structures used in GTA V cheat and mod development.
+

@@ -1,0 +1,3 @@
+A game modification extending camera control beyond default engine limits.
+Provides adjustable FOV, camera distance, rotation freedom, and additional viewpoint parameters for enhanced gameplay or cinematic creation.
+

@@ -1,0 +1,1 @@
+This project is a Cheat Engine bypass for EasyAntiCheat that enables using Cheat Engine on EAC-protected games. It patches or circumvents EAC's detection of Cheat Engine's process, window class, driver, and memory access patterns to allow memory scanning and editing. It is aimed at game security researchers studying EAC's tool detection mechanisms and bypass techniques.

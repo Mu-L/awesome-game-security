@@ -1,0 +1,3 @@
+This project focuses on open/HarmonyOS abc file parser and decompiler.
+My availability and expertise are limited, so decompilation correctness and future maintenance are NOT guaranteed.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / re tools area.

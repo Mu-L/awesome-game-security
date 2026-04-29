@@ -1,0 +1,3 @@
+This project focuses on rewrote CS1.6.
+If you are experiencing bug on Android, attach an ADB log.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

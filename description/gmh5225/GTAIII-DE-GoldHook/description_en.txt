@@ -1,0 +1,3 @@
+An internal hook-based cheat for Grand Theft Auto III: The Definitive Edition.
+Features ImGui overlay rendering with DirectX hooking for implementing gameplay modifications and visual enhancements in the remastered GTA III.
+

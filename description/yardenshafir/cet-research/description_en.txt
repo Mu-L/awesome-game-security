@@ -1,0 +1,3 @@
+This project focuses on cET.
+It is primarily written in C.
+It is mainly useful for Windows kernel and platform security researchers working in the windows security features area.

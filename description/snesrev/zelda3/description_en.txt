@@ -1,0 +1,3 @@
+This project is a reimplementation of Zelda 3.
+The game is playable from start to end.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

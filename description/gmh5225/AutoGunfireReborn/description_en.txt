@@ -1,0 +1,3 @@
+This project focuses on this project shows how to inject Unity modules during runtime into il2cpp Unity games.
+It is primarily written in C# and centers on modding, Unity, and IL2CPP analysis.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:gunfire reborn area.

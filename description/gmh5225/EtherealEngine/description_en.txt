@@ -1,0 +1,3 @@
+A cross-platform C++ game engine with modular architecture and physically-based rendering.
+Features entity-component system, PBR renderer, asset management pipeline, and editor tools for 3D game and interactive application development.
+

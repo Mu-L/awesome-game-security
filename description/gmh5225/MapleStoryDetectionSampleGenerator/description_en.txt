@@ -1,0 +1,3 @@
+A sample generator for MapleStory cheat detection testing and anti-cheat development.
+Creates synthetic detection samples simulating common MapleStory hacking patterns for training and validating anti-cheat detection algorithms.
+

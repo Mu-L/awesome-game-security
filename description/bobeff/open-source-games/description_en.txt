@@ -1,0 +1,3 @@
+This project provides a list of open source games.
+Commander Keen (1-6, Dreams) and Cosmo's Cosmic series which allows you to play the original episodes and some of the mods made for them.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / guide area.

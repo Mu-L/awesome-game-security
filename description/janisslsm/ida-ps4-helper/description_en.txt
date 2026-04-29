@@ -1,0 +1,3 @@
+This project is a helper plugin for PS4 module loader.
+This is a helper plugin intended for ps4-module-loader.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ida plugins area.

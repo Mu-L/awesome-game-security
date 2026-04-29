@@ -1,0 +1,3 @@
+This project focuses on strip Debug Info.
+It is primarily written in C/C++ and C++ and centers on debugging.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / binary packer area.

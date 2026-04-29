@@ -1,0 +1,3 @@
+A compiled HWID spoofer assembled from publicly available spoofing code snippets.
+Modifies common hardware identifiers including disk serials and network adapter addresses to evade hardware-based game bans.
+

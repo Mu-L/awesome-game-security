@@ -1,0 +1,3 @@
+This project is a modified version of MinHook that only uses the Windows Native API.
+It is primarily written in C/C++ and C and centers on asset pipelines, modding, and hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / hook area.

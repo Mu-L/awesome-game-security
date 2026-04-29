@@ -1,0 +1,1 @@
+This project is a driver mapper that uses Lenovo's vulnerable kernel driver to load unsigned drivers into kernel memory. It exploits the Lenovo driver's memory access IOCTLs for the manual mapping pipeline. It is aimed at kernel researchers studying BYOVD-based driver mapping through Lenovo driver exploitation.

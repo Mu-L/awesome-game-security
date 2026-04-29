@@ -1,0 +1,3 @@
+An internal cheat DLL for Dota 2 built on the Source 2 engine SDK with subhook-based function hooking.
+Provides gameplay modifications through VMT hooking and pattern scanning against Dota 2's client and engine modules.
+

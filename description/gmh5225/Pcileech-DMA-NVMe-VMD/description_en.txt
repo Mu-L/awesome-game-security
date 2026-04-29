@@ -1,0 +1,3 @@
+This project focuses on firmware real camouflage through motherboard VMD function.（Pcileech-DMA）.
+A Windows reinstall may be required for proper driver initialization and device recognition.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / dma area.

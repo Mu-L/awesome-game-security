@@ -1,0 +1,3 @@
+This project focuses on header-only compile-time variables obfuscation library for C++20 and later.
+Decryption uses SIMD instructions (AVX2/SSE2/NEON) at runtime, making static analysis considerably more complicated.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / encrypt variable area.

@@ -1,0 +1,3 @@
+A collection of Frida instrumentation scripts for dynamic analysis of games and applications.
+Provides JavaScript-based hooks for intercepting function calls, tracing API usage, and modifying runtime behavior on Android, iOS, and desktop platforms.
+

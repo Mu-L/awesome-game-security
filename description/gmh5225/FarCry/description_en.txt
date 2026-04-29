@@ -1,0 +1,3 @@
+A source code repository of the Far Cry game engine and game logic components.
+Includes CryEngine source code with rendering pipeline, entity system, script bindings, and level design tools.
+

@@ -1,0 +1,3 @@
+A leaked source of the Nixware CSGO cheat client featuring comprehensive game manipulation capabilities.
+Includes aimbot, ESP, movement hacks, and skin changer functionality built on a full CSGO SDK with ImGui overlay rendering.
+

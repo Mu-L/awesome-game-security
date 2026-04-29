@@ -1,0 +1,1 @@
+This project is a configuration guide or plugin for using IDA Pro's Bochs debugger backend on Windows. It sets up IDA to debug binaries through Bochs emulation, enabling full-system debugging including kernel-mode code analysis through Bochs's software CPU emulation. It is aimed at IDA Pro users needing Bochs-based emulation debugging on Windows.

@@ -1,0 +1,3 @@
+This project is an advanced utility that lets you explore the Windows Object Manager namespace.
+However, administrative privileges are required to view much of the namespace and to edit object-related security information.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / windows ring0 callback area.

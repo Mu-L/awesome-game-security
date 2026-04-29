@@ -1,0 +1,3 @@
+A bypass for Genshin Impact's anti-cheat protection system (EasyPeasy/mhyprot2).
+Disables or circumvents the mhyprot2.sys kernel driver's integrity checks and detection mechanisms to allow running modified game clients.
+

@@ -1,0 +1,3 @@
+A custom or modified MapleStory game client implementation.
+Provides client-side game rendering, network protocol handling, and user interface for connecting to MapleStory private servers.
+

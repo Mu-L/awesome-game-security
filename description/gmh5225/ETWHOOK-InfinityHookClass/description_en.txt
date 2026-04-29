@@ -1,0 +1,3 @@
+A C++ wrapper class for the InfinityHook ETW-based system call hooking technique.
+Provides a clean object-oriented interface for intercepting Windows syscalls by manipulating the ETW tracing infrastructure without modifying the SSDT.
+

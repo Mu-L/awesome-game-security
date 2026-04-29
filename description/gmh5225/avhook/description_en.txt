@@ -1,0 +1,3 @@
+This project focuses on aVhook AVhook is a training software designed for Counter-Strike: Global Offensive for Windows.
+AVhook includes some joke features like.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:csgo area.

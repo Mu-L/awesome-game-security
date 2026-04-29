@@ -1,0 +1,1 @@
+This project is a port of the Tenet execution trace explorer plugin updated for IDA Pro 9.0 compatibility. It provides the same trace timeline visualization and forward/backward execution stepping as the original Tenet but with API updates for the IDA 9.0 SDK. It is aimed at reverse engineers using IDA Pro 9.0 who need execution trace analysis capabilities.

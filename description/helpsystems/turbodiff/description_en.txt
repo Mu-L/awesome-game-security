@@ -1,0 +1,3 @@
+This project focuses on diff.
+It discovers and analyzes differences between the functions of two binaries.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ida plugins area.

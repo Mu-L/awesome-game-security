@@ -1,0 +1,3 @@
+A kernel-mode hardware ID spoofer that modifies disk, NIC, GPU, and SMBIOS serial identifiers.
+Works by hooking driver dispatch functions and directly patching physical memory to alter hardware fingerprints reported to anti-cheat systems, tested on Windows 10.
+

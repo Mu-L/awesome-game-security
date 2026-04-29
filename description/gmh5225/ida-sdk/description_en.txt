@@ -1,0 +1,1 @@
+This project is a mirror or collection of IDA Pro SDK files for plugin development. It provides the C++ header files, library files, and documentation needed to develop IDA Pro plugins and processor modules across multiple IDA versions. It is aimed at IDA Pro plugin developers who need SDK files for building custom analysis tools and extensions.

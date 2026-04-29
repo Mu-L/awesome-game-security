@@ -1,0 +1,3 @@
+This project is the latest version of Valorant Cheat with enhanced security.
+A website that I created to introduce myself from start to finish.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:valorant area.

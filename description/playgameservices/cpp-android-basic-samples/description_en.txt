@@ -1,0 +1,3 @@
+This project focuses on sample games using the Google Play Games C++ SDK.
+(Optional) On some versions of Windows it is helpful to map the samples folder to a shortened path.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

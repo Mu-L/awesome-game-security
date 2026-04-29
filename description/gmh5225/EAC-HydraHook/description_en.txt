@@ -1,0 +1,3 @@
+A hooking framework targeting EasyAntiCheat's Hydra kernel-to-usermode communication channel.
+Intercepts and suppresses EAC detection reports transmitted through the Hydra protocol to prevent ban reports from reaching the anti-cheat backend.
+

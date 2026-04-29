@@ -1,0 +1,3 @@
+A collection of memory addresses and offsets for the Chinese MapleStory (CMS) version 95 client.
+Documents client-side function pointers, structure offsets, and hook points for CMS v95 modding and private server development.
+

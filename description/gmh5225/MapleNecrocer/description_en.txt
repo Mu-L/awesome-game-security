@@ -1,0 +1,3 @@
+A C# MapleStory GM (Game Master) client replacing the older Delphi 32-bit version.
+Features 64-bit support, _Canvas WZ file parsing, skeleton animation and particle systems, auto-detection of WZ region versions, and improved WZ library compatibility.
+

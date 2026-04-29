@@ -1,0 +1,3 @@
+A generated SDK dump of Counter-Strike 2's Source 2 engine classes and enums.
+Contains auto-generated C++ header files for animation system, client, engine2, network system, scene system, schema system, and other Source 2 modules produced by source2gen.
+

@@ -1,0 +1,3 @@
+This project focuses on mono Dump + DMA.
+NOTE ON THIS FORK: The original Unispect branch by Razchek has a bug where Memory Plugins are not disposed after dumping.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game engine explorer:unity area.

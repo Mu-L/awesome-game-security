@@ -1,0 +1,3 @@
+This project focuses on perf.
+It can be used to profile android applications.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / android kernel explorer area.

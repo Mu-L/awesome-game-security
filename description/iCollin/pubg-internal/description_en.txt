@@ -1,0 +1,3 @@
+This project focuses on code is by no means pretty.
+This is a reference to learn about the game.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:pubg area.

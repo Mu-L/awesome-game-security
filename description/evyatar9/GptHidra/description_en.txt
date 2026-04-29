@@ -1,0 +1,3 @@
+This project focuses on chatGPT.
+An explanation of the selected function will be printed to the Ghidra console.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ghidra plugins area.

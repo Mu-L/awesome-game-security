@@ -1,0 +1,3 @@
+This project focuses on this esp exploits a vulnerability in the Vanguard driver to load it before it does.
+Instructions Build and inject with any kernel injector The driver is for non pasters.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:valorant area.

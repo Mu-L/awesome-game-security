@@ -1,0 +1,3 @@
+This project is a repository listed under anti cheat / game engine protection:unity and centers on unity3 d obfuscator.
+It is primarily written in C# and centers on Unity and debugging.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / game engine protection:unity area.

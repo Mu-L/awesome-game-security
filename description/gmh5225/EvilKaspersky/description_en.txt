@@ -1,0 +1,3 @@
+A tool abusing Kaspersky's signed kernel-mode drivers for unauthorized privileged operations.
+Leverages trusted Kaspersky driver capabilities to execute kernel code while appearing as legitimate antivirus activity to security software.
+

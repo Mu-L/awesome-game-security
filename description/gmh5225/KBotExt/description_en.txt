@@ -1,0 +1,3 @@
+A Telegram bot extension framework with automated scripting and control capabilities.
+Provides a programmable bot interface for managing automated tasks, message handling, and remote control operations through the Telegram API.
+

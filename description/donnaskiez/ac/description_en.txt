@@ -1,0 +1,3 @@
+An open-source Windows kernel anti-cheat driver implementing multiple detection vectors including NMI-based stack walking, APC/DPC stack analysis, .text integrity checks, handle stripping via object callbacks, and chained data pointer detection.
+It features attached thread detection, return address exception hook detection, system module device object verification, and process handle table enumeration for identifying suspicious access patterns.
+It is mainly useful for anti-cheat engineers and game security researchers studying kernel-level cheat detection techniques and building defensive anti-cheat systems.

@@ -1,0 +1,1 @@
+Linux kernel module and userspace library for directly reading and modifying all page-table levels (PGD, PUD, PMD, PTE) of any process from user space on x86_64 and ARMv8. Supports virtual-to-physical address translation, PAT/MAIR memory type programming, NX bit manipulation, and TLB flushing, with a companion Windows kernel driver for cross-platform use.

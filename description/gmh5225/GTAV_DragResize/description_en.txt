@@ -1,0 +1,3 @@
+A GTA V mod that enables drag-to-resize functionality for in-game UI windows and elements.
+Modifies the game's rendering and input handling to allow resizing of overlay windows and HUD components.
+

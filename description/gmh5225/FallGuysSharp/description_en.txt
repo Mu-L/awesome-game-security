@@ -1,0 +1,3 @@
+A C# cheat for Fall Guys: Ultimate Knockout targeting the Unity/IL2CPP game runtime.
+Provides movement hacks and gameplay modifications through managed code injection into the IL2CPP runtime environment.
+

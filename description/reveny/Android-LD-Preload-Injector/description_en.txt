@@ -1,0 +1,3 @@
+This project focuses on android-LD-Preload-Injector Use LD-Preload to Inject a shared library on any android version and architecture Injector is Dead, not working anymore.
+Build and Installation Android Studio is required.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / injection:android area.

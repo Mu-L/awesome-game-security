@@ -1,0 +1,3 @@
+This project is an automatic tool for fixing dumped PE files for decompilation.
+It modifies the PE's headers such that a decompiler, or other static analysis tools, will be able to load the file correctly and without errors.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / dump fix area.

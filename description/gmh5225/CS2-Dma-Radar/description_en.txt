@@ -1,0 +1,3 @@
+A DMA-based radar hack for Counter-Strike 2 that reads game memory via PCIe DMA hardware.
+Extracts player positions and game state through direct memory access without running any software on the target machine, displaying a real-time radar overlay.
+

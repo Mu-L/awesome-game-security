@@ -1,0 +1,1 @@
+This project is a game automation bot for Battlerite, a team arena brawler. It reads game state through memory access or screen recognition and automates gameplay actions including ability casting, targeting, and movement. It is aimed at game automation researchers studying bot development for arena combat games.

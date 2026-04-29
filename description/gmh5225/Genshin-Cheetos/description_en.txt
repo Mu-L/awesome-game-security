@@ -1,0 +1,3 @@
+A Genshin Impact cheat tool codenamed Cheetos with client-side gameplay modifications.
+Implements speed hacks, teleportation, infinite stamina, and other exploits through memory manipulation of the miHoYo Unity game client.
+

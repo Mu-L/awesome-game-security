@@ -1,0 +1,3 @@
+An internal cheat for League of Legends using DirectX 11 rendering hooks.
+Features spell database generation, champion data parsing, ImGui overlay with custom font rendering, and named pipe communication for external tool integration.
+

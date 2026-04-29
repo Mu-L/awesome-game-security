@@ -1,0 +1,3 @@
+A MapleStory v186 (JMS - Japanese MapleStory) server emulator.
+Implements game server logic including character management, quest systems, combat mechanics, and world simulation for hosting private MapleStory servers.
+

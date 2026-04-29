@@ -1,0 +1,3 @@
+An external cheat for Rainbow Six Siege using shared memory communication with a kernel driver.
+Reads game entities, player positions, and rendering data externally through a mapped memory section for ESP and aimbot features.
+

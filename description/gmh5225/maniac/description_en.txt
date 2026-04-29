@@ -1,0 +1,3 @@
+This project focuses on external.
+(Don't use the -debug version unless you are encountering issues and want debug information.) Start osu.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:osu area.

@@ -1,0 +1,3 @@
+A collection of hooking scripts targeting Unity IL2CPP game runtimes on Android.
+Provides Frida and native hook templates for intercepting IL2CPP method calls, modifying game logic, and extracting runtime data from IL2CPP-compiled Unity games.
+

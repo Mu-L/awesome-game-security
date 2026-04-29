@@ -1,0 +1,3 @@
+This project is a POC for monitoring Tb.
+It is primarily written in C++ and centers on asset pipelines.
+It is mainly useful for low-level Windows, Linux, and mobile researchers working in the some tricks / windows ring0 area.

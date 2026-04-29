@@ -1,0 +1,3 @@
+A signed kernel driver project designed to bypass Windows Driver Signature Enforcement (DSE).
+Leverages a legitimately signed driver certificate to load kernel code without triggering DSE validation failures.
+

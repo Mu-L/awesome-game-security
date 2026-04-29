@@ -1,0 +1,3 @@
+An internal cheat for Fortnite version 3.50 built as an injectable DLL.
+Features memory aimbot, ESP visuals, and a zgui-based in-game menu, requiring a user-generated Unreal Engine SDK placed alongside the source.
+

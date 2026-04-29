@@ -1,0 +1,3 @@
+An internal cheat for Counter-Strike: Global Offensive with ImGui-based menu rendering.
+Features a full SDK with entity structures, weapon data, and rendering primitives for implementing ESP, aimbot, and visual modifications.
+

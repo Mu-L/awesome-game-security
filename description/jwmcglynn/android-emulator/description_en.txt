@@ -1,0 +1,3 @@
+This project provides android emulator.
+It centers on emulation.
+It is mainly useful for mobile platform and emulator researchers working in the android emulator area.

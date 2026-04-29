@@ -1,0 +1,3 @@
+A reconstructed or leaked source representation of EasyAntiCheat components for security research.
+Contains internal detection routines, driver communication protocols, and client-side integrity validation logic used by EAC.
+

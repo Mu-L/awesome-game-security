@@ -1,0 +1,3 @@
+A base framework for building Genshin Impact cheats and modifications.
+Provides core memory access patterns, SDK structures, and hook templates targeting the miHoYo Unity/IL2CPP game runtime.
+

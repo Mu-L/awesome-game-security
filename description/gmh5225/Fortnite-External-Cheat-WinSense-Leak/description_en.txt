@@ -1,0 +1,3 @@
+A leaked and updated version of the WinSense Fortnite external cheat.
+Features KeyAuth-based license authentication, ImGui DirectX 9 overlay, kernel driver communication, and encrypted API calls using CryptoPP for anti-tamper protection.
+

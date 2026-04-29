@@ -1,0 +1,3 @@
+An internal PUBG cheat DLL that hooks the DirectX 11 Present function using MinHook to render an in-game overlay with text rendering via FW1FontWrapper (a DirectWrite-based D3D11 text library).
+The DLL is injected into the PUBG process, intercepts IDXGISwapChain::Present to insert custom draw calls, and uses the FW1FontWrapper library for high-quality GPU-accelerated text rendering of ESP information directly in the game's rendering pipeline.
+It is mainly useful for game security researchers studying internal D3D11 Present-hook cheat architectures with MinHook-based function interception and DirectWrite overlay rendering.

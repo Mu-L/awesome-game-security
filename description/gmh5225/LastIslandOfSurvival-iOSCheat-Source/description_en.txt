@@ -1,0 +1,3 @@
+An iOS cheat source for Last Island of Survival (Last Day Rules) mobile game.
+Implements gameplay modifications through Objective-C runtime manipulation targeting the iOS game client.
+

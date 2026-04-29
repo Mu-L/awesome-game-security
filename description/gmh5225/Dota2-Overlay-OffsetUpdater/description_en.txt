@@ -1,0 +1,3 @@
+An offset update utility for a Dota 2 overlay cheat that fetches current memory offsets from a remote server.
+Automatically downloads and applies updated offsets as Dota 2 patches change internal data structures, keeping the overlay functional across game updates.
+

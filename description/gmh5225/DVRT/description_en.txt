@@ -1,0 +1,3 @@
+A dynamic value resolution table implementation for runtime address resolution in game hacking.
+Provides a framework for maintaining and updating memory offsets dynamically as game modules are loaded or relocated.
+

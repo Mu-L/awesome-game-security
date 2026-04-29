@@ -1,0 +1,3 @@
+A MapleStory private server emulator implementing game server functionality.
+Handles player authentication, character progression, quest management, party systems, and world simulation for hosting custom MapleStory gameplay.
+

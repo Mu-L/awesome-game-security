@@ -1,0 +1,3 @@
+This project focuses on hidden QEMU.
+The "QEMU keyboard" for example is then renamed to "ASUS keyboard".
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / qemu/kvm/pve/vbox area.

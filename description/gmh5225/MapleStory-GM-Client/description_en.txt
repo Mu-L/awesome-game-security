@@ -1,0 +1,3 @@
+A MapleStory Game Master client with admin-level functionality for private servers.
+Provides map editing, NPC spawning, item creation, and other GM commands through a specialized client interface for server administration.
+

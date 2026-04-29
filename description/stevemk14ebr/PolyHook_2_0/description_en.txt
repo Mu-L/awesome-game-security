@@ -1,0 +1,3 @@
+This project focuses on packaging PolyHook2 is available on vcpkg.
+It is primarily written in C++ and centers on Unity and hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / hook area.

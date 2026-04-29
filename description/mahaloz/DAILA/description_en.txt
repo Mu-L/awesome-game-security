@@ -1,0 +1,3 @@
+This project focuses on chatGPT.
+If you are looking for the paper repo, find it here.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ida plugins area.

@@ -1,0 +1,3 @@
+A plugin that adds custom theme and skin support to IDA Pro's user interface.
+Enables CSS-like styling of IDA's Qt-based GUI elements including disassembly views, hex editor, and output windows for personalized appearance.
+

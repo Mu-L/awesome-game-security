@@ -1,0 +1,3 @@
+This project focuses on typeScript and Frida UE4dumper.
+But it is more modular, and uses C++ to get offsets, making it easier to read and modify.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game engine explorer:unreal area.

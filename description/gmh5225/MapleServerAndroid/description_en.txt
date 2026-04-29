@@ -1,0 +1,3 @@
+A MapleStory private server implementation designed to run on Android devices.
+Provides server-side game logic, character management, and world simulation for hosting MapleStory gameplay on mobile platforms.
+

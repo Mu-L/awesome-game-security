@@ -1,0 +1,3 @@
+This project focuses on hacked Hypervisor Testing AMD.
+Here's how AetherVisor's features are implemented.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / stress testing area.

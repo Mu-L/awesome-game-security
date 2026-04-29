@@ -1,0 +1,3 @@
+This project is a simple mixed-boolean-arithmetic (MBA) generator witten in python.
+It is primarily written in Python.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / mixed boolean-arithmetic area.

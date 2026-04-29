@@ -1,0 +1,3 @@
+This project focuses on macOS Port of the Xbox 360 Emulator.
+Lurking is not only fine, but encouraged!
+It is mainly useful for console emulator developers and Xbox researchers working in the xbox area.

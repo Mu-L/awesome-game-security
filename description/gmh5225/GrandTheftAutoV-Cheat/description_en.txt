@@ -1,0 +1,3 @@
+A cheat implementation for Grand Theft Auto V with mod menu and gameplay modifications.
+Provides money hacks, vehicle spawning, teleportation, and player modifications through GTA V's scripting and memory manipulation.
+

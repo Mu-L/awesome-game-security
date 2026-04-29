@@ -1,0 +1,3 @@
+This project focuses on vAC hook.
+As always, PR's are welcome!
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / explore anticheat system:vac area.

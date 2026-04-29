@@ -1,0 +1,3 @@
+An IDA Pro productivity plugin adding convenience features for reverse engineering workflows.
+Provides auto-relocation jumping during debugging, memory dumping to file, ASCII/HEX/BASE64 paste to memory, RVA copying, and jump-to-address without rebasing the IDB.
+

@@ -1,0 +1,1 @@
+Rust-based HTTP server for jailbroken iOS devices that exposes process memory operations—enumeration, region listing, reading, pattern scanning, and result filtering—through a REST API on port 3030, enabling remote memory analysis from a connected PC using the included Python sample client.

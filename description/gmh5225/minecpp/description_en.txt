@@ -1,0 +1,3 @@
+This project is a minecraft server backend written in c++.
+The currently supported version of Minecraft is 1.19 .
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:minecraft area.

@@ -1,0 +1,3 @@
+An Unreal Engine-based game cheat targeting "Witch It" and "POLYGON" multiplayer games.
+Uses signature scanning to locate UObject arrays and engine structures, providing in-game modifications with configurable pattern matching for different game targets.
+

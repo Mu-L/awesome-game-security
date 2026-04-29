@@ -1,0 +1,3 @@
+This project focuses on c++ 2D/3D.
+It centers on Unity.
+It is mainly useful for game developers, engine programmers, and graphics researchers working in the game engine / source area.

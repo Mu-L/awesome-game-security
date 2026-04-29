@@ -1,0 +1,3 @@
+This project focuses on source Engine serverside anti-cheat plugin.
+It is primarily written in C/C++ and C++ and centers on anti-cheat research, plugin development, and SDK generation.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / game engine protection:source area.

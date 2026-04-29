@@ -1,0 +1,1 @@
+Memflow connector implemented as a Linux kernel module that maps KVM virtual machine physical pages directly into userspace, enabling fast cross-VM memory introspection without standard KVM APIs. The kernel module uses page-table walking and vmtools to expose guest memory through ioctl-based character device interfaces with Rust userspace bindings.

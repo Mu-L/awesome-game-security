@@ -1,0 +1,3 @@
+This project focuses on wsftprm.sys.
+The vulnerability is triggered via IOCTL code 0x22201C with a 1036-byte buffer where the first 4 bytes contain the target Process ID as a DWORD.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / vulnerable driver area.

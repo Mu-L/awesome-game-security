@@ -1,0 +1,3 @@
+A collection of Microsoft debug symbols (PDB files) for Windows system components.
+Provides pre-downloaded symbol files for ntoskrnl, CI.dll, and other kernel-mode binaries used in kernel reverse engineering and driver development.
+

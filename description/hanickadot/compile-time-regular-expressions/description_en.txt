@@ -1,0 +1,3 @@
+This project focuses on compile Time Regular Expression in C++.
+If you are using cmake, you can add this directory as subdirectory and link to target ctre.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / compile time area.

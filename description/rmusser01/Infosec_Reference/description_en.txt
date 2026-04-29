@@ -1,0 +1,3 @@
+This project focuses on game Hacking.
+Full support by Biden and his administration as well shows that this is not some partisan issue(Those who claim so, don't be a useful idiot).
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / guide area.

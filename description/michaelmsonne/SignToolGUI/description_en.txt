@@ -1,0 +1,1 @@
+Windows Forms GUI wrapper around Microsoft's signtool.exe supporting three signing modes: Windows Certificate Store (thumbprint), PFX file, and Azure Trusted Signing (via Azure.CodeSigning SDK). Includes certificate monitoring, timestamp server management, signing validation, batch multi-file signing, and PowerShell script export for CI/CD integration.

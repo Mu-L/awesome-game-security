@@ -1,0 +1,3 @@
+A proof-of-concept exploiting the Kernel Security Support Provider Interface (KSecDD.sys) for arbitrary kernel code execution.
+Injects a DLL into LSASS to use IOCTL_KSEC_IPC_SET_FUNCTION_RETURN, which allows executing arbitrary kernel addresses, then disables DSE by overwriting ci.dll!g_CiOptions.
+

@@ -1,0 +1,3 @@
+A curated list of Microsoft-acknowledged vulnerable kernel drivers for BYOVD research.
+Documents signed Windows drivers with known exploitable vulnerabilities in their IOCTL interfaces, useful for driver exploitation and Bring Your Own Vulnerable Driver attack research.
+

@@ -1,0 +1,3 @@
+A debug and cheat tool for Elden Ring providing access to hidden game parameters and developer features.
+Enables stat editing, item spawning, teleportation, no-clip, and other debug functionalities in the FromSoftware open-world action RPG.
+

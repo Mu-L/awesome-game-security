@@ -1,0 +1,1 @@
+Model Context Protocol (MCP) server for IDA Pro that exposes the full IDAPython API surface to AI agents, enabling automated binary analysis tasks like function renaming, type annotation, cross-reference queries, decompilation, and struct creation. Includes comprehensive IDAPython documentation, an installable IDA plugin, and a test framework for validating MCP tool behavior.

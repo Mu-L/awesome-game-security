@@ -1,0 +1,3 @@
+A Direct Kernel Object Manipulation (DKOM) tool leveraging the Capcom.sys driver's ring-0 code execution.
+Uses the Capcom IOCTL (0xAA013044) to execute shellcode payloads in kernel mode via MmGetSystemRoutineAddress for resolving kernel APIs.
+

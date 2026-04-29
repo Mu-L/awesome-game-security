@@ -1,0 +1,3 @@
+A process memory dumper adapted for League of Legends' anti-cheat protections.
+Based on Process Dump with modifications to handle LoL's code encryption, supporting hidden module discovery, loose code chunk extraction, and import reconstruction with clean-hash filtering.
+

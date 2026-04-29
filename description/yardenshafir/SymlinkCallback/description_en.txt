@@ -1,0 +1,3 @@
+This project focuses on symlinkCallback.
+It modifies the symlink object and replaces the LinkTarget string with a callback function which will be called whenever the symlink is accessed.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / windows ring0 callback area.

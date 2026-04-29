@@ -1,0 +1,3 @@
+This project focuses on aPatch modules.
+It is primarily written in C/C++ and C and centers on kernel-level work, modding, and debugging.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / android root area.

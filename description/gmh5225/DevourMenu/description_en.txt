@@ -1,0 +1,3 @@
+An in-game mod menu for the co-op horror game Devour built with Unity IL2CPP hooks.
+Provides toggleable gameplay modifications through an ImGui-style overlay menu injected into the game process.
+

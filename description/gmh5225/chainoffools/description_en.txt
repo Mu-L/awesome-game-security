@@ -1,0 +1,3 @@
+This project focuses on cVE.
+It is primarily written in Python.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / sign tools area.

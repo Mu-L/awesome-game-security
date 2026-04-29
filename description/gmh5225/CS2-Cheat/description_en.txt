@@ -1,0 +1,3 @@
+An internal cheat implementation for Counter-Strike 2 with gameplay modification features.
+Provides ESP, aimbot, and miscellaneous hack functionality built on top of the Source 2 engine SDK.
+

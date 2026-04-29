@@ -1,0 +1,3 @@
+A comprehensive curated list of game hacking resources including disassemblers, debuggers, hex editors, memory scanners, .NET decompilers, graphics debuggers, and reverse engineering tutorials organized by tool type.
+It covers Cheat Engine, x64dbg, IDA Pro, Ghidra, dnSpy, RenderDoc, and dozens of other tools alongside game-specific hacking guides, libraries, and frameworks.
+It is mainly useful for game security researchers and reverse engineers seeking a centralized reference for game hacking tools, techniques, and educational resources.

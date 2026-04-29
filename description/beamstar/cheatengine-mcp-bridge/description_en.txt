@@ -1,0 +1,3 @@
+This project focuses on mCP for Cheat Engine.
+If you need help, remember that support and guidance are available through the community channels.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / mcp server area.

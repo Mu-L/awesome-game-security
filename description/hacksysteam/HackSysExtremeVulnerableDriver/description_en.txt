@@ -1,0 +1,3 @@
+This project provides guide.
+It has been developed for security researchers and enthusiasts to improve their skills in kernel-level exploitation.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / vulnerable driver area.

@@ -1,0 +1,3 @@
+A tool that applies fake Authenticode signatures to PE binaries to bypass signature verification checks.
+Crafts certificate data structures that pass superficial validation while not being cryptographically valid, useful for evading signature-presence checks.
+

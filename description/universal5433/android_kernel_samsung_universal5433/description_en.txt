@@ -1,0 +1,1 @@
+Samsung Galaxy kernel source for the Exynos 5433 SoC platform (used in devices such as the Galaxy Note 4 and Galaxy Alpha), providing a full Linux 3.10-era kernel tree with Samsung-specific board support, ARM big.LITTLE scheduling, and proprietary driver integrations for display, camera, and modem subsystems relevant to Android kernel-level security research.

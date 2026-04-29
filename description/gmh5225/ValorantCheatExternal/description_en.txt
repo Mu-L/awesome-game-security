@@ -1,0 +1,1 @@
+This project is an external Valorant cheat that reads game memory through a kernel driver without injecting into the game process. It provides ESP and aimbot features by externally reading UE4 entity data while bypassing Vanguard's injection detection. It is aimed at anti-cheat researchers studying external Valorant cheat architecture.

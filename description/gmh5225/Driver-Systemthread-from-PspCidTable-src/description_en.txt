@@ -1,0 +1,4 @@
+This repository contains the source code accompanying a tutorial on removing a system thread or related process handles from `PspCidTable`.
+The implementation covers two linked approaches: removing a target process handle table via `ExRemoveHandleTable` and destroying process or thread handles from `PspCidTable` while also zeroing selected CID fields to avoid immediate bug checks.
+It includes a large set of build-specific offsets for `EPROCESS`, `ETHREAD`, `PspCidTable`, and related routines, which makes the project more of an offset-driven research reference than a generic reusable library.
+It is mainly useful for Windows kernel researchers studying handle-table and CID-table manipulation techniques for hiding processes or system threads across specific kernel builds.

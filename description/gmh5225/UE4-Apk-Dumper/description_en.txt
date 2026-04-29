@@ -1,0 +1,1 @@
+This project is a tool for dumping Unreal Engine 4 SDK data from Android APK games. It extracts UObject class hierarchies, property offsets, and function pointers from UE4 mobile game processes on Android for use in mobile game cheat development. It is aimed at mobile game reverse engineers generating UE4 SDKs from Android game packages.

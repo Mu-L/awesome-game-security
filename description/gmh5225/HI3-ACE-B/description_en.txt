@@ -1,0 +1,3 @@
+A bypass tool for Honkai Impact 3rd's ACE (Anti-Cheat Engine) protection system.
+Circumvents the game's integrity checks and detection mechanisms to allow running modified clients or third-party tools.
+

@@ -1,0 +1,3 @@
+This project focuses on various versions of ntoskrnl files.
+The archive includes source code and project documentation that outline the repository structure and main implementation areas.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / windows kernel explorer area.

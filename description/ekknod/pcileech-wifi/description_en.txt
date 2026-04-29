@@ -1,0 +1,3 @@
+This project focuses on pcileech-fpga with wireless card emulation.
+It centers on anti-cheat research.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / dma area.

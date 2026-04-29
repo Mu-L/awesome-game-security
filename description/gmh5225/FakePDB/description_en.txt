@@ -1,0 +1,3 @@
+A tool that generates fake PDB (Program Database) files for executables lacking debug symbols.
+Creates synthetic symbol information from IDA analysis results, enabling source-level debugging and symbol resolution in tools that consume PDB files.
+

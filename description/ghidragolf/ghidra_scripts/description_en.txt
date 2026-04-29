@@ -1,0 +1,3 @@
+This project focuses on scripts.
+Competitors developed Ghidra Scripts to solve CTF challenges based on common Reverse Engineering problems in an automated fashion.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ghidra plugins area.

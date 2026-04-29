@@ -1,0 +1,3 @@
+This project generates Backup Copies.
+If a monitored file is about to be changed, deleted or renamed, a backup copy of the file is performed before the operation begins.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / backup file area.

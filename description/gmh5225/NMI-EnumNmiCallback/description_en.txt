@@ -1,0 +1,3 @@
+This project focuses on enumerate NMI.
+It is primarily written in C++ and C/C++.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / windows kernel explorer area.

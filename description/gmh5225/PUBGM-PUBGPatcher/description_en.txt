@@ -1,0 +1,3 @@
+This project is a repository listed under cheat / game:pubgm and centers on pubgm pubgpatcher.
+It is primarily written in C/C++ and Java and centers on networking, asset pipelines, and modding.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:pubgm area.

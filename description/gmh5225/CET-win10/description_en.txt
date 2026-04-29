@@ -1,0 +1,3 @@
+A research project exploring Intel Control-flow Enforcement Technology (CET) support on Windows 10.
+Investigates shadow stack and indirect branch tracking mechanisms as implemented by the Windows kernel for forward-edge and backward-edge CFI protection.
+

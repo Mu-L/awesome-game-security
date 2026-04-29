@@ -1,0 +1,3 @@
+This project focuses on uE5 Roll a Ball Game.
+It centers on asset pipelines, editor tooling, and modding.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

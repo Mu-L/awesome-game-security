@@ -1,0 +1,1 @@
+This project is a CS2 (Counter-Strike 2) cheat or tool named Tim Apple that interacts with the Source 2 engine. It provides game modification features through Source 2 SDK interaction, pattern scanning, or memory access techniques specific to CS2. It is aimed at game security researchers studying CS2 cheat implementations.

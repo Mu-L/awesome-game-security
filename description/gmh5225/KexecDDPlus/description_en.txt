@@ -1,0 +1,3 @@
+An enhanced version of KExecDD that extends the LSASS-based kernel code execution technique.
+Improves upon the KSecDD.sys IOCTL exploitation method with additional capabilities for DSE bypass and arbitrary kernel memory manipulation.
+

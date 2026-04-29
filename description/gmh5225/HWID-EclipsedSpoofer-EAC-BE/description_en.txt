@@ -1,0 +1,3 @@
+A hardware ID spoofer named Eclipsed targeting EasyAntiCheat and BattlEye protected games.
+Modifies disk serials, NIC addresses, and other hardware identifiers at the kernel level to circumvent HWID-based game bans.
+

@@ -1,0 +1,3 @@
+This project focuses on oBS Hook.
+After that, all you have to do is replace the pointer ( the old way ).
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / overlay area.

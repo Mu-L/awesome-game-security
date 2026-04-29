@@ -1,0 +1,3 @@
+This project focuses on string Crypter for Swift.
+Another possible solution is to use two files.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / compile time area.

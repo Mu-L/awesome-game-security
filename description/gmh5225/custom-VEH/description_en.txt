@@ -1,0 +1,3 @@
+This project focuses on register VEH by hooking RtlpCallVectoredHandlers.
+This is a library allowing you to create custom vectored exception handlers that're faster than normal ones, and run before any vanilla handlers do.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / windows ring3 callback area.

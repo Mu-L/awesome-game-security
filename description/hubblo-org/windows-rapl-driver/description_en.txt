@@ -1,0 +1,3 @@
+This project focuses on windows driver to get RAPL metrics from a bare metal machine.
+It should say "WindowsKernelModeDriver10.0".
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / detection:hwid area.

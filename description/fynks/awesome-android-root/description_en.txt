@@ -1,0 +1,3 @@
+This project is a curated resource collection for android root.
+For Android 14/15: Play Integrity is stricter.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / android root area.

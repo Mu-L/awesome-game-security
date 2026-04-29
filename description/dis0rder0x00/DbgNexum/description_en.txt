@@ -1,0 +1,3 @@
+A proof-of-concept shellcode injector that uses the Windows Debugging API and shared memory (file mapping) to inject payloads without calling WriteProcessMemory, VirtualAllocEx, or ReadProcessMemory.
+It attaches as a debugger, sets hardware breakpoints, and manipulates thread context registers to orchestrate a chain of API calls inside the target process that map and execute the shellcode.
+It is mainly useful for security researchers studying advanced injection techniques that evade EDR detection by avoiding traditional memory manipulation APIs.

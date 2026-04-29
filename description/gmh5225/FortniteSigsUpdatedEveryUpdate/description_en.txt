@@ -1,0 +1,3 @@
+A maintained repository of Fortnite byte-pattern signatures updated with each game patch.
+Contains signatures for UWorld, GObjects, FnFree, GetNameByIndex, and other Unreal Engine internals with pattern mask notation for cheat offset resolution.
+

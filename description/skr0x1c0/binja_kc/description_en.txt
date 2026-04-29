@@ -1,0 +1,3 @@
+This project focuses on plugin for loading MachO kernelcache and dSYM files.
+This plugin can load symbols and type information from multiple dSYM files contained in the KDK to the corresponding kernelcache opened in Binary Ninja.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / binary ninja plugins area.

@@ -1,0 +1,3 @@
+A comprehensive HWID spoofer (version 6) supporting disk, NIC, GPU, SMBIOS, and registry-based hardware ID modification.
+Uses a kernel driver loaded via KdMapper with an ImGui GUI for one-click permanent hardware ID spoofing across AMD and Intel platforms on Windows 10/11.
+

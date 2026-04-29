@@ -1,0 +1,3 @@
+This project focuses on sDK.
+This SDK has been written as simplified as possible and kept as close as possible to Source 2 code supporting both DirectX11 and Vulkan graphical APIs.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:cs2 area.

@@ -1,0 +1,3 @@
+This project focuses on command and Conquer: Red Alert.
+This release provides support to the Steam Workshop for the game.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

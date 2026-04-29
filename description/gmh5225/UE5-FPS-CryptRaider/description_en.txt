@@ -1,0 +1,3 @@
+This project focuses on uE5 FPS Game.
+It is primarily written in C++ and C/C++ and centers on editor tooling and modding.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

@@ -1,0 +1,3 @@
+This project provides CSGO guide.
+This guide is divided into five main parts.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / guide area.

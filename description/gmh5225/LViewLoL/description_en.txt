@@ -1,0 +1,3 @@
+An external League of Legends viewing tool providing real-time game state visualization.
+Reads LoL game memory externally to display minimap information, player positions, cooldown tracking, and other game data in a separate overlay.
+

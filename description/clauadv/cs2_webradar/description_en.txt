@@ -1,0 +1,3 @@
+This project focuses on undetected counter strike 2 browser based radar cheat.
+It is primarily written in C++ and JavaScript and centers on asset pipelines, modding, and Unity.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:cs2 area.

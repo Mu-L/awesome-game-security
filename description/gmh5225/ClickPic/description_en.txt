@@ -1,0 +1,3 @@
+A screen pixel color detection and auto-click tool for game automation.
+Monitors specified screen regions for target pixel colors and triggers automated mouse input when matches are found.
+

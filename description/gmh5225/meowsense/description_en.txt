@@ -1,0 +1,3 @@
+This project is a free cheat for multiple different games.
+Pull requests are welcome.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:overwatch2 area.

@@ -1,0 +1,3 @@
+This project focuses on yuzu based repository.
+This is an unofficial mirror fork of the original repository.
+It is mainly useful for console emulator developers and Switch researchers working in the nintendo switch area.

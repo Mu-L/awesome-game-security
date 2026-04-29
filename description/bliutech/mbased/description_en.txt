@@ -1,0 +1,3 @@
+This project focuses on practical Simplifications of Mixed Boolean-Arithmetic Obfuscation.
+It serves the purpose of making code more difficult to analyze, protecting software from reverse engineering and tampering.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / mixed boolean-arithmetic area.

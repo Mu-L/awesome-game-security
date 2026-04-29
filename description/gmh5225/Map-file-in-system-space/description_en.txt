@@ -1,0 +1,3 @@
+A kernel-mode technique for mapping files directly into system address space using internal NT functions.
+Demonstrates using MmCreateSection and other undocumented APIs to map file contents into kernel memory without standard file I/O, useful for stealthy driver loading.
+

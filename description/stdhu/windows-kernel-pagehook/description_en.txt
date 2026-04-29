@@ -1,0 +1,3 @@
+This project focuses on pTE Hook.
+Under the Windows kernel, the kernel address is shared, but since the cr3 of each process is different.
+It is mainly useful for low-level Windows, Linux, and mobile researchers working in the some tricks / windows ring0 area.

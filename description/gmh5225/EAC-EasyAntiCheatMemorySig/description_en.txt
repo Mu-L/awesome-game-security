@@ -1,0 +1,3 @@
+A documented collection of memory signatures that EasyAntiCheat scans for when detecting cheat tools.
+Lists byte patterns EAC uses to identify known cheat frameworks, injectors, and hack modules in process memory.
+

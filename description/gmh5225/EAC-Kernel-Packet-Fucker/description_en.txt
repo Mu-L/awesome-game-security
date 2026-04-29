@@ -1,0 +1,3 @@
+A kernel-mode bypass that prevents EasyAntiCheat from sending detection packets to its backend servers.
+Hijacks EAC's dynamically imported ExAllocatePoolWithTag by modifying a writable section pointer, causing kernel-mode violation reports (size 33096 bytes) to silently fail allocation and be discarded.
+

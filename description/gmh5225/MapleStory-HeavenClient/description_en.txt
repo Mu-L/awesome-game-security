@@ -1,0 +1,3 @@
+A custom MapleStory client (HeavenClient) built from scratch for private server connectivity.
+Implements the MapleStory game protocol, rendering engine, and UI system as an open-source alternative to the official client.
+

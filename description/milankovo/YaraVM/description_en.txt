@@ -1,0 +1,1 @@
+IDA Pro processor module and loader for disassembling compiled YARA rule binaries (.yar.bin), enabling static analysis of YARA bytecode and regex bytecode within the IDA environment. Parses the YARA arena-based file format (namespaces, rules, strings, code sections, AC transition tables) and provides a custom type information library (libyara.til) for struct annotation.

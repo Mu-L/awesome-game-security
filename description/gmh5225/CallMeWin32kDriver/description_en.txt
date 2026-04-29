@@ -1,0 +1,3 @@
+A driver loader that loads unsigned kernel drivers using the win32k.sys session driver loading mechanism.
+Originally analyzed from a PUBG cheat driver, provides protection against direct memory dumps by anti-rootkit tools and bypasses MmCopyMemory-based detection.
+

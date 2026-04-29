@@ -1,0 +1,3 @@
+This project focuses on rust x86.
+HOOK is a mechanism that intercepts function calls and handles them by user-defined code.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / hook area.

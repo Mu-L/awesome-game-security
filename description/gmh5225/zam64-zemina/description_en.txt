@@ -1,0 +1,1 @@
+This project exploits the Zemana anti-malware driver (zam64.sys) for kernel operations. The Zemana driver's IOCTL interface allows process termination and memory access, making it a known BYOVD target for killing security processes. It is aimed at BYOVD researchers studying Zemana driver exploitation.

@@ -1,0 +1,1 @@
+Python framework for emulating x86/x64 code directly from Windows minidump files using Unicorn Engine, reconstructing the process memory layout, thread contexts, loaded modules, and handle table from dump streams. Provides NT syscall stubs, PEB/TEB emulation, and API hooking to execute arbitrary functions from the dump's address space without a live process.

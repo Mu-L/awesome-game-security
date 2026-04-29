@@ -1,0 +1,3 @@
+This project focuses on uE4 VTuber.
+It centers on physics, animation, and asset pipelines.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / source area.

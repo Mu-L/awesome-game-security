@@ -1,0 +1,1 @@
+Cross-platform GUI application for flashing Google Pixel phones that supports bootloader unlocking, factory and OTA image flashing, Magisk/KernelSU/APatch rooting, boot image patching, and backup management, distributed as a self-contained Python-built executable requiring no runtime dependencies on the host system.

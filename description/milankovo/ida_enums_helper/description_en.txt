@@ -1,0 +1,1 @@
+IDA Pro plugin that streamlines enum management in the Hex-Rays pseudocode view, providing hotkey-driven actions to rename enum members (N), add values to existing or new enums (A), and quickly append to the last-used enum (Shift-A). Uses idaapi.tinfo_t ordinal iteration and chooser dialogs to match numeric operands against existing enum definitions.

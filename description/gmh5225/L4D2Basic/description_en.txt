@@ -1,0 +1,3 @@
+A basic cheat framework for Left 4 Dead 2 providing foundational Source engine hook structures.
+Implements core hooking mechanisms, engine interface resolution, and basic cheat features as a starting template for Source engine game hacking.
+

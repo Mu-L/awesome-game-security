@@ -1,0 +1,3 @@
+This project focuses on header only.
+It is primarily written in C/C++ and C++.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / detection:memory integrity area.

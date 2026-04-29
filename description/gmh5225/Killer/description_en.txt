@@ -1,0 +1,3 @@
+A kernel-mode tool for terminating processes that resist normal termination methods.
+Uses kernel driver capabilities to forcefully end protected or anti-cheat-guarded processes by manipulating kernel process structures.
+

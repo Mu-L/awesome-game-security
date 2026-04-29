@@ -1,0 +1,3 @@
+This project is the focus is on understanding Windows internals, system identifiers, and controlled modification patterns for research and education.
+It is primarily written in C/C++ and C++ and centers on modding and memory analysis.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / hwid area.

@@ -1,0 +1,3 @@
+A mirror or fork of the CRYENGINE game engine source code by Crytek.
+Contains the full engine source including renderer, physics, audio, AI, animation, and editor components for AAA game development.
+

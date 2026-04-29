@@ -1,0 +1,3 @@
+This project focuses on mCP for Roblox Studio.
+It exposes Roblox Studio actions as tools over MCP (using Server-Sent Events - SSE).
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / mcp server area.

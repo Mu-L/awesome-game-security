@@ -1,0 +1,3 @@
+This project is a repository listed under 3d graphics and centers on nv graphics mesa.
+It centers on graphics.
+It is mainly useful for graphics programmers, technical artists, and engine developers working in the 3d graphics area.

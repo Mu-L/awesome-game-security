@@ -1,0 +1,3 @@
+This project focuses on for Android.
+Instrumentation is based on library injection and hooking function entry points (in-line hooking).
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / dynamic binary instrumentation area.

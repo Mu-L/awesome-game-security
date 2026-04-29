@@ -1,0 +1,3 @@
+A cheat project for Escape from Tarkov providing ESP, aimbot, and loot visualization.
+Reads Unity game memory to extract player positions, item data, and ballistic information for rendering overlay visuals in the EFT client.
+

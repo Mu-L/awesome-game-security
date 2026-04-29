@@ -1,0 +1,3 @@
+A leaked source of the Masterpasta/iHack Fortnite internal cheat with engine-rendered visuals.
+Uses Microsoft Detours for hooking, direct UObject array access, bone matrix projection, and GetViewpoint for camera-space calculations.
+

@@ -1,0 +1,1 @@
+Usermode tool that detects EPT (Extended Page Table) hooks set by hypervisors using three independent methods: timing-based detection measuring execution latency discrepancies, write-and-compare checks that write to code pages and verify if the hypervisor silently redirects reads, and cross-thread consistency checks comparing code views across CPU cores.

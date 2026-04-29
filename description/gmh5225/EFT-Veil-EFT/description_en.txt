@@ -1,0 +1,3 @@
+An Escape from Tarkov cheat framework codenamed Veil providing comprehensive gameplay modifications.
+Implements ESP, aimbot, and radar functionality through memory access to the EFT Unity game client.
+

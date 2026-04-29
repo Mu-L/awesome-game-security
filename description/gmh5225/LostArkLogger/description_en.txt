@@ -1,0 +1,3 @@
+A network packet logger for Lost Ark that captures and decodes game protocol traffic.
+Intercepts client-server communication to log game events, item transactions, combat data, and other protocol messages for analysis.
+

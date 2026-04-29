@@ -1,0 +1,3 @@
+An IDA Pro plugin that imports Linux kernel symbols from /proc/kallsyms into an IDA database.
+Automatically renames functions and data labels in kernel binary analysis using the kallsyms symbol table for faster reverse engineering of Linux kernel modules.
+

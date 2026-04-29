@@ -1,0 +1,1 @@
+Microsoft's all-inline SIMD C++ linear algebra library providing SSE/SSE2/AVX/AVX2/ARM-NEON optimized vector, matrix, quaternion, and collision detection primitives (BoundingBox, BoundingSphere, BoundingFrustum). Includes extensions for F16C half-float conversion, FMA3/FMA4, spherical harmonics (SHMath), and DSP functions (XDSP).

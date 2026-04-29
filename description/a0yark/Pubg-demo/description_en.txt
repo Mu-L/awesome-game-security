@@ -1,0 +1,4 @@
+This project is an external cheat demo for PUBG built with C++ and the Unreal Engine SDK.
+It includes a dumped CppSDK with generated class headers, bone helper utilities for skeleton rendering, an ESP and aimbot framework, and an ImGui-based DirectX 11 overlay for rendering.
+The DLL-injected cheat module handles game memory reading and visual overlays through a separate rendering pipeline.
+It is mainly useful for game security researchers studying Unreal Engine SDK-based cheat architectures and external overlay techniques.

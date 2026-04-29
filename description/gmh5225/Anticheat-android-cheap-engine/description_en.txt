@@ -1,0 +1,3 @@
+This project focuses on sample implementation of anti-cheat in android.
+It is primarily written in C++ and C/C++ and centers on anti-cheat research.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / open source anti cheat system area.

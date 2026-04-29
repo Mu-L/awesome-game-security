@@ -1,0 +1,3 @@
+A Genshin Impact cheat client based on the Akebi framework with Grasscutter server support.
+Provides teleportation, god mode, speed hacks, and auto-play features by manipulating the Unity game client and custom server communication.
+

@@ -1,0 +1,3 @@
+A DLL injection tool that decrypts League of Legends' protected .text code section.
+Dumps the decrypted executable code to enable static analysis in disassemblers like IDA Pro, requiring manual base address input for proper disassembly.
+

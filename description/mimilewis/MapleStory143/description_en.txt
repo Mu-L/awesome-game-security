@@ -1,0 +1,1 @@
+Java/Kotlin private server emulator for MapleStory v143 (CMS), implementing the full game server stack including login encryption (LoginCrypto), packet handling via Netty/MINA, character stat management, skill/buff systems, monster spawning, quest scripting (Nashorn), and a server-side anti-cheat tracker (CheatTracker) with offense categorization.

@@ -1,0 +1,3 @@
+An undetected external Fortnite cheat with anti-cheat bypass capabilities.
+Implements stealthy memory reading techniques designed to evade BattlEye and EasyAntiCheat detection while providing ESP and aimbot features.
+

@@ -1,0 +1,3 @@
+This project focuses on claude-3 models assistant.
+The plugin integrates with IDA Pro and provides an interactive chat interface where users can ask questions, seek guidance, and receive intelligent suggestions to support their reverse engineering workflow.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ida plugins area.

@@ -1,0 +1,3 @@
+A kernel-mode HWID spoofer that modifies hardware identifiers through driver dispatch hook interception.
+Spoofs disk serial numbers, MAC addresses, SMBIOS data, and GPU identifiers by hooking IRP_MJ_DEVICE_CONTROL handlers of storage and network drivers.
+

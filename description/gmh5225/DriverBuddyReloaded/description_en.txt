@@ -1,0 +1,3 @@
+An IDA Pro plugin that assists in reverse engineering Windows kernel drivers.
+Automates identification of IOCTL dispatch routines, IRP handler functions, known vulnerable driver patterns, and provides annotations for common Windows driver development structures.
+

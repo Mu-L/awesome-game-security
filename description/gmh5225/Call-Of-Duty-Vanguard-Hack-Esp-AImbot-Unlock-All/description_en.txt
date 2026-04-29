@@ -1,0 +1,3 @@
+An external cheat for Call of Duty Vanguard/Warzone with ESP, aimbot, and unlock-all features.
+Uses Win32 API calls (ReadProcessMemory, OpenProcess) for external memory access with a DirectX overlay for rendering visual hack elements.
+

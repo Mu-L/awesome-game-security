@@ -1,0 +1,3 @@
+This project focuses on yOLOv8 training project for MapleStory object detection using Apple MPS acceleration.
+It is primarily written in Python and centers on modding.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:maplestory area.

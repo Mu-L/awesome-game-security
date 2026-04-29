@@ -1,0 +1,3 @@
+A reverse-engineered source representation of EasyAntiCheat for security research purposes.
+Contains reimplemented detection routines, driver communication code, and integrity validation logic derived from analysis of EAC binaries.
+

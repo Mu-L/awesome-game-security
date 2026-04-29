@@ -1,0 +1,3 @@
+This project focuses on c# support and WYSIWYG editor.
+It centers on editor tooling.
+It is mainly useful for game developers, engine programmers, and graphics researchers working in the game engine / source area.

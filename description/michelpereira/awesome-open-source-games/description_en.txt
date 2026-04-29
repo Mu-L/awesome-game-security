@@ -1,0 +1,1 @@
+Curated awesome-list of open-source games organized by platform (browser, mobile, desktop) and genre (arcade, FPS, RPG, strategy, puzzle), covering engines like Godot, Unity, and custom implementations across C++, JavaScript, Python, and other languages.

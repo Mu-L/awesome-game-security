@@ -1,0 +1,3 @@
+This project focuses on piDqSerializationWrite.
+It is primarily written in C++ and centers on Unity.
+It is mainly useful for low-level Windows, Linux, and mobile researchers working in the some tricks / windows ring0 area.

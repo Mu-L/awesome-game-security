@@ -1,0 +1,1 @@
+This project is a tool for creating Windows system memory dumps (similar to crash dumps) from a live running system. It captures physical memory contents into a dump file format compatible with WinDbg and Volatility for offline forensic analysis. It is aimed at incident responders and forensic analysts who need to create memory dumps from live Windows systems for investigation.

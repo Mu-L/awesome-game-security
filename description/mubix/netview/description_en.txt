@@ -1,0 +1,3 @@
+This project is a enumeration tool.
+It uses (with the -d) the current domain or a specified domain (with the -d domain) to enumerate hosts.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / information system & forensics area.

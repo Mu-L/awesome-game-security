@@ -1,0 +1,3 @@
+This project focuses on mCP for Ghidra.
+By implementing the Model Context Protocol, this extension allows external AI assistants, automated analysis tools, and custom scripts to seamlessly interact with Ghidra's analysis capabilities.
+It is mainly useful for game developers, reverse engineers, and tooling builders working in the game develop / mcp server area.

@@ -1,0 +1,3 @@
+This project focuses on pak extracting tool.
+This tool is tailored for versions before the 1.1.0 update, as post-update changes in encryption algorithms are not currently supported.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:pubgm area.

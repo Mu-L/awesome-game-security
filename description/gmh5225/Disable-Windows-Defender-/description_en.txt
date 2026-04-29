@@ -1,0 +1,3 @@
+A tool that disables Windows Defender with integrated UAC bypass and SYSTEM privilege escalation.
+Manipulates privilege tokens and leverages COM-based UAC bypass techniques to gain elevated access, then disables real-time protection and tamper protection services.
+

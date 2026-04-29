@@ -1,0 +1,3 @@
+A kernel driver designed to remain undetected by EasyAntiCheat's driver scanning.
+Implements memory read/write operations through a communication channel that avoids EAC's known detection vectors for kernel-mode cheats.
+

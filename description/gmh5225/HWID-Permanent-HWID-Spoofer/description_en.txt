@@ -1,0 +1,3 @@
+A permanent hardware ID spoofer that persists spoofed identifiers across system reboots.
+Modifies firmware-level hardware identifiers through kernel driver or registry manipulation, maintaining spoofed values without requiring re-execution.
+

@@ -1,0 +1,3 @@
+A template for building external cheat menus using ImGui with SDL and OpenGL backends.
+Demonstrates hooking SDL_GL_SwapWindow for overlay rendering with proper GL context management to avoid flickering artifacts.
+

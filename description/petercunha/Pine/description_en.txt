@@ -1,0 +1,3 @@
+This project focuses on neural Network.
+This software can be tweaked to work smoothly in CS:GO, Fortnite, and Overwatch.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / triggerbot & aimbot area.

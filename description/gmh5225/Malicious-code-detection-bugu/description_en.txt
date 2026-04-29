@@ -1,0 +1,3 @@
+A malicious code detection platform (Bugu) built with Go and gRPC microservices.
+Provides file upload, hash verification, and automated malware analysis through a Protobuf-defined API with both gRPC and HTTP endpoints for malware scanning.
+

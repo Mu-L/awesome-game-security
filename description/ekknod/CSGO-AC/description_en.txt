@@ -1,0 +1,3 @@
+This project focuses on proof of concept Anti-Cheat plugin for CS:GO.
+It is primarily written in C++ and C/C++ and centers on anti-cheat research and plugin development.
+It is mainly useful for anti-cheat engineers and defensive security researchers working in the anti cheat / open source anti cheat system area.

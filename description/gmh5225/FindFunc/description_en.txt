@@ -1,0 +1,3 @@
+An IDA Pro plugin that searches for functions matching specific byte pattern criteria or characteristics.
+Allows filtering functions by instruction sequences, operand types, cross-references, and other properties to quickly locate target functions during reverse engineering.
+

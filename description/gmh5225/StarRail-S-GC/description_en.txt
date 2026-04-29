@@ -1,0 +1,3 @@
+This project focuses on simple cheat for Honkai Star Rail This repository provides code for a simple cheat for the game Honkai Star Rail.
+It is primarily written in C/C++ and C++ and centers on Unity and hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:honkai star rail area.

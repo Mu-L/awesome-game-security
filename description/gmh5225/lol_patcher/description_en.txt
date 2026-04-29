@@ -1,0 +1,3 @@
+This project is an old game mod designed for League of Legends.
+This tool has not been updated since February 2020 and was made purely for experimentation and fun.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:lol area.

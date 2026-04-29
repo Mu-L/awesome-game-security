@@ -1,0 +1,3 @@
+This project is a jailbreak detection bypass for modern iOS jailbreaks.
+Shadow is not guaranteed to work on all apps, but here are some ideas to try.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / ios jailbreak area.

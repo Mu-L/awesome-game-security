@@ -1,0 +1,3 @@
+A code injection technique using Memory Mapped Files (MMF) for stealthy DLL loading.
+Maps executable code into target process address space through shared file mappings, avoiding conventional DLL injection detection methods.
+

@@ -1,0 +1,3 @@
+This project focuses on d3D9.
+It is primarily written in C/C++ and C++ and centers on hooking.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / game:tgame area.

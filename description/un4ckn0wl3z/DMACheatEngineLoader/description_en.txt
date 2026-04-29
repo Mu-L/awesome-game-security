@@ -1,0 +1,3 @@
+This project focuses on cheatEngine DMA, not open-source.
+Instead of complex configurations, you can achieve DMA compatibility by simply copying your existing Cheat Engine installation into the provided DMACE folder.
+It is mainly useful for game security researchers and reverse engineers studying offensive techniques working in the cheat / dma area.

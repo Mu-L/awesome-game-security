@@ -1,0 +1,3 @@
+A memory reading library providing cross-process memory access primitives for game hacking.
+Implements various methods for reading remote process memory from user mode, serving as a base for building external game cheats.
+
