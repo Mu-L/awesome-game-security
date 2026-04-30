@@ -1637,6 +1637,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/Rantanen/ghidra-minidump-loader [Windows Minidump loader for Ghidra]
 - https://github.com/jtang613/GhidrAssistMCP [An MCP extension for Ghidra]
 - https://github.com/poppopjmp/VMDragonSlayer [Advanced Virtual Machine Detection and Analysis Framework]
+- https://github.com/westfox-5/GhidraMetrics [A Ghidra plugin for native code metrics]
 
 > Radare Plugins
 - https://github.com/radareorg/r2a [local language model for radare2]
