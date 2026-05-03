@@ -810,6 +810,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/zodiacon/QuickAsm [x86/x86 assembler and emulator]
 - https://github.com/aqilc/chasm [Chasm Runtime Assembler]
 - https://github.com/skylot/jadx [Dex to Java decompiler]
+- https://github.com/fatalSec/DaliVM [Dalvik bytecode emulator for Android static analysis; string decryption; Multi-DEX; no Android runtime required]
 - https://github.com/narumii/Deobfuscator [A deobfuscator for java]
 - https://github.com/google/android-classyshark [Android and Java bytecode viewer]
 - https://github.com/marin-m/vmlinux-to-elf [vmlinux to elf]
