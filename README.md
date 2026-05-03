@@ -519,6 +519,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 
 > AI Agents
 - https://github.com/0xeb/windbg-copilot [WinDbg Copilot - Agentic Debugging extension]
+- https://github.com/leigest519/OpenGame [Open agentic coding for web games end-to-end from prompts; Game Skill (template + debug); GameCoder-27B; OpenGame-Bench; qwen-code-based CLI]
 
 
 ## Game Assets
