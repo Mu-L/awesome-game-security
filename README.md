@@ -1620,6 +1620,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/danbrodsky/GFred [Command Palette]
 - https://github.com/Nalen98/AngryGhidra [Use angr in Ghidra]
 - https://github.com/justfoxing/ghidra_bridge [Python 3 bridge to Ghidra's Python scripting]
+- https://github.com/0xeb/libghidra [Typed API for Ghidra program databases from C++/Python/Rust; functions, types, memory, decompiler; LibGhidraHost HTTP extension or offline Sleigh backend]
 - https://github.com/astrelsky/GhidraOrbis [Orbis OS specific software and file formats]
 - https://github.com/astrelsky/Ghidra-Cpp-Class-Analyzer [C++ Class and Run Time Type Information Analyzer]
 - https://github.com/DMaroo/GhidRust [Rust decompiler]
