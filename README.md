@@ -839,6 +839,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/mandiant/GoReSym [Go symbol recovery tool]
 - https://github.com/PartialVolume/shredos.x86_64 [Disk Eraser]
 - https://github.com/ssnob/hidden_syscall_monitoring [monitors hidden syscalls called from call of duty anticheat]
+- https://github.com/xaitax/NTSleuth [Comprehensive Windows syscall extraction and analysis framework]
 - https://github.com/cansarigol/pdbr [pdb + Rich library]
 - https://github.com/microsoft/pdb-rs [Tools and documents for working with Microsoft PDB files, in Rust]
 - https://github.com/roger1337/JDBG [Java Runtime Reverse Engineering and Debugging Tool]
@@ -4217,6 +4218,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - [Simple program to stream offsets for your game cheat](https://github.com/gmh5225/OffsetStreaming)
 - https://github.com/jnastarot/HIGU_ntcall [Direct System Calls]
 - https://github.com/SilentisVox/DoomSyscalls [Indirect syscalls: dynamic SSN and syscall-instruction resolve; return-address spoof via ntdll gadgets; userland hook / RIP-return evasion research]
+- https://github.com/xaitax/NTSleuth [Comprehensive Windows syscall extraction and analysis framework]
 - https://github.com/rbmm/LockFile-Poc [Lock File]
 - https://github.com/EvilBytecode/IDontLikeFileLocks [Dump locked files by stealing memory-mapped section handle]
 - [A kernel exploit leveraging NtUserHardErrorControl to elevate a thread to KernelMode and achieve arbitrary kernel R/W & more](https://github.com/gmh5225/ANGRYORCHARD)
