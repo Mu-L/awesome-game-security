@@ -242,6 +242,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 > Game Engine Plugins:Godot
 - https://github.com/libriscv/godot-sandbox [Sandboxing that enables safe modding for Godot games]
 - https://github.com/gtibo/Godot-Plush-Character [3D Plush Character for Godot 4.x]
+- https://github.com/allenwp/godot-resource-remaps [Godot editor export plugin for remapping resources by feature tags]
 
 > Game Engine Plugins:Lumix
 - https://github.com/nem0/lumixengine_maps [Map downloader]
