@@ -777,6 +777,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/msd0pe-1/cve-maker [Tool to find CVEs and Exploits]
 - https://github.com/mentebinaria/retoolkit [Reverse Engineer's Toolkit]
 - https://github.com/stevemk14ebr/RETools
+- https://github.com/smallworld-re/smallworld [Environment for streamlined binary harnessing for dynamic analysis]
 - https://github.com/BataBo/ACEPatcher [.NET Patcher]
 - https://github.com/waryas/KACE [Emulate Drivers in RING3 with self context mapping or unicorn]
 - https://github.com/Qfrost911/KACE [Emulate Drivers in RING3 with self context mapping or unicorn]
