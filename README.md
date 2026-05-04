@@ -1321,6 +1321,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/checkra1n
 - https://github.com/opa334/TrollStore [jailed app]
 - https://github.com/paradiseduo/IPAPatch [Patch iOS Apps without Jailbreak]
+- https://github.com/Nirad-Maharaj/Disable-Call-Recording-BookRestore- [iOS file-exploit based tool to disable call-recording notifications without jailbreak]
 - https://github.com/34306/mdc0 [CVE-2025-24203]
 - https://github.com/jailbreakdotparty/dirtyZero [CVE-2025-24203]
 - https://github.com/rooootdev/lara [WIP darksword kexploit implementation; iOS 17.1.1-26.0.1 tested; includes font overwrite, app bypass, file manager, and DirtyZero2 experiments]
