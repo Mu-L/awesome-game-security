@@ -492,6 +492,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/GLips/Figma-Context-MCP [Cursor Talk To Figma MCP server]
 - https://github.com/gmh5225/hex2dec-mcp [MCP server that provides conversion between hexadecimal and decimal numbers]
 - https://github.com/signal-slot/mcp-gdb [MCP for GDB]
+- https://github.com/jtang613/gdb-mcp [Lightweight MCP server for GDB automation (FastMCP, SSE, gdb-command proxy)]
 - https://github.com/svnscha/mcp-windbg [MCP for WinDBG]
 - https://github.com/AgentSmithers/x64DbgMCPServer [MCP for x64Dbg]
 - https://github.com/bromoket/x64dbg_mcp [MCP for x64Dbg with extensive tooling]
