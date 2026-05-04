@@ -1819,6 +1819,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/SamuelTulach/LightHook [cross-platform hook library]
 - https://github.com/3intermute/arm64_silent_syscall_hook [ARM64 Patching exception handler]
 - https://github.com/kubo/plthook [PLT(Procedure Linkage Table) hook]
+- https://github.com/LeoChen-CoreMind/elf-got-patcher [ARM64 ELF static GOT hook patcher: code-cave shellcode injection, .init_array RELA hijack, config-driven ASLR-safe patching]
 - https://github.com/WeiJiLab/kernel-hook-framework [linux kernel inline hook framework]
 - https://github.com/Rprop/And64InlineHook [Android ARMv8 inline hook framework]
 - https://github.com/GToad/Android_Inline_Hook_ARM64 [Android ARMv8 inline hook framework]
