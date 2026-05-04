@@ -4259,6 +4259,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 
 > Linux
 - https://github.com/MatheuZSecurity/RingReaper [Linux post-exploitation agent that uses io_uring to stealthily bypass EDR detection by avoiding traditional syscalls]
+- https://github.com/boratanrikulu/gecit [DPI bypass research tool: fake TLS ClientHello desync + built-in DoH; eBPF sock_ops on Linux, TUN proxy on macOS/Windows]
 
 > Android
 - https://github.com/WindySha/bypassHiddenApiRestriction [Bypass hidden api restriction]
