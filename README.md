@@ -805,6 +805,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/horsicq/Nauz-File-Detector [Linker/Compiler/Tool detector]
 - https://github.com/gcarmix/HexWalk [Hex Viewer/Editor/Analyzer]
 - https://github.com/RomanRybachek/ioctl_helper [GUI tool for sending IOCTL to windows drivers]
+- https://github.com/0xDbgMan/DrvEye [Static analysis and exploitation triage for Windows kernel drivers: discover IOCTLs, symbolic links, and certificate checks]
 - https://github.com/sevaa/dwex [DWARF Explorer]
 - https://github.com/katahiromz/RisohEditor [Win32 resource editor]
 - https://github.com/Fadi002/de4py [Toolkit for python reverse engineering]
@@ -1267,6 +1268,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/TheWildJames/kernel_build_scripts [kernel build scripts]
 - https://github.com/fuqiuluo/android-wuwa [Android aarch64 rootkit]
 - https://github.com/fuqiuluo/ovo [Android aarch64 kernel driver module providing efficient memory operations, touch simulation and IPC. Features include fast memory remapping]
+- https://github.com/qq703048949/event_replay [Android touch-event replay toolkit: Magisk module + command socket + gesture trace analyze/generate; supports left/right/up/down/click]
 
 > Android Kernel Explorer
 - https://docs.kernel.org [Linux Kernel documentation]
