@@ -809,6 +809,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/RomanRybachek/ioctl_helper [GUI tool for sending IOCTL to windows drivers]
 - https://github.com/0xDbgMan/DrvEye [Static analysis and exploitation triage for Windows kernel drivers: discover IOCTLs, symbolic links, and certificate checks]
 - https://github.com/416rehman/DeepZero [Automated vulnerability research framework for Windows kernel drivers: parses/decompiles at scale and analyzes exploitable IOCTLs with AI agents]
+- https://github.com/Static-Analyzer-Factory/static-analyzer-factory [Rust-powered static analysis framework for C/C++ via LLVM IR graphs (pointer/value-flow/taint/IFDS) with Python SDK, CLI, and SARIF export]
 - https://github.com/sevaa/dwex [DWARF Explorer]
 - https://github.com/katahiromz/RisohEditor [Win32 resource editor]
 - https://github.com/Fadi002/de4py [Toolkit for python reverse engineering]
