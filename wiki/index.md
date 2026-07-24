@@ -520,6 +520,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [zelda3](entities/zelda3.md) — Zelda 3 reimplementation (playable start-to-end; Game Develop / source)
 - [ZeroThreadKernel](entities/zero-thread-kernel.md) — threadless kernel exec via existing contexts / timers (vs AC thread enum)
 - [zygisk-dump-dex](entities/zygisk-dump-dex.md) — Zygisk `libdexfile.so` DEX dump (Android 14/15; Cheat Magisk)
+- [Zygisk-ImGui-Mod-Menu](entities/zygisk-imgui-mod-menu.md) — Zygisk ImGui mod menu (in-dev; cheat / render-draw)
 
 
 
