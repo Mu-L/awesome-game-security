@@ -378,6 +378,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [scfw](entities/scfw.md) — cross-platform C++ Windows shellcode framework (AC shellcode engine & tricks)
 - [ScyllaHideDetector2](entities/scyllahidedetector2.md) — ScyllaHide Detector V2 (C/C++; debug hide / byte restore; Anti Debugging)
 - [SE-tools](entities/se-tools.md) — Switch homebrew memory/cheat toolkit (Atmosphere dmnt:cht; scanner / pointer / viewer)
+- [SentinelAC](entities/sentinelac.md) — OSS Windows AC skeleton (SDK + UM service + ObRegisterCallbacks; overlay / stack-walk)
 - [shredder-rs](entities/shredder-rs.md) — x86_64 polymorphic instruction shredding (Rust)
 - [SigThief](entities/sigthief.md) — steal PE Authenticode signatures (certTable transplant; Some Tricks / Ring3)
 - [SkipHook](entities/skiphook.md) — trampoline skips first insn (bypass JMP/INT3 AC hooks; HDE)

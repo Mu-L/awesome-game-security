@@ -1026,3 +1026,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:rexdex/recompiler`: entity [[recompiler]]; cited on [[overviews/game-hacking]] and [[overviews/reverse-engineering]].
 
 - **2026-07-24** — ingest `description:revsic/cpp-veh-dbi`: entity [[cpp-veh-dbi]]; cited on [[overviews/reverse-engineering]] and [[overviews/game-hacking]].
+
+- **2026-07-24** — ingest `description:vovasicidk/sentinelac`: entity [[sentinelac]]; cited on [[overviews/anti-cheat]] and [[kernel-callbacks]].
