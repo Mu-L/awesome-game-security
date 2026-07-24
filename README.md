@@ -222,6 +222,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/InfiniteC0re/OpenBarnyard [WIP decompilation of Barnyard and the proprietary TOSHI 2.0 engine, with Ghidra RE workflow]
 - https://github.com/koosoli/PoseidonVK [Vulkan modernization fork of the Poseidon/CWR-CE engine (Arma: Cold War Assault)]
 - https://github.com/udinmoInc/WindEffects [C++23 Vulkan game engine with ECS, editor, and asset pipeline]
+- https://github.com/MasterLaplace/LplPlugin [Experimental C++23 engine with Vulkan, ECS, Linux kernel IPC module, and Morton spatial partitioning]
 - https://github.com/goobz22/cat-annihilation [C++20/Vulkan/CUDA engine with render graph, clustered deferred PBR, ECS, and wave-survival test game]
 - https://github.com/orkitec/orkige [C++20 game engine with dual OGRE renderers, Lua scripting, and AI-native editor over MCP]
 - https://github.com/Bloom-Engine/engine [Native TypeScript game engine compiling to Metal, DirectX 12, Vulkan, OpenGL, and WebGPU]
