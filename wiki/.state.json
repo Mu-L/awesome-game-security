@@ -462,15 +462,11 @@
     "description:rlybasic/DWM_Hook": "b514fd5ad9a01d294c344af0bf814825702ab2c5c8bbf499c8dfe25887f57a54",
     "description:ritz-1337/fortnite-external-evo.gj": "5ce3118c9a54ec86dd232c54ed86b64b77c41e8140a2a335d15715f0ae0e1cca",
     "description:ridpath/gamehacking-cheatsheet": "2654b2584ec4f8ffa4c755ffed8f5ad26572b9e3a91b1532436043adb3df1435",
-    "description:richor1042/IDAFuncOutline": "e248f3cb477ea9b024f57cbae6b85bbf1bead591c2ed692035bec12c60471b45"
+    "description:richor1042/IDAFuncOutline": "e248f3cb477ea9b024f57cbae6b85bbf1bead591c2ed692035bec12c60471b45",
+    "description:tiansongyu/cs2_cheat": "f29277b3ae1116dc69e78df9582a2271b675f48bb6f869ee094e97b076561359"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "skill:game-hacking",
-      "kind": "skill",
-      "at": "2026-07-16"
-    },
     {
       "id": "skill:graphics-api",
       "kind": "skill",
@@ -2964,6 +2960,11 @@
     {
       "id": "readme:categories",
       "kind": "readme",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:tiansongyu/cs2_cheat",
+      "kind": "description",
       "at": "2026-07-24"
     }
   ]

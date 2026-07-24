@@ -99,6 +99,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [CounterStrike2-Linux-Cheat](entities/counterstrike2-linux-cheat.md) — Linux external CS2 cheat (C++; memory analysis)
 - [CS-2-Glow](entities/cs-2-glow.md) — external CS2 glow ESP (C++; entity / offsets / memory)
 - [cs16-client](entities/cs16-client.md) — rewrote CS1.6 client (Game Develop / Source; Android ADB)
+- [cs2_cheat](entities/cs2-cheat.md) — educational CS2 external ESP (C++; SDL2 + ImGui; cs2-dumper offsets)
 - [cs2-cheat-cpp](entities/cs2-cheat-cpp.md) — external CS2 cheat (C++; rendering / SDK generation)
 - [CS2-External-Cheat](entities/cs2-external-cheat.md) — external CS2 cheat (C++; D3D11 ImGui overlay / aimbot / memory)
 - [CS2-OFFSETS](entities/cs2-offsets.md) — CS2 memory offsets / netvars (C++ headers + JSON; Source 2)
