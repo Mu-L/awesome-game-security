@@ -477,15 +477,11 @@
     "description:revsic/AntiDebugging": "009326010e75a59a81da40e26fee5f03d92bedeabbcce4d5050d3cd98a50be9d",
     "description:reveny/Zygisk-ImGui-Mod-Menu": "0264b8d192e38aad649f1213ee6075aa878094ae4dc36cde10a73ce54201a421",
     "description:reveny/Android-Virtual-Inject": "e736a6282249c79da0fe10aa820c69ad732fe567f1eaeea2650eaf6622810da5",
-    "description:reveny/Android-Ptrace-Injector": "86b185405011e38557601e337ef5f140482905100ed97db9f997da6562552f12"
+    "description:reveny/Android-Ptrace-Injector": "86b185405011e38557601e337ef5f140482905100ed97db9f997da6562552f12",
+    "description:reveny/Android-Native-Root-Detector": "c814b41e4652dd2d6fe279d59566c624c687b7181a1dbefc9c21136e7e08bb09"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:zoand/Injectors",
-      "kind": "description",
-      "at": "2026-07-17"
-    },
     {
       "id": "description:zoand/BOOM",
       "kind": "description",
@@ -2979,6 +2975,11 @@
     {
       "id": "readme:categories",
       "kind": "readme",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:reveny/Android-Native-Root-Detector",
+      "kind": "description",
       "at": "2026-07-24"
     }
   ]
