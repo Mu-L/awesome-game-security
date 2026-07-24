@@ -1022,3 +1022,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:ri-char/pwatch`: entity [[pwatch]]; cited on [[overviews/mobile-security]] and [[overviews/reverse-engineering]].
 
 - **2026-07-24** — ingest `description:rhboot/pesign`: entity [[pesign]]; cited on [[overviews/windows-kernel]] and [[overviews/anti-cheat]].
+
+- **2026-07-24** — ingest `description:rexdex/recompiler`: entity [[recompiler]]; cited on [[overviews/game-hacking]] and [[overviews/reverse-engineering]].
