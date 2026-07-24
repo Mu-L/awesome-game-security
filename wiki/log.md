@@ -1018,3 +1018,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `readme:categories`: refreshed README maps on [[overviews/overview]], [[overviews/anti-cheat]], [[overviews/dma-attack]], [[overviews/game-engine]], [[overviews/windows-kernel]], [[overviews/reverse-engineering]] (Anti Cheat ~610 / Game Engine ~146 / Game Develop ~181; Cheat ~2581 stable; Windows Emulator user-space note); light `index.md` section notes (no per-category pages).
 
 - **2026-07-24** — ingest `description:wh1t3lord/kotek`: entity [[kotek]]; cited on [[overviews/game-engine]] and [[overviews/graphics-api]].
+
+- **2026-07-24** — ingest `description:ri-char/pwatch`: entity [[pwatch]]; cited on [[overviews/mobile-security]] and [[overviews/reverse-engineering]].

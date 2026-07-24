@@ -468,15 +468,11 @@
     "description:ricardoofnl/open.mp-anticheat": "ae972407a9f9b10ee8472545f24d74bc386d7079166d86319c1012d43f878202",
     "description:ri-char/zygisk-dump-dex": "d170a2df4dbf18ad12cd08dac0d2bb2ae71759f0e590782d872b589e7c22915e",
     "description:ri-char/rwMem": "a4f5d15e50d2e6b4c16fb78f16ab94ab0904e71b2130e89678d59a4e1b99d19a",
-    "description:wh1t3lord/kotek": "604ea12d17d4abb03779af003ca36496b60886dc44c2c40a6068f8f808e10b38"
+    "description:wh1t3lord/kotek": "604ea12d17d4abb03779af003ca36496b60886dc44c2c40a6068f8f808e10b38",
+    "description:ri-char/pwatch": "4271760758c2b60bec9d4a2a5be1fa368c6ccf748389d692e35a43166b3cbfe9"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:zxd1994/vt-debuuger",
-      "kind": "description",
-      "at": "2026-07-16"
-    },
     {
       "id": "description:zx0CF1/shredder-rs",
       "kind": "description",
@@ -2969,6 +2965,11 @@
     },
     {
       "id": "description:wh1t3lord/kotek",
+      "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:ri-char/pwatch",
       "kind": "description",
       "at": "2026-07-24"
     }

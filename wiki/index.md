@@ -351,6 +351,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [Proxmox](entities/proxmox.md) — PVE Helper Scripts (dialog installers; Cheat QEMU/KVM/PVE lab)
 - [proxmox-ve-anti-detection](entities/proxmox-ve-anti-detection.md) — Hidden PVE / QEMU-KVM anti-detection (kernel)
 - [ptxNinja](entities/ptxninja.md) — Binary Ninja PTX / CUDA GPU virtual ISA RE (plugin manager; Binary Ninja Plugins)
+- [pwatch](entities/pwatch.md) — Linux/Android HWBP process watch (debug without attach; cheat / debugging)
 - [qemu-anti-detection](entities/qemu-anti-detection.md) — Hidden QEMU (device-string / fingerprint spoof)
 - [QuickAsm](entities/quickasm.md) — x86/x64 assemble-and-run GUI (Keystone)
 - [Raung](entities/raung.md) — Java bytecode assembler/disassembler (early-stage; cheat / RE tools)
