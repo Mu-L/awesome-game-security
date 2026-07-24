@@ -464,15 +464,11 @@
     "description:ridpath/gamehacking-cheatsheet": "2654b2584ec4f8ffa4c755ffed8f5ad26572b9e3a91b1532436043adb3df1435",
     "description:richor1042/IDAFuncOutline": "e248f3cb477ea9b024f57cbae6b85bbf1bead591c2ed692035bec12c60471b45",
     "description:tiansongyu/cs2_cheat": "f29277b3ae1116dc69e78df9582a2271b675f48bb6f869ee094e97b076561359",
-    "description:ricencheese/csgo-bot": "76dd51bde6b879fc674f677bf2deb1c074cfc0e4f45aed880971ebabb0b9dbf8"
+    "description:ricencheese/csgo-bot": "76dd51bde6b879fc674f677bf2deb1c074cfc0e4f45aed880971ebabb0b9dbf8",
+    "description:ricardoofnl/open.mp-anticheat": "ae972407a9f9b10ee8472545f24d74bc386d7079166d86319c1012d43f878202"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "skill:mobile-security",
-      "kind": "skill",
-      "at": "2026-07-16"
-    },
     {
       "id": "skill:reverse-engineering",
       "kind": "skill",
@@ -2965,6 +2961,11 @@
     },
     {
       "id": "description:ricencheese/csgo-bot",
+      "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:ricardoofnl/open.mp-anticheat",
       "kind": "description",
       "at": "2026-07-24"
     }

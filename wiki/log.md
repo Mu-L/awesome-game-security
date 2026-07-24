@@ -1008,3 +1008,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:tiansongyu/cs2_cheat`: entity [[cs2-cheat]]; cited on [[overviews/game-hacking]] and [[overviews/graphics-api]].
 
 - **2026-07-24** — ingest `description:ricencheese/csgo-bot`: entity [[csgo-bot]]; cited on [[overviews/game-hacking]] and [[overviews/graphics-api]].
+
+- **2026-07-24** — ingest `description:ricardoofnl/open.mp-anticheat`: entity [[open.mp-anticheat]]; cited on [[overviews/anti-cheat]] and [[overviews/game-hacking]].
