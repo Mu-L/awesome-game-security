@@ -1014,3 +1014,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:ri-char/zygisk-dump-dex`: entity [[zygisk-dump-dex]]; cited on [[overviews/mobile-security]] and [[overviews/reverse-engineering]]; cross-link from [[magisk]].
 
 - **2026-07-24** — ingest `description:ri-char/rwMem`: entity [[rwmem]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].
+
+- **2026-07-24** — ingest `readme:categories`: refreshed README maps on [[overviews/overview]], [[overviews/anti-cheat]], [[overviews/dma-attack]], [[overviews/game-engine]], [[overviews/windows-kernel]], [[overviews/reverse-engineering]] (Anti Cheat ~610 / Game Engine ~146 / Game Develop ~181; Cheat ~2581 stable; Windows Emulator user-space note); light `index.md` section notes (no per-category pages).

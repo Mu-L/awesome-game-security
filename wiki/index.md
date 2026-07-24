@@ -6,10 +6,10 @@ Compiled knowledge catalog for awesome-game-security.
 
 ## Overviews
 
-- [Overview](overviews/overview.md) — project map; 40 README sections → skill topics (Cheat ~2581 / Anti Cheat ~609; Game Engine ~145 + Mathematics ~7 / Renderer ~17; Game Develop ~180 MCP/security; Game Network ~26; console Switch/Xbox/PS + 3DS/GC·Wii)
-- [Anti-Cheat](overviews/anti-cheat.md) — layered AC; Detection:* (triggerbot & aimbot/wallhack) + page/CLR protection (~609); hybrid OS AC; Game Tools RCE + Windows Emulator AC
-- [DMA Attack](overviews/dma-attack.md) — PCIe DMA via Cheat (~2581) / Detection:DMA (~609) + WSF attestation
-- [Game Engine](overviews/game-engine.md) — Unreal / Unity / Source / Godot / Lumix (~145); Mathematics/PhysX/Renderer (~17) adjacency; MCP server/security + AI gamedev (~180); Game Network ~26; Image Codec + Manager/Testing/Tools/CI
+- [Overview](overviews/overview.md) — project map; 40 README sections → skill topics (Cheat ~2581 / Anti Cheat ~610; Game Engine ~146 + Mathematics ~7 / Renderer ~17; Game Develop ~181 MCP/security; Game Network ~26; console Switch/Xbox/PS + 3DS/GC·Wii)
+- [Anti-Cheat](overviews/anti-cheat.md) — layered AC; Detection:* (triggerbot & aimbot/wallhack) + page/CLR protection (~610); hybrid OS AC; Game Tools RCE + Windows Emulator AC
+- [DMA Attack](overviews/dma-attack.md) — PCIe DMA via Cheat (~2581) / Detection:DMA (~610) + WSF attestation
+- [Game Engine](overviews/game-engine.md) — Unreal / Unity / Source / Godot / Lumix (~146); Mathematics/PhysX/Renderer (~17) adjacency; MCP server/security + AI gamedev (~181); Game Network ~26; Image Codec + Manager/Testing/Tools/CI
 - [Game Hacking](overviews/game-hacking.md) — Cheat taxonomy (~2581) + Some Tricks (~113); Android Terminal (ADB/root/shell)/File/Memory Explorer; console PS HV+BD-JB RemoteJarLoader / 3DS LLE / GC·Wii
 - [Graphics API](overviews/graphics-api.md) — DirectX (~34) / GL / Vulkan hooks, overlays + shader capture/flatten; Renderer (~17) + Mathematics adjacency; Image Codec + AI mesh/splat/sprite
 - [Mobile Security](overviews/mobile-security.md) — Android / iOS; Terminal (ADB/root/shell)/File/Memory Explorer + App/Kernel CVE; WSA (~9), Gunyah/vphone emulators
@@ -520,6 +520,6 @@ Compiled knowledge catalog for awesome-game-security.
 
 ## Sources
 
-- Projected category map: `sources/README-categories.md` (generated on scan; 40 top-level sections; Game Engine ~145 / Renderer ~17 / Cheat ~2581 / Anti Cheat ~609 / DirectX ~34 / Game Develop ~180 / Game Network ~26)
+- Projected category map: `sources/README-categories.md` (generated on scan; 40 top-level sections; Game Engine ~146 / Renderer ~17 / Cheat ~2581 / Anti Cheat ~610 / DirectX ~34 / Game Develop ~181 / Game Network ~26)
 - Skill projections: `sources/skills/`
 - Description projections: `sources/descriptions/` (incremental only)
