@@ -62,6 +62,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [android-unpacker](entities/android-unpacker.md) — Android packed-sample unpacker (malware RE; Anti Cheat → Sample Unpacker)
 - [android-vuln](entities/android-vuln.md) — Android Kernel CVE reference list (cheat / Android Kernel CVE)
 - [anticheat-poc](entities/anticheat-poc.md) — Windows AC PoC (debugger / integrity / signature scan / process enum; Instrumentation Callback)
+- [AntiDebugging](entities/anti-debugging.md) — C++ anti-debugging techniques (Anti Cheat → Anti Debugging)
 - [anti-emulator](entities/anti-emulator.md) — Android emulator detection (QEMU props / fingerprints / sensors; Java)
 - [anticuckoo](entities/anticuckoo.md) — Cuckoo sandbox / VE detection demos (Detection:Virtual Environments)
 - [apktool-mcp-server](entities/apktool-mcp-server.md) — MCP server wrapping apktool (Android RE suite)

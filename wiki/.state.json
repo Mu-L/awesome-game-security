@@ -473,15 +473,11 @@
     "description:rhboot/pesign": "c5f005e46be7f18d4b1a946273589dff9269944191c22fab732702c6eeee595e",
     "description:rexdex/recompiler": "12966d4e502a55d529732f2e66323784f80eb62db84a31e0d6e0a46b622701d0",
     "description:revsic/cpp-veh-dbi": "82cfcbcf84d6377462659dc934dc4df870b258ba56523a58cf7aaf4ebbcfa2ae",
-    "description:vovasicidk/sentinelac": "4601421d01a9aaa806fd76ce88cb1170e5fd5fe378960edb7e6a38fb3de8e73e"
+    "description:vovasicidk/sentinelac": "4601421d01a9aaa806fd76ce88cb1170e5fd5fe378960edb7e6a38fb3de8e73e",
+    "description:revsic/AntiDebugging": "009326010e75a59a81da40e26fee5f03d92bedeabbcce4d5050d3cd98a50be9d"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:zorftw/lsass-extend-mapper",
-      "kind": "description",
-      "at": "2026-07-17"
-    },
     {
       "id": "description:zompi2/Static-Variables-Obfuscator-UE4",
       "kind": "description",
@@ -2974,6 +2970,11 @@
     },
     {
       "id": "description:vovasicidk/sentinelac",
+      "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:revsic/AntiDebugging",
       "kind": "description",
       "at": "2026-07-24"
     }
