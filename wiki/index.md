@@ -56,6 +56,7 @@ Compiled knowledge catalog for awesome-game-security.
 
 - [android-native-app-imgui](entities/android-native-app-imgui.md) — Android ImGui native app (Java/C++; cheat / render-draw)
 - [Android-Native-Root-Detector](entities/android-native-root-detector.md) — Kotlin Android root detector (Detection:Android root)
+- [Android-Native-Import-Hide](entities/android-native-import-hide.md) — ELF import hide/retrieve lib (C++; AC Compile Time)
 
 - [android-modmenu-semijni](entities/android-modmenu-semijni.md) — Android Java WindowManager + semi-JNI mod menu (native hooks; cheat / Menu for imgui)
 - [Android-Mod-Menu-Kotlin](entities/android-mod-menu-kotlin.md) — Android Kotlin floating-view + C++/JNI IL2CPP mod menu (cheat / IL2CPP Menu)
