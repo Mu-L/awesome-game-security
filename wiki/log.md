@@ -1012,3 +1012,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:ricardoofnl/open.mp-anticheat`: entity [[open.mp-anticheat]]; cited on [[overviews/anti-cheat]] and [[overviews/game-hacking]].
 
 - **2026-07-24** — ingest `description:ri-char/zygisk-dump-dex`: entity [[zygisk-dump-dex]]; cited on [[overviews/mobile-security]] and [[overviews/reverse-engineering]]; cross-link from [[magisk]].
+
+- **2026-07-24** — ingest `description:ri-char/rwMem`: entity [[rwmem]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].

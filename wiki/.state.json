@@ -466,15 +466,11 @@
     "description:tiansongyu/cs2_cheat": "f29277b3ae1116dc69e78df9582a2271b675f48bb6f869ee094e97b076561359",
     "description:ricencheese/csgo-bot": "76dd51bde6b879fc674f677bf2deb1c074cfc0e4f45aed880971ebabb0b9dbf8",
     "description:ricardoofnl/open.mp-anticheat": "ae972407a9f9b10ee8472545f24d74bc386d7079166d86319c1012d43f878202",
-    "description:ri-char/zygisk-dump-dex": "d170a2df4dbf18ad12cd08dac0d2bb2ae71759f0e590782d872b589e7c22915e"
+    "description:ri-char/zygisk-dump-dex": "d170a2df4dbf18ad12cd08dac0d2bb2ae71759f0e590782d872b589e7c22915e",
+    "description:ri-char/rwMem": "a4f5d15e50d2e6b4c16fb78f16ab94ab0904e71b2130e89678d59a4e1b99d19a"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "skill:windows-kernel",
-      "kind": "skill",
-      "at": "2026-07-16"
-    },
     {
       "id": "description:zzhouhe/PG1903",
       "kind": "description",
@@ -2967,6 +2963,11 @@
     },
     {
       "id": "description:ri-char/zygisk-dump-dex",
+      "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:ri-char/rwMem",
       "kind": "description",
       "at": "2026-07-24"
     }
