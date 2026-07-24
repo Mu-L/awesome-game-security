@@ -227,6 +227,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/Bloom-Engine/engine [Native TypeScript game engine compiling to Metal, DirectX 12, Vulkan, OpenGL, and WebGPU]
 - https://github.com/Krilliac/SparkEngine [Open-source C++23 3D engine with DirectX 12/Vulkan RHI, ECS, Jolt Physics, and ImGui editor]
 - https://github.com/doriaxengine/doriax [Cross-platform C++ ECS game engine with editor, Lua/C++ scripting, and DirectX/OpenGL/Metal/Vulkan backends]
+- https://github.com/wh1t3lord/kotek [Modular C++20 game/application framework with OpenGL ES, Vulkan, DirectX, and BGFX backends]
 
 
 > Game Engine Plugins:Unreal
@@ -563,6 +564,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/0x0funky/agent-sprite-forge [Codex skills for game-ready 2D sprites, layered maps, and engine-ready prototypes (Godot/Unity)]
 - https://github.com/dreiachse-cyber/image-cockpit-for-codex-workflows [Local cockpit for Codex imagegen workflows — pixel art, region-based editing, animation frames and sprite sheets via codex-handoff inbox/outbox; no direct OpenAI API calls]
 - https://github.com/htdt/godogen [Autonomous game development for Godot, Bevy, and Babylon.js with Claude Code and Codex; plans, generates assets, screenshot-guided self-repair]
+- https://github.com/MRCalderon3D/everything-game-dev-code [Multi-engine AI agent scaffold for Unity/Unreal/Godot/HTML with Claude, Codex, Cursor, OpenCode, and Kiro harnesses]
 
 
 ## Game Assets
