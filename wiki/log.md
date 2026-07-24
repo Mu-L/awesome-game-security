@@ -1006,3 +1006,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `readme:categories`: refreshed README maps on [[overviews/overview]], [[overviews/anti-cheat]], [[overviews/game-hacking]], [[overviews/dma-attack]], [[overviews/reverse-engineering]] (Cheat ~2581; Anti Cheat ~609 / Game Engine ~145 / Game Develop ~180 stable); light `index.md` section notes (no per-category pages).
 
 - **2026-07-24** — ingest `description:tiansongyu/cs2_cheat`: entity [[cs2-cheat]]; cited on [[overviews/game-hacking]] and [[overviews/graphics-api]].
+
+- **2026-07-24** — ingest `description:ricencheese/csgo-bot`: entity [[csgo-bot]]; cited on [[overviews/game-hacking]] and [[overviews/graphics-api]].

@@ -105,7 +105,9 @@ Compiled knowledge catalog for awesome-game-security.
 - [CS2-OFFSETS](entities/cs2-offsets.md) — CS2 memory offsets / netvars (C++ headers + JSON; Source 2)
 - [CS2-Offsets (ro0ti)](entities/cs2-offsets-ro0ti.md) — CS2 offset dump (C#/C++; `[Offset]`; cheat / game:cs2)
 - [CSGO_BacktrackPatch](entities/csgo-backtrack-patch.md) — CS:GO backtrack patch (hooking / memory analysis; cheat / game:csgo)
+- [csgo-bot](entities/csgo-bot.md) — CS:GO bot; driver / OpenGL / shader (C/C++; cheat / game:csgo)
 - [csgo_cheat_external](entities/csgo-cheat-external.md) — external CS:GO; driver development (C++; cheat / game:csgo)
+
 - [csgo-external-cheat](entities/csgo-external-cheat.md) — external CS:GO; RPM/driver reads; ESP / aimbot / radar (C++; cheat / game:csgo)
 - [csgo-dma-overlay](entities/csgo-dma-overlay.md) — CS:GO DMA + overlay sample (cheat / game:csgo [DMA])
 - [CSGOSimple](entities/csgosimple.md) — spirthack Internal CS:GO baseline (MarkHC fork; cheat / game:csgo)
