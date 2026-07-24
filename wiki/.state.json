@@ -479,15 +479,11 @@
     "description:reveny/Android-Virtual-Inject": "e736a6282249c79da0fe10aa820c69ad732fe567f1eaeea2650eaf6622810da5",
     "description:reveny/Android-Ptrace-Injector": "86b185405011e38557601e337ef5f140482905100ed97db9f997da6562552f12",
     "description:reveny/Android-Native-Root-Detector": "c814b41e4652dd2d6fe279d59566c624c687b7181a1dbefc9c21136e7e08bb09",
-    "description:reveny/Android-Native-Import-Hide": "e6b8216b248d66219dff9d78fcfdd39806faf673f393f1f964d219158b1ba0b7"
+    "description:reveny/Android-Native-Import-Hide": "e6b8216b248d66219dff9d78fcfdd39806faf673f393f1f964d219158b1ba0b7",
+    "description:reveny/Android-Library-Remap-Hide": "3bf14a6895aee674ac64bf04e84e246c8cb5254f020ba69bc293d59e22ce3441"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:zinx-YT/Fortnite-Fltokens-and-offsets",
-      "kind": "description",
-      "at": "2026-07-17"
-    },
     {
       "id": "description:zinja-coder/apktool-mcp-server",
       "kind": "description",
@@ -2980,6 +2976,11 @@
     },
     {
       "id": "description:reveny/Android-Native-Import-Hide",
+      "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:reveny/Android-Library-Remap-Hide",
       "kind": "description",
       "at": "2026-07-24"
     }

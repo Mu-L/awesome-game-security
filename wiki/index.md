@@ -54,6 +54,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [android-kernel-samsung-universal5433](entities/android-kernel-samsung-universal5433.md) — Samsung Exynos 5433 Android kernel (Note 4 / Alpha; cheat / Android Kernel Source)
 - [android-kernel-xiaomi-pipa](entities/android-kernel-xiaomi-pipa.md) — Xiaomi Pad 6 (pipa) Android kernel source (cheat / Android Kernel Source)
 
+- [Android-Library-Remap-Hide](entities/android-library-remap-hide.md) — Android lib remap-hide (two-lib; cheat / hide)
 - [android-native-app-imgui](entities/android-native-app-imgui.md) — Android ImGui native app (Java/C++; cheat / render-draw)
 - [Android-Native-Root-Detector](entities/android-native-root-detector.md) — Kotlin Android root detector (Detection:Android root)
 - [Android-Native-Import-Hide](entities/android-native-import-hide.md) — ELF import hide/retrieve lib (C++; AC Compile Time)

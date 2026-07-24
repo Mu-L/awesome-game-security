@@ -1042,3 +1042,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:reveny/Android-Native-Root-Detector`: entity [[android-native-root-detector]]; cited on [[overviews/mobile-security]] and [[overviews/anti-cheat]].
 
 - **2026-07-24** — ingest `description:reveny/Android-Native-Import-Hide`: entity [[android-native-import-hide]]; cited on [[overviews/mobile-security]] and [[overviews/anti-cheat]].
+
+- **2026-07-24** — ingest `description:reveny/Android-Library-Remap-Hide`: entity [[android-library-remap-hide]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].
