@@ -1036,3 +1036,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:reveny/Android-Virtual-Inject`: entity [[android-virtual-inject]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].
 
 - **2026-07-24** — ingest `description:reveny/Android-Ptrace-Injector`: entity [[android-ptrace-injector]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].
+
+- **2026-07-24** — ingest `readme:categories`: refreshed README maps on [[overviews/overview]], [[overviews/game-engine]] (Game Engine ~147; Cheat ~2581 / Anti Cheat ~610 / Game Develop ~181 stable); light `index.md` section notes (no per-category pages).

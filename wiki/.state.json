@@ -3,7 +3,7 @@
   "last_run": "2026-07-24",
   "last_mode": "ingest",
   "source_hashes": {
-    "readme:categories": "80b7988376320055fbd41fcdb7313c406ed8796c88b3bc98e198b0fdee79d6a7",
+    "readme:categories": "5ae60b4c6df6751174e1311842dd6402b64c7ecbf2c4505249b1af0d480f3cb0",
     "skill:overview": "6cf090da9e828c7c8f097887c05ba5491e1bee17534b2e15e0b313a101f5fa75",
     "skill:anti-cheat": "4dcdd54eb062aeb58b1e2f10a4a12e844dae53da9040333350ccc832388949fd",
     "skill:dma-attack": "e108195b454dc578a5cb6abadd6b6a64ecc4e1601cd6cda72a34399d795bfc39",
@@ -481,11 +481,6 @@
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:zodiacon/QuickAsm",
-      "kind": "description",
-      "at": "2026-07-17"
-    },
     {
       "id": "description:zoand/Injectors",
       "kind": "description",
@@ -2979,6 +2974,11 @@
     {
       "id": "description:reveny/Android-Ptrace-Injector",
       "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "readme:categories",
+      "kind": "readme",
       "at": "2026-07-24"
     }
   ]
