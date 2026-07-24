@@ -1020,3 +1020,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:wh1t3lord/kotek`: entity [[kotek]]; cited on [[overviews/game-engine]] and [[overviews/graphics-api]].
 
 - **2026-07-24** — ingest `description:ri-char/pwatch`: entity [[pwatch]]; cited on [[overviews/mobile-security]] and [[overviews/reverse-engineering]].
+
+- **2026-07-24** — ingest `description:rhboot/pesign`: entity [[pesign]]; cited on [[overviews/windows-kernel]] and [[overviews/anti-cheat]].

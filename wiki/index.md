@@ -338,6 +338,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [PCILeech-FPGA](entities/pcileech-fpga.md) — FPGA HDL/firmware for PCILeech DMA boards (Vivado; TLP/BAR/config shadow)
 - [pdb](entities/pdb.md) — Windows PDB parse/merge (C++ DIA SDK; old formats + pdb.cfg; RE / debugger symbols)
 - [pe32-password](entities/pe32-password.md) — PE32 password binary packer (Anti Cheat → Binary Packer)
+- [pesign](entities/pesign.md) — Linux UEFI Secure Boot PE-COFF Authenticode/PKCS#7 sign/verify (NSS)
 - [PhysPatch](entities/physpatch.md) — DMA scan/patch Windows kernel via physical memory (VA→PA walk; sonodima)
 - [PiDqSerializationWrite-Example](entities/pidqserializationwrite-example.md) — Unity-centered `PiDqSerializationWrite` C++ example (Some Tricks / Windows Ring0)
 - [pikabot-deobfuscator](entities/pikabot-deobfuscator.md) — Pikabot RC4/AES string decrypt (IDA Hex-Rays; cheat / IDA Plugins)
