@@ -1024,3 +1024,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:rhboot/pesign`: entity [[pesign]]; cited on [[overviews/windows-kernel]] and [[overviews/anti-cheat]].
 
 - **2026-07-24** — ingest `description:rexdex/recompiler`: entity [[recompiler]]; cited on [[overviews/game-hacking]] and [[overviews/reverse-engineering]].
+
+- **2026-07-24** — ingest `description:revsic/cpp-veh-dbi`: entity [[cpp-veh-dbi]]; cited on [[overviews/reverse-engineering]] and [[overviews/game-hacking]].
