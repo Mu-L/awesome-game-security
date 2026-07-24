@@ -60,6 +60,7 @@ Compiled knowledge catalog for awesome-game-security.
 - [AndroidCheatTemplate](entities/android-cheat-template.md) — Android Unity cheat framework (C/C++; OpenGL / Unity / hooking)
 - [android-proxy-mcp](entities/android-proxy-mcp.md) — Android HTTP/HTTPS capture MCP (mitmdump + SQLite + NL query)
 - [android-unpacker](entities/android-unpacker.md) — Android packed-sample unpacker (malware RE; Anti Cheat → Sample Unpacker)
+- [Android-Ptrace-Injector](entities/android-ptrace-injector.md) — Android ptrace injector (C/C++; cheat / injection:android)
 - [Android-Virtual-Inject](entities/android-virtual-inject.md) — no-root Virtual Space inject (not for AC games; cheat / injection:android)
 - [android-vuln](entities/android-vuln.md) — Android Kernel CVE reference list (cheat / Android Kernel CVE)
 - [anticheat-poc](entities/anticheat-poc.md) — Windows AC PoC (debugger / integrity / signature scan / process enum; Instrumentation Callback)

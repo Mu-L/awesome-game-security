@@ -1034,3 +1034,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:reveny/Zygisk-ImGui-Mod-Menu`: entity [[zygisk-imgui-mod-menu]]; cited on [[overviews/mobile-security]] and [[overviews/graphics-api]].
 
 - **2026-07-24** — ingest `description:reveny/Android-Virtual-Inject`: entity [[android-virtual-inject]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].
+
+- **2026-07-24** — ingest `description:reveny/Android-Ptrace-Injector`: entity [[android-ptrace-injector]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].
