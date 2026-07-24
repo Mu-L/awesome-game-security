@@ -1032,3 +1032,5 @@ Append-only journal of ingest / lint / skill-sync activity.
 - **2026-07-24** — ingest `description:revsic/AntiDebugging`: entity [[anti-debugging]]; cited on [[overviews/anti-cheat]] and [[overviews/reverse-engineering]].
 
 - **2026-07-24** — ingest `description:reveny/Zygisk-ImGui-Mod-Menu`: entity [[zygisk-imgui-mod-menu]]; cited on [[overviews/mobile-security]] and [[overviews/graphics-api]].
+
+- **2026-07-24** — ingest `description:reveny/Android-Virtual-Inject`: entity [[android-virtual-inject]]; cited on [[overviews/mobile-security]] and [[overviews/game-hacking]].

@@ -475,15 +475,11 @@
     "description:revsic/cpp-veh-dbi": "82cfcbcf84d6377462659dc934dc4df870b258ba56523a58cf7aaf4ebbcfa2ae",
     "description:vovasicidk/sentinelac": "4601421d01a9aaa806fd76ce88cb1170e5fd5fe378960edb7e6a38fb3de8e73e",
     "description:revsic/AntiDebugging": "009326010e75a59a81da40e26fee5f03d92bedeabbcce4d5050d3cd98a50be9d",
-    "description:reveny/Zygisk-ImGui-Mod-Menu": "0264b8d192e38aad649f1213ee6075aa878094ae4dc36cde10a73ce54201a421"
+    "description:reveny/Zygisk-ImGui-Mod-Menu": "0264b8d192e38aad649f1213ee6075aa878094ae4dc36cde10a73ce54201a421",
+    "description:reveny/Android-Virtual-Inject": "e736a6282249c79da0fe10aa820c69ad732fe567f1eaeea2650eaf6622810da5"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:zodiacon/EtwExplorer",
-      "kind": "description",
-      "at": "2026-07-17"
-    },
     {
       "id": "description:zodiacon/TotalPE2",
       "kind": "description",
@@ -2976,6 +2972,11 @@
     },
     {
       "id": "description:reveny/Zygisk-ImGui-Mod-Menu",
+      "kind": "description",
+      "at": "2026-07-24"
+    },
+    {
+      "id": "description:reveny/Android-Virtual-Inject",
       "kind": "description",
       "at": "2026-07-24"
     }
