@@ -1181,6 +1181,7 @@ npx skills add https://github.com/gmh5225/awesome-game-security --skill reverse-
 - https://github.com/jiubanlo/WinNT5_src_20201004 [Leaked Windows XP Source]
 - https://github.com/yyl-20020115/OpenArk [Tool]
 - https://github.com/BeneficialCode/WinArk [Tool]
+- https://github.com/KSwordDEV/KSword [ARK]
 - https://github.com/zodiacon/ObjectExplorer [GUI explorer for Windows kernel objects, handles, object types, and Object Manager namespace]
 - https://github.com/kernullist/kn-diff-pool [Windows kernel Big Pool snapshot/diff tool with kernel driver and Go TUI]
 - https://github.com/kernullist/kn-live-dbg [Windows kernel live debugging — driver exposes memory primitives, user-mode TUI handles symbols, types, and UX (LiveKD-style)]
