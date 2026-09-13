@@ -11,9 +11,17 @@ confidence: medium
 
 # KSword
 
-Comprehensive Windows system analysis and game-security toolkit (KSwordDEV) built around a Qt GUI backed by a custom kernel driver. Modular docked panels inspect and manipulate processes, kernel objects, memory, drivers, [[kernel-callbacks]], SSDT hooks, network traffic, crash dumps, and file-system artifacts. Supporting components include a Win32 API monitor with inline hooking, Cheat Engine plugin integration, DWM window-layer control, and online malware scanning through VirusTotal and ThreatBook. Written primarily in C++; aimed at reverse engineers, anti-cheat researchers, and security analysts investigating Windows internals and game protection mechanisms. (source: wiki/sources/descriptions/KSwordDEV__KSword.md)
+Comprehensive Windows system analysis and game-security toolkit (KSwordDEV) built around a Qt GUI backed by a custom kernel driver. Aimed at reverse engineers, anti-cheat researchers, and security analysts investigating Windows internals and game protection mechanisms. (source: wiki/sources/descriptions/KSwordDEV__KSword.md)
 
 README category: Cheat / Windows Kernel Explorer (`[ARK]`).
+
+## Capabilities
+
+- **Kernel inspection:** modular docked panels for processes, kernel objects, memory, drivers, [[kernel-callbacks]], SSDT hooks, network traffic, crash dumps, and file-system artifacts
+- **User-mode tooling:** Win32 API monitor with inline hooking; Cheat Engine plugin integration; DWM window-layer control
+- **Threat intel:** online malware scanning via VirusTotal and ThreatBook
+
+Written primarily in C++.
 
 ## Links
 
