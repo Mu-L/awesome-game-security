@@ -4,6 +4,10 @@ Append-only journal of ingest / lint / skill-sync activity.
 
 ---
 
+- **2026-09-13** — ingest `description:KSwordDEV/KSword`: entity [[ksword]] (Qt ARK + custom kernel driver; modular process/kernel/memory/driver/callback/SSDT panels; Win32 API monitor; CE plugin; DWM; VirusTotal/ThreatBook); cited on [[overviews/windows-kernel]] and [[overviews/reverse-engineering]] (fixed source cite); `index.md` updated.
+
+- **2026-09-13** — ingest `readme:categories`: Cheat ~2807 (+1; KSwordDEV/[[ksword]] Qt ARK in Windows Kernel Explorer) / Anti Cheat ~727 / other major section counts stable; 41 sections; entity [[ksword]]; refreshed README-map counts and kernel-explorer scope on [[overviews/overview]], [[overviews/windows-kernel]], [[overviews/game-hacking]], [[overviews/reverse-engineering]], and [[overviews/dma-attack]]; light `index.md` section notes (no per-category pages).
+
 - **2026-09-13** — lint: index vs disk scan — 9 overviews, 42 concepts, 3890 entities (3941 index entries); index.md fully synced (0 missing, 0 dead, 0 duplicate entries); overview wikilink spot-check (9 pages) — 0 broken links; concept spot-check (42 pages) — 0 broken links; index.md wikilink scan — 0 broken links; 6 cross-kind slug collisions ([[game-hacking]], [[anti-cheat]], [[reverse-engineering]], [[il2cpp]], [[byovd]], [[dma]]) — expected, no repair needed; no structural edits required.
 
 - **2026-09-12** — ingest `description:EpicLizard05013/UltimateMeteorAntiCheat`: entity [[ultimate-meteor-anticheat]] (EpicLizard05013; Java Paper **1.21.11** survival plugin; combat reach/autoclicker/aim-modulo + movement fly/speed/nofall/jesus + world fastplace/scaffold; inventory transaction auditing, nested-container restrictions, packet desync anti-dupe; violation escalation, whitelisting, admin commands, optional Discord webhooks; Anti Cheat / game:minecraft); cited on [[overviews/anti-cheat]] and [[overviews/game-hacking]]; cross-linked [[bs-anticheat]], [[larping-anti-cheat]], [[uagc]], [[icuac]], [[grim]], and [[minecraft-anticheat-list]]; `index.md` updated.

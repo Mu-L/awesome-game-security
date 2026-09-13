@@ -1,9 +1,9 @@
 {
   "version": 1,
   "last_run": "2026-09-13",
-  "last_mode": "lint",
+  "last_mode": "ingest",
   "source_hashes": {
-    "readme:categories": "7cc927fef4c08f2df19aa65e715d91286bc3f08c277c7d170aaa80ea46eda4ee",
+    "readme:categories": "0acc89912e257d9cf357c6a329ab7cc249d382553762b4ebb21ab1e60098a78f",
     "skill:overview": "1fc667a00ae091ec768893b3582ad4f4b5dab5ca0c7fd3b76d8108d306c015e0",
     "skill:anti-cheat": "c1ebc5c71e1083314642073661b0aefac17e79baac34f8ff5702a5f9734aad26",
     "skill:dma-attack": "37e884f7def02a25fa8c8b8dc26e4d79c774c7ba6b953cc9179624258ae76643",
@@ -3957,20 +3957,11 @@
     "description:ackwrap/ida-pro-agent": "c0830183db78c35dbe2fe5e09d815170eb3d03a6d3f5ce6d64f729bfae89b72f",
     "description:unrandoms/frida-mobile-kit": "b2886c5ca0ff63bb56097fdca822ff540f2fcdae9ae6164537765c41f82dfa16",
     "description:Coldzer0/RE4F": "085551c3a9afa7df926f84d4058bca6aa347e9127a78648756ce9a9d90f9ac90",
-    "description:EpicLizard05013/UltimateMeteorAntiCheat": "d8725d866b51bd77877025778c3c763e236f7f244fd344a7d404f6f1f9c9f2a8"
+    "description:EpicLizard05013/UltimateMeteorAntiCheat": "d8725d866b51bd77877025778c3c763e236f7f244fd344a7d404f6f1f9c9f2a8",
+    "description:KSwordDEV/KSword": "9db5ff37e5b1895fb9aa25f261cc4a196064470b2ae42aa7cdeff63aa42008b6"
   },
   "pending": [],
   "ingested": [
-    {
-      "id": "description:Dr-TSNG/ZygiskOnKernelSU",
-      "kind": "description",
-      "at": "2026-08-26"
-    },
-    {
-      "id": "description:Dr-TSNG/ApplistDetector",
-      "kind": "description",
-      "at": "2026-08-26"
-    },
     {
       "id": "description:DownWithUp/CallMon",
       "kind": "description",
@@ -6460,6 +6451,16 @@
       "id": "description:EpicLizard05013/UltimateMeteorAntiCheat",
       "kind": "description",
       "at": "2026-09-12"
+    },
+    {
+      "id": "readme:categories",
+      "kind": "readme",
+      "at": "2026-09-13"
+    },
+    {
+      "id": "description:KSwordDEV/KSword",
+      "kind": "description",
+      "at": "2026-09-13"
     }
   ],
   "failed_retry": []
