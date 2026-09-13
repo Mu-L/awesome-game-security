@@ -4407,6 +4407,7 @@ Adds drag- to- resize functionality to the main GTA V window](https://github.com
 - https://github.com/sodium-CrispyWafer/CrispyWafer-Anti-Cheat-Assistant-WaferACA [Minecraft Forge 1.20.1 client anti-cheat mod that detects other players' installed client mods and alerts when known cheat mods (e.g., Gun Tracker) are present]
 - https://github.com/Charlie328402/Sentinel-Anti-Cheat [NeoForge server-side Minecraft anti-cheat mod with movement, combat, and x-ray checks plus a Discord violation bot]
 - https://github.com/clementine44613/seiun-ac [Fabric server/client mod that hashes and whitelists client mods and resource packs, with gray-list warnings, Discord alerts, and mid-session pack-change detection for Minecraft 1.21.11]
+- https://github.com/XuJun05/FairCount [Fabric server/client mod that whitelists loaded mods (including nested JARs) and kicks clients with unauthorized mods or without FairCount installed]
 - https://github.com/no1qq/UAGC [Context-aware PaperMC 1.21 anti-cheat plugin with check framework, confidence/evidence model, exemptions, and staff bypass visibility]
 - https://github.com/realkyx29-design/LarpingAntiCheat [Paper 1.21+ Minecraft anti-cheat plugin (Hyphon) with combat/movement/world checks, honeypot ESP decoys, and custom-enchant/modifier capability analysis]
 - https://github.com/EpicLizard05013/UltimateMeteorAntiCheat [Paper 1.21.11 Minecraft server plugin with combat, movement, world, anti-dupe, and packet-desync checks plus violation logging and punishment management]
